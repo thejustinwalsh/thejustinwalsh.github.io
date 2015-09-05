@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<div class="posts">
+  <aside>
+    {% for post in site.posts %}
+    <a class="posts-link dynamic" href="{{ post.url | prepend: site.baseurl }}">{{post.title}}</a>
+    {% endfor %}
+  </aside>
+
+  {% for post in site.posts limit:1 %}
+  <article class="post">
+    <h1>{{post.title}}</h1>
+    <h2>{{post.heading}}</h2>
+    <p class="date">{{ post.date | date: '%B %d, %Y' }}</p>
+    {{post.content}}
+    <hr>
+    <p class="author">
+    <a class="slack-button-widget" data-source="http://slackbutton.herokuapp.com/embed" href="http://slackbutton.herokuapp.com/post/new">Post to Slack</a>
+    <script src="http://slackbutton.herokuapp.com/widget.js" type="text/javascript"></script>
+    </p>
+  </article>
+  {% endfor %}
+</div>
+
+<div class="row">
+  <div class="one-half column" style="margin-top: 25%">
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  </div>
+</div>
