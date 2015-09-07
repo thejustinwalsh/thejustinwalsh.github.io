@@ -231,6 +231,10 @@ div.nav ul li {
 
   a {
     color: $base-font-color;
+
+    &:focus, &:hover {
+      color: $action-color;
+    }
   }
 }
 
@@ -579,6 +583,10 @@ article {
 
     a {
       color: $base-font-color;
+
+      &:focus, &:hover {
+        color: $action-color;
+      }
     }
   }
 }
