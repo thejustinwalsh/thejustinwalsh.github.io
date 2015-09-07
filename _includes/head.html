@@ -8,8 +8,8 @@
 
     <link href='//fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Titillium+Web:400,400italic,600italic,600,700,700italic,900,300italic,300,200italic,200' rel='stylesheet' type='text/css'>
-
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -31,7 +31,7 @@
 
       // Catch all History stateChange events
       History.Adapter.bind(window, 'statechange', function() {
-        if ($("article.post").css("visibility") == "hidden") return; // Early out if we our in mobile mode
+        //if ($("article.post").css("visibility") == "hidden") return; // Early out if we our in mobile mode
         var State = History.getState();
 
         // Load the new state's URL via an Ajax Call
