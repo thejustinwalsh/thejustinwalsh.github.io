@@ -4,9 +4,10 @@ heading: How to configure travis to generate your Xcode schemes
 date: "2015-09-19 22:34 -0700"
 categories: 
   - news
-published: false
+published: true
 title: "Travis, Xcode & Schemes"
 ---
+
 
 Have you ever wanted to generate your Xcode schemes for travis builds? Tired of checking in useless files that are generated for you by Xcode when run? Good. Me too.
 
