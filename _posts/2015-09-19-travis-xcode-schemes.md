@@ -1,14 +1,11 @@
 ---
 layout: post
-heading: How to configure travis to generate your Xcode schemes
-date: "2015-09-19 22:34 -0700"
+title: "Travis, Xcode & Schemes"
+heading: "How to configure travis to generate your Xcode schemes"
+date: 2015-09-19 22:34 -0700
 categories: news
 published: true
-title: "Travis, Xcode & Schemes"
 ---
-
-
-
 Have you ever wanted to generate your Xcode schemes for travis builds? Tired of checking in useless files that are generated for you by Xcode when run? Good. Me too.
 
 On the [flair][flair] project I use [premake][premake] to generate my project files. As a part of my build process I run a script that executes premake to generate the Xcode project then hand it off to xctool to complete the build.
