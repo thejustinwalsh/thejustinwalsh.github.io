@@ -14,14 +14,14 @@ On the [flair][flair] project I use [premake][premake] to generate my project fi
 We are going to use the [xcodeproj][xcodeproj] ruby gem to generate our schemes as a part of our build process. The magic lies in a bit of configuration and a little helper script.
 
 First, the configuration, in your `before_install:` collection of the `.travis.yml` file setup rvm, and install the xcodeproj gem:
-{% highlight yml %}
+{% highlight YAML %}
 before_install:
   - rvm use 2.1.2
   - gem install xcodeproj
 {% endhighlight %}
 
 Next, the script:
-{% highlight bash %}
+{% highlight Bash %}
 echo "
  require 'xcodeproj'
  project = Xcodeproj::Project.open '../flair.xcodeproj'
