@@ -44,13 +44,5 @@ prose:
           value: "CURRENT_DATETIME"
       - name: "categories"
         field:
-          element: "multiselect"
-          label: "Add Tags"
-          placeholder: "Choose Tags"
-          options:
-            - name: "News"
-              value: "news"
-            - name: "C++"
-              value: "cpp"
-            - name: "Unreal Engine"
-              value: "ue4"
+          element: "text"
+          label: "Categories"
