@@ -30,11 +30,11 @@ prose:
           element: "hidden"
           value: "post"
       - name: "title"
-      	field:
+        field:
           element: "text"
           label: "Title"
       - name: "heading"
-      	field:
+        field:
           element: "text"
           label: "Heading"
       - name: "date"
