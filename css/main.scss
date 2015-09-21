@@ -212,13 +212,15 @@ hr {
 //
 
 div.nav {
-  display: inline-block;
+  display: block;
   position: relative;
   top: 10%;
   margin-left: 18px;
   transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
 
   @include media($small-screen) {
+    display: inline-block;
     top: 50%;
     margin-left: 0px;
   }
@@ -579,15 +581,24 @@ article {
 }
 
 .social-icons {
-  width: 310px;
+  width: 255px;
   margin: 0 auto;
+
+  @include media($small-screen) {
+    width: 310px;
+  }
 
   .social-icon {
     display: inline-block;
-    width: 100px;
+    width: 80px;
     text-align: center;
     //box-shadow: inset 0 0 1px $base-font-color, 0 2px 4px $base-font-color;
-    font-size: 6em;
+    font-size: 4em;
+
+    @include media($small-screen) {
+      font-size: 6em;
+      width: 100px;
+    }
 
     a {
       color: $base-font-color;
