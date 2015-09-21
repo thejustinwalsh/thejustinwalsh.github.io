@@ -3,7 +3,7 @@ layout: post
 title: "Travis, Xcode & Schemes"
 heading: "How to configure travis to generate your Xcode schemes"
 date: 2015-09-19 22:34 -0700
-categories: news
+categories: ci xcode
 ---
 Have you ever wanted to generate your Xcode schemes for travis builds? Tired of checking in useless files that are generated for you by Xcode when run? Good. Me too.
 
@@ -14,14 +14,14 @@ On the [flair][flair] project I use [premake][premake] to generate my project fi
 We are going to use the [xcodeproj][xcodeproj] ruby gem to generate our schemes as a part of our build process. The magic lies in a bit of configuration and a little helper script.
 
 First, the configuration, in your `before_install:` collection of the `.travis.yml` file setup rvm, and install the xcodeproj gem:
-{% highlight YAML %}
+{% highlight yaml %}
 before_install:
   - rvm use 2.1.2
   - gem install xcodeproj
 {% endhighlight %}
 
 Next, the script:
-{% highlight Bash %}
+{% highlight bash %}
 echo "
  require 'xcodeproj'
  project = Xcodeproj::Project.open '../flair.xcodeproj'
