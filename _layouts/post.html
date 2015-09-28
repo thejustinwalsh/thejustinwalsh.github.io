@@ -10,6 +10,6 @@ layout: default
   <p class="social">
     <span>share</span>
     <a href="http://twitter.com/share?text={{ page.title }}&url={{ page.url | prepend: site.url }}&hashtags={{ page.categories | join: ',' }}" target="_blank"><i class="fa fa-twitter-square fa-lg"></i></a>
-    <a href="http://www.reddit.com/submit/?url={{ page.url | prepend: site.url }}" target="_blank"><i class="fa fa-reddit-square fa-lg"></i></a>
+    <a href="http://www.reddit.com/submit/?title={{ page.title }}&url={{ page.url | prepend: site.url }}" target="_blank"><i class="fa fa-reddit-square fa-lg"></i></a>
   </p>
 </article>
