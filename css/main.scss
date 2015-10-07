@@ -174,6 +174,34 @@ hr {
   width: 3em;
 }
 
+$flex-margin: 0.6em;
+.flex-row {
+  @include align-items(stretch);
+  @include display(flex);
+  @include flex-direction(row);
+  @include justify-content(center);
+  @include clearfix;
+  @include flex-wrap(wrap);
+  clear: both;
+
+  margin-bottom: $base-spacing - $flex-margin;
+}
+
+.flex-box-half {
+  @include flex(1 1 300px);
+  @include align-self(stretch);
+  margin-bottom: $flex-margin;
+
+  pre {
+    margin: 0;
+  }
+}
+
+.no-select {
+  @include user-select(none);
+  cursor: default;
+}
+
 //
 // HEADER
 //
@@ -319,7 +347,7 @@ article {
     border-radius: $base-border-radius * 1.5;
     border: 1px solid #E0E0E0;
     font-family: monaco, monospace;
-    font-size: 0.65em;
+    font-size: 0.85em;
     font-style: normal;
     padding: 0.1em 0.4em;
     white-space: nowrap;
