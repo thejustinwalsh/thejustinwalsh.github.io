@@ -3,12 +3,12 @@ layout: default
 ---
 <div class="posts">
   <aside>
-    {% for post in site.posts %}
+    {% for post in site.posts %}{% unless post.tags contains 'draft' %}
     <a class="posts-link dynamic" href="{{ post.url | prepend: site.baseurl }}">{{post.title}}</a>
-    {% endfor %}
+    {% endunless %}{% endfor %}
   </aside>
 
-  {% for post in site.posts limit:1 %}
+  {% for post in site.posts %}{% unless post.tags contains 'draft' %}
   <article class="post">
     <h1>{{post.title}}</h1>
     <h2>{{post.heading}}</h2>
@@ -21,5 +21,6 @@ layout: default
       <a href="http://www.reddit.com/submit/?title={{ post.title | cgi_escape }}&url={{ post.url | prepend: site.url }}" target="_blank"><i class="fa fa-reddit-square fa-lg"></i></a>
     </p>
   </article>
-  {% endfor %}
+  {% break %}
+  {% endunless %}{% endfor %}
 </div>

@@ -359,6 +359,11 @@ article {
       font-weight: 600;
       text-transform: uppercase;
     }
+
+    span.draft {
+      color: $action-color;
+      padding-left: 0.5em;
+    }
   }
 
   hr {
