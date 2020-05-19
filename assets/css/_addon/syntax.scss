@@ -83,8 +83,18 @@ html[mode=dark] {
     font-size: .85rem;
     line-height: 1.4rem;
     word-wrap: normal;
-    padding: 0.85rem;
+    padding: 0.3rem 0.5rem;
     /* Fixed Safari overflow-x */
+    code {
+      /* Display language name */
+      &[data-lang]::before {
+        content: attr(data-lang);
+        position: absolute;
+        display: block;
+        height: 1rem;
+        right: 3rem;
+      }
+    }
   }
 
 } //.highlight
