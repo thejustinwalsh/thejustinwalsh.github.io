@@ -1,7 +1,10 @@
 {% if jekyll.environment == "development" %}
-{% assign github_url = site.url %}
+{% assign github_master = site.url %}
 {% else %}
-  {% assign github_url = "https://github.com/" | append: site.github.username | append: "/" | append: site.github.repo | append: "/blob/master" %}
+  {% assign github_master = "https://github.com/" | append: site.github.username | append: "/" | append: site.github.repo | append: "/blob/master" %}
 {% endif %}
 
-{% assign github_script = page.path | relative_url | replace: '.markdown', '/' | replace: '_posts', 'scripts' | prepend: github_url %}
+{% assign github_script = page.path | relative_url | replace: '.markdown', '/' | replace: '_posts', 'scripts' | prepend: github_master %}
+
+{% assign github_issue_title = page.title | url_encode | prepend: "title=" %}
+{% assign github_issue = "https://github.com/" | append: site.github.username | append: "/" | append: site.github.repo | append: "/issues/new?" | append: github_issue_title %}
