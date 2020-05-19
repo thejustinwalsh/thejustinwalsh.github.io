@@ -3,9 +3,12 @@ layout: post
 title: "Input as an Angle"
 heading: "How four-quadrant inverse tangents become your new bestie"
 date: "2015-09-29"
-categories: maths
-tags: draft
+categories: [Applied Mathematics, Trigonometry]
+tags: [maths, js]
 ---
+
+## Prologue
+I wrote this post 5 years ago and it sat in a drafts folder collecting digital dust. I decided to revive it from the trash and theme it up a bit. I don't know if I will write often, or if this will be the only content that makes it to the blog, but once every five years is better than never. Left mostly un-edited as it is fun to see the writing style I was hoping to bring to my 5 year old blog.
 
 ## Intro
 Hey. You. Developer who wants to make some kind of circular menu thing. I offer you a warning; don't you dare use a dot product to implement your menu.
@@ -13,13 +16,12 @@ Hey. You. Developer who wants to make some kind of circular menu thing. I offer 
 I ran across an extremely buggy circular menu not too long ago and was tasked with fixing it. I knew immediately when I rotated my analog joystick around in a circle and watched the menu give up on life that I must be dealing with code who knows nothing about circles. I knew in my heart of hearts that this code used a dot product to get an angle then did all kinds of weird `if` checks to make that broken angle work. I knew that this code was not best friends with [atan2][atan2].
 
 ## Your Friendly Neighborhood Atan2
-<div class="flex-row">
-<div id="atan2-demo-container" class="flex-box-half" style="position: relative;">
+<div id="atan2-demo-container">
 <canvas id="atan2-demo" width="300" height="300" style="display: inline-block;"></canvas>
 <script src="/scripts/2015-09-29-input-as-an-angle/atan2-demo.js"></script>
 </div>
-<div class="flex-box-half">
-{% highlight javascript %}
+
+{% highlight js %}
 function angleFromInput(x, y) {
   var a = 0.0;
   a = Math.atan2(-y, x);    // Flip the y-axis (+y is down)
@@ -28,14 +30,12 @@ function angleFromInput(x, y) {
   return a;    
 }
 {% endhighlight %}
-</div>
-</div>
 
 ## Breakdown
 So simple it hurts. All you have to do is take a relative input coordinate pair and hand it over to your new best friend atan2. You can then convert the radian output of atan2 to degrees, and make happy little circular menus. Let's break down the [interactive demo graph above][atan2-demo.js].
 
 ### Relative Coordinates
-{% highlight javascript %}
+{% highlight js %}
 canvas.addEventListener('mousemove', function(evt) {
   var rect = canvas.getBoundingClientRect();
   var x = (evt.clientX - rect.left);
@@ -47,7 +47,7 @@ canvas.addEventListener('mousemove', function(evt) {
 This bit of code has nothing to do with atan2. The snippet grabs the `x, y` location of the mouse and converts it to local space, then hands it off to the workhorse of the demo.
 
 ### Show Me The Math
-{% highlight javascript %}
+{% highlight js %}
 function setInputCoords(x, y) {
   var xLocal = x - origin.x;
   var yLocal = y - origin.y;
