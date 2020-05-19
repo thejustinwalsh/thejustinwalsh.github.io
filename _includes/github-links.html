@@ -1,0 +1,7 @@
+{% if jekyll.environment == "development" %}
+{% assign github_url = site.url %}
+{% else %}
+  {% assign github_url = "https://github.com/" | append: site.github.username | append: "/" | append: site.github.repo | append: "/blob/master" %}
+{% endif %}
+
+{% assign github_script = page.path | relative_url | replace: '.markdown', '/' | replace: '_posts', 'scripts' | prepend: github_url %}

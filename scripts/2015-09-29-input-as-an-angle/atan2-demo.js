@@ -27,7 +27,7 @@
         context.lineTo(canvas.width - padding, y - halfLineWidth);
     }
     context.lineWidth = lineWidth;
-    context.strokeStyle = "#ECECEC";
+    context.strokeStyle = "#2c2c30";
     context.stroke();
 
     // Clamped line from origin
@@ -39,27 +39,27 @@
     context.beginPath();
     context.moveTo(origin.x, origin.y);
     context.lineTo(x, y);
-    context.lineWidth = 0.75;
-    context.strokeStyle = "#FF0000";
+    context.lineWidth = 1.5;
+    context.strokeStyle = "#f99157";
     context.stroke();
 
     // Circle edge
     context.beginPath();
     context.arc(origin.x, origin.y, radius, 0, 2 * Math.PI);
     context.lineWidth = 2;
-    context.strokeStyle = "#000000";
+    context.strokeStyle = "#99cc99";
     context.stroke();
 
     // Circle origin
     context.beginPath();
     context.arc(origin.x, origin.y, 2, 0, 2 * Math.PI);
-    context.fillStyle = "#000000";
+    context.fillStyle = "#cc99cc";
     context.fill();
 
     // Update display
     var x = xCoord - origin.x; var y = yCoord - origin.y;
     context.font = "10pt sans-serif";
-    context.fillStyle = "#333333";
+    context.fillStyle = "#f2f0ec";
     context.fillText("x = " + Math.floor(x), 5, 15);
     context.fillText("y = " + Math.floor(y), 5, 30);
     context.fillText("theta = " + Math.floor(theta)+"°", 5, 47);

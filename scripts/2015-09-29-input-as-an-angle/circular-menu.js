@@ -15,7 +15,7 @@
     menuItems[i] = {
       angle: angle * i,
       title: "Item " + i,
-      color: hsvToRgb((360 / menuItemCount) * i, 75, 100),
+      color: hsvToRgb((360 / menuItemCount) * i, 33, 70),
       pivot: (angle * i) + (angle / 2)
     };
   }
@@ -40,40 +40,8 @@
         context.lineTo(canvas.width - padding, y - halfLineWidth);
     }
     context.lineWidth = lineWidth;
-    context.strokeStyle = "#ECECEC";
+    context.strokeStyle = "#2c2c30";
     context.stroke();
-
-    // Clamped line from origin
-    /*
-    var x = xCoord - origin.x;
-    var y = yCoord - origin.y;
-    var length = Math.sqrt((x * x) + (y * y));
-    x = origin.x + ((x / length) * radius);
-    y = origin.y + ((y / length) * radius);
-    context.beginPath();
-    context.moveTo(origin.x, origin.y);
-    context.lineTo(x, y);
-    context.lineWidth = 0.75;
-    context.strokeStyle = "#FF0000";
-    context.stroke();
-    */
-
-    // Circle edge
-    /*
-    context.beginPath();
-    context.arc(origin.x, origin.y, radius, 0, 2 * Math.PI);
-    context.lineWidth = 2;
-    context.strokeStyle = "#000000";
-    context.stroke();
-    */
-
-    // Circle origin
-    /*
-    context.beginPath();
-    context.arc(origin.x, origin.y, 2, 0, 2 * Math.PI);
-    context.fillStyle = "#000000";
-    context.fill();
-    */
 
     // Menu Items
     var pivot = 0;
@@ -112,11 +80,12 @@
     // Update display
     var x = xCoord - origin.x; var y = yCoord - origin.y;
     context.font = "10pt sans-serif";
-    context.fillStyle = "#333333";
+    context.fillStyle = "#f2f0ec";
     context.fillText("x = " + Math.floor(x), 5, 15);
     context.fillText("y = " + Math.floor(y), 5, 30);
     context.fillText("theta = " + Math.floor(theta)+"°", 5, 47);
     context.fillText("item = " + itemData.title, 5, 62);
+    context.fillText("gamepad = " + (gamepadInterval > 0 ? "true" : "false"), 5, 79);
 
     window.requestAnimationFrame(render);
   }
@@ -153,6 +122,47 @@
     setInputCoords(x, y);
     evt.preventDefault();
   });
+
+  // Gamepad
+  var gamepadInterval = -1;
+  window.addEventListener("gamepadconnected", function(event) {
+    gamepadInterval = window.setInterval(function() {
+      var gamepads = navigator.getGamepads();
+      if (gamepads) {
+        for (i = 0; i < gamepads.length; ++i) {
+          if (gamepads[i] && gamepads[i].connected) {
+            if (gamepads[i].axes.length > 1) {
+              var x = gamepads[i].axes[0];
+              var y = gamepads[i].axes[1];
+              if (x * x + y * y > Math.pow(0.1, 2)) {
+                setInputCoords(x + origin.x, y + origin.y);
+                break;
+              }
+            }
+          }
+        }
+      }
+    }, 33);
+  });
+
+  window.addEventListener("gamepaddisconnected", function(event) {
+    var gamepads = navigator.getGamepads();
+
+    var stillConnected = false;
+    if (gamepads) {
+      for (i = 0; i < gamepads.length; ++i) {
+        if (gamepads[i] && gamepads[i].connected) {
+          stillConnected = true;
+        }
+      }
+    }
+
+    if (!stillConnected) {
+      window.clearInterval(gamepadInterval);
+      gamepadInterval = -1;
+    }
+  });
+
 
   // HSV to RGB modified from https://bgrins.github.io/TinyColor/docs/tinycolor.html
   function hsvToRgb(h, s, v) {
