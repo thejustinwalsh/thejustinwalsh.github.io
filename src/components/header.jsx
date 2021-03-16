@@ -20,8 +20,13 @@ const Header = () => {
                     <FontAwesomeIcon icon={faVolumeMute} size="1x" alt="audio volume" />
                   </button>
                   */}
-                  <button type="button" className="flex-grow mx-2" onClick={() => toggleDarkMode()}>
-                    <FontAwesomeIcon icon={faAdjust} size="1x" alt="toggle dark mode" />
+                  <button
+                    type="button"
+                    aria-label="toggle theme"
+                    className="flex-grow mx-2"
+                    onClick={() => toggleDarkMode()}
+                  >
+                    <FontAwesomeIcon icon={faAdjust} size="1x" />
                   </button>
                 </div>
               </div>
