@@ -5,7 +5,7 @@ const postcssNested = require("postcss-nested")
 module.exports = {
   siteMetadata: {
     title: `thejustinwalsh`,
-    description: `Minimal maintnance landing page for some kind of web presence built w/ [Gatsby](https://www.gatsbyjs.com/), [Astroturf](https://github.com/4Catalyzer/astroturf), and [Tailwind](https://tailwindcss.com/).`,
+    description: `Minimal maintnance landing page for some kind of web presence built with <a href="https://www.gatsbyjs.com/">Gatsby]</a>, <a href="https://github.com/4Catalyzer/astroturf">Astroturf</a>, and <a href="https://tailwindcss.com/">Tailwind</a>.`,
     author: `@thejustinwalsh`,
   },
   pathPrefix: "/gatsby-astroturf-tailwind",
