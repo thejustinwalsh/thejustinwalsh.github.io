@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext, useEffect, useMemo } from "react"
+import { Helmet } from "react-helmet"
 
 const ThemeContext = createContext()
 
@@ -22,7 +23,19 @@ export const ThemeProvider = ({ children }) => {
     [darkMode, setDarkMode]
   )
 
-  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+  return (
+    <>
+      <Helmet>
+        <script>
+          {`
+            // FOUC 🤷‍♂️
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) document.documentElement.classList.add("dark");
+          `}
+        </script>
+      </Helmet>
+      <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+    </>
+  )
 }
 
 export const useTheme = () => {
