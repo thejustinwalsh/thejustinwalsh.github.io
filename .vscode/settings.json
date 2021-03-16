@@ -1,0 +1,41 @@
+{
+  "editor.linkedEditing": true,
+  
+  // Emmet for JSX tags
+  "emmet.includeLanguages": {
+      "javascript": "javascriptreact",
+      "typescript": "typescriptreact"
+  },
+  // CSS-In-JS css``, styled.div``
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+
+  // Tailwind CSS
+  "tailwindCSS.experimental.classRegex": [
+    "@apply ([^'`\n\"]*)", // ${`@apply ...`}
+    "className={\"([^\"}]*)", // <div className="..." />
+  ],
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  },
+
+  // Format On Save
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "eslint.validate": ["typescript", "typescriptreact"],
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ]
+}

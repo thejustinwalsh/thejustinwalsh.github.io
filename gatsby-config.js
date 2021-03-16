@@ -1,9 +1,14 @@
+const tailwindcss = require("tailwindcss")
+const autoprefixer = require("autoprefixer")
+const postcssNested = require("postcss-nested")
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `thejustinwalsh`,
+    description: `Minimal maintnance landing page for some kind of web presence built w/ [Gatsby](https://www.gatsbyjs.com/), [Astroturf](https://github.com/4Catalyzer/astroturf), and [Tailwind](https://tailwindcss.com/).`,
+    author: `@thejustinwalsh`,
   },
+  pathPrefix: "/gatsby-astroturf-tailwind",
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
@@ -19,18 +24,34 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `thejustinwalsh`,
+        short_name: `tjw`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#FFFFFF`,
+        theme_color: `#FFFFFF`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/tjw-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-gatsby-cloud`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-typescript`,
+    `gatsby-plugin-fontawesome-css`,
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [tailwindcss, autoprefixer, postcssNested],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-astroturf`,
+      options: {
+        enableDynamicInterpolations: true,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [],
+      },
+    },
   ],
 }
