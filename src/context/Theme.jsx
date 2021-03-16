@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from "react"
+import React, { createContext, useState, useContext, useEffect, useMemo } from "react"
 
 const ThemeContext = createContext()
 
@@ -17,8 +17,10 @@ export const ThemeProvider = ({ children }) => {
     }
   }, [darkMode])
 
-  const toggleDarkMode = () => setDarkMode(!darkMode)
-  const value = { darkMode, setDarkMode, toggleDarkMode }
+  const value = useMemo(
+    () => ({ darkMode, setDarkMode, toggleDarkMode: () => setDarkMode(!darkMode) }),
+    [darkMode, setDarkMode]
+  )
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
 }
