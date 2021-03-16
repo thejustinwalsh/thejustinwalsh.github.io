@@ -3,6 +3,7 @@
   "description": "A remix of the gatsby simple starter to get up and developing quickly with Gatsby, Astroturf, and Tailwind",
   "version": "0.1.0",
   "author": "Justin Walsh <contact.me@thejustinwalsh.com>",
+  "private":"true",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
@@ -60,7 +61,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/thejustinwalsh/thejustinwalsh.github.io"
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
