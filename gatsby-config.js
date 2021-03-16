@@ -8,7 +8,6 @@ module.exports = {
     description: `Minimal maintnance landing page for some kind of web presence built with <a href="https://www.gatsbyjs.com/">Gatsby]</a>, <a href="https://github.com/4Catalyzer/astroturf">Astroturf</a>, and <a href="https://tailwindcss.com/">Tailwind</a>.`,
     author: `@thejustinwalsh`,
   },
-  pathPrefix: "/gatsby-astroturf-tailwind",
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
