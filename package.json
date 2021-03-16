@@ -3,10 +3,12 @@
   "description": "A remix of the gatsby simple starter to get up and developing quickly with Gatsby, Astroturf, and Tailwind",
   "version": "0.1.0",
   "author": "Justin Walsh <contact.me@thejustinwalsh.com>",
-  "private":"true",
+  "private": "true",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
+    "@fortawesome/free-regular-svg-icons": "^5.15.2",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@fullhuman/postcss-purgecss": "^3.1.3",
     "astroturf": "^1.0.0-beta.17",
