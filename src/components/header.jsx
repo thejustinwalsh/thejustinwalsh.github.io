@@ -23,7 +23,7 @@ const Header = () => {
                   <button
                     type="button"
                     aria-label="toggle theme"
-                    className="flex-grow mx-2 outline-none"
+                    className="flex-grow mx-2 focus:outline-none"
                     onClick={() => toggleDarkMode()}
                   >
                     <FontAwesomeIcon icon={faAdjust} size="1x" />
