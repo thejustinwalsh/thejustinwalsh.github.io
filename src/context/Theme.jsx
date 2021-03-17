@@ -1,22 +1,21 @@
-import React, { createContext, useState, useContext, useEffect, useMemo } from "react"
+import React, { createContext, useContext, useEffect, useMemo, useState } from "react"
 import { Helmet } from "react-helmet"
 
 const ThemeContext = createContext()
+const js = (s, ...args) => s.map((ss, i) => `${ss}${args[i] || ""}`).join("")
 
 export const ThemeProvider = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(
+    typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches
+  )
 
-  useEffect(() => {
-    setDarkMode(window.matchMedia("(prefers-color-scheme: dark)").matches)
-  }, [])
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark")
-    } else {
-      document.documentElement.classList.remove("dark")
-    }
-  }, [darkMode])
+  useEffect(
+    () =>
+      darkMode
+        ? document.documentElement.classList.add("dark")
+        : document.documentElement.classList.remove("dark"),
+    [darkMode]
+  )
 
   const value = useMemo(
     () => ({ darkMode, setDarkMode, toggleDarkMode: () => setDarkMode(!darkMode) }),
@@ -27,10 +26,7 @@ export const ThemeProvider = ({ children }) => {
     <>
       <Helmet>
         <script>
-          {`
-            // FOUC 🤷‍♂️
-            if (window.matchMedia("(prefers-color-scheme: dark)").matches) document.documentElement.classList.add("dark");
-          `}
+          {js`if (window.matchMedia("(prefers-color-scheme: dark)").matches) { document.documentElement.classList.add("dark"); }`}
         </script>
       </Helmet>
       <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
