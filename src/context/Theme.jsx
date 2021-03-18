@@ -17,6 +17,15 @@ export const ThemeProvider = ({ children }) => {
     [darkMode]
   )
 
+  useEffect(() => {
+    const darkQuery = window.matchMedia("(prefers-color-scheme: dark)")
+    const queryChanged = e => setDarkMode(e.matches)
+    darkQuery.addEventListener("change", queryChanged)
+    return () => {
+      darkQuery.removeEventListener("change", queryChanged)
+    }
+  }, [setDarkMode])
+
   const value = useMemo(
     () => ({ darkMode, setDarkMode, toggleDarkMode: () => setDarkMode(!darkMode) }),
     [darkMode, setDarkMode]
