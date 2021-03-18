@@ -22,7 +22,7 @@ const IndexPage = () => (
           <Greeting className="sm:text-7xl md:text-8xl text-4xl md:text-left text-center">
             Justin Walsh
           </Greeting>
-          <div className="flex font-normal leading-none align-middle text-center text-black dark:text-white sm:text-3xl md:text-5xl text-1xl">
+          <div className="flex font-normal leading-none align-middle text-center text-black dark:text-white sm:text-3xl md:text-5xl text-1xl transition-all duration-1000">
             <a href="https://twitter.com/thejustinwalsh" className="flex-grow">
               <FontAwesomeIcon icon={faTwitter} size="1x" alt="twitter" />
               <span className="hidden">Twitter</span>

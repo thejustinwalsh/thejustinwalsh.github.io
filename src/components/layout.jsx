@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider>
-      <div className="flex flex-col h-screen bg-white dark:bg-black">
+      <div className="flex flex-col h-screen bg-white dark:bg-black transition-all duration-1000">
         <Header />
         <Content>{children}</Content>
       </div>
