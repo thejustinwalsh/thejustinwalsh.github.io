@@ -1,4 +1,11 @@
-import React, { createContext, useContext, useEffect, useMemo, useState } from "react"
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useState,
+} from "react"
 import { Helmet } from "react-helmet"
 
 const ThemeContext = createContext()
@@ -21,6 +28,14 @@ export const ThemeProvider = ({ children }) => {
     const darkQuery = window.matchMedia("(prefers-color-scheme: dark)")
     const queryChanged = e => setDarkMode(e.matches)
     darkQuery.addEventListener("change", queryChanged)
+
+    // Prevent first render fade (dynamically apply transition)
+    Array.from(document.getElementsByClassName("transition-none")).forEach(el => {
+      el.classList.remove("transition-none")
+      el.classList.add("transition-color")
+      el.classList.add("duration-1000")
+    })
+
     return () => {
       darkQuery.removeEventListener("change", queryChanged)
     }

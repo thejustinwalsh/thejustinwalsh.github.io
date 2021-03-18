@@ -2,7 +2,7 @@ import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAdjust } from "@fortawesome/free-solid-svg-icons"
 
-import { useTheme } from "../context/Theme"
+import { useTheme } from "../context/theme"
 
 const Header = () => {
   const { toggleDarkMode } = useTheme()
@@ -13,7 +13,7 @@ const Header = () => {
         <div className="mx-auto px-2">
           <div className="relative flex items-center justify-between h-12">
             <div className="flex-1 flex items-center justify-end sm:items-stretch">
-              <div className="block ml-8 text-gray-800 dark:text-gray-100 transition-all duration-1000">
+              <div className="block ml-8 text-gray-800 dark:text-gray-100 transition-none">
                 <div className="flex space-x-4 sm:text-base md:text-lg text-sm">
                   {/*
                   <button type="button" className="flex-grow">

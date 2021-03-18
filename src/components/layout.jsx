@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "astroturf/react"
 
-import { ThemeProvider } from "../context/Theme"
+import { ThemeProvider } from "../context/theme"
 import Header from "./header"
 
 const Layout = ({ children }) => {
@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider>
-      <div className="flex flex-col h-screen bg-white dark:bg-black transition-all duration-1000">
+      <div className="flex flex-col h-screen bg-white dark:bg-black transition-none">
         <Header />
         <Content>{children}</Content>
       </div>
