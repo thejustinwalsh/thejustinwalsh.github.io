@@ -25,7 +25,7 @@ export const ThemeProvider = ({ children }) => {
     // Prevent first render fade (dynamically apply transition)
     Array.from(document.getElementsByClassName("transition-none")).forEach(el => {
       el.classList.remove("transition-none")
-      el.classList.add("transition-color")
+      el.classList.add("transition-colors")
       el.classList.add("duration-1000")
     })
 
