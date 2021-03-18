@@ -1,11 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useState,
-} from "react"
+import React, { createContext, useContext, useEffect, useMemo, useState } from "react"
 import { Helmet } from "react-helmet"
 
 const ThemeContext = createContext()
