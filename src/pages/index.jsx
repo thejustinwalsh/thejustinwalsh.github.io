@@ -24,19 +24,39 @@ const IndexPage = () => (
           </Greeting>
           <div className="flex font-normal leading-none align-middle text-center text-black dark:text-white sm:text-3xl md:text-5xl text-1xl transition-none">
             <a href="https://twitter.com/thejustinwalsh" className="flex-grow">
-              <FontAwesomeIcon icon={faTwitter} size="1x" alt="twitter" />
+              <FontAwesomeIcon
+                className="transform transition-transform duration-200 hover:scale-125"
+                icon={faTwitter}
+                size="1x"
+                alt="twitter"
+              />
               <span className="hidden">Twitter</span>
             </a>
             <a href="https://github.com/thejustinwalsh" className="flex-grow">
-              <FontAwesomeIcon icon={faGithub} size="1x" alt="github" />
+              <FontAwesomeIcon
+                className="transform transition-transform duration-200 hover:scale-125"
+                icon={faGithub}
+                size="1x"
+                alt="github"
+              />
               <span className="hidden">Github</span>
             </a>
             <a href="https://www.linkedin.com/in/justinwalsh/" className="flex-grow">
-              <FontAwesomeIcon icon={faLinkedin} size="1x" alt="linkedin" />
+              <FontAwesomeIcon
+                className="transform transition-transform duration-200 hover:scale-125"
+                icon={faLinkedin}
+                size="1x"
+                alt="linkedin"
+              />
               <span className="hidden">LinkedIn</span>
             </a>
             <a href="https://discordapp.com/channels/@me/223220721143382017/" className="flex-grow">
-              <FontAwesomeIcon icon={faDiscord} size="1x" alt="discord" />
+              <FontAwesomeIcon
+                className="transform transition-transform duration-200 hover:scale-125"
+                icon={faDiscord}
+                size="1x"
+                alt="discord"
+              />
               <span className="hidden">Discord</span>
             </a>
           </div>

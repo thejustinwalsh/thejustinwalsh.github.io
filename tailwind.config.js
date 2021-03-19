@@ -2,12 +2,17 @@ module.exports = {
   purge: {
     content: ["./src/**/*.{jsx,tsx}"],
   },
-  darkMode: "class", // or 'media' or 'class'
+  darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      animation: {},
+      keyframes: {},
+    },
   },
   variants: {
-    extend: {},
+    extend: {
+      animation: ["hover"],
+    },
   },
   plugins: [],
 }
