@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-astroturf-tailwind",
-  "description": "A remix of the gatsby simple starter to get up and developing quickly with Gatsby, Astroturf, and Tailwind",
+  "name": "the-justin-walsh",
+  "description": "Personal Website",
   "version": "0.1.0",
   "author": "Justin Walsh <contact.me@thejustinwalsh.com>",
   "private": "true",
@@ -45,6 +45,7 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^1.7.0",
     "eslint-plugin-styled-components-a11y": "^0.0.34",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.22",
     "postcss": "^8.2.8",
     "prettier": "2.2.1"
   },
@@ -53,6 +54,7 @@
   ],
   "license": "0BSD",
   "scripts": {
+    "analyze": "INTERACTIVE_ANALYZE=1 npm run build",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",

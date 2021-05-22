@@ -47,5 +47,13 @@ module.exports = {
       },
     },
     `gatsby-plugin-remove-serviceworker`,
+    {
+      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+      options: {
+        analyzerMode: "static",
+        openAnalyzer: false,
+        generateStatsFile: true,
+      },
+    },
   ],
 }
