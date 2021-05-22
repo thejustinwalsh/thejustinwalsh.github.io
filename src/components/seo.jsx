@@ -69,7 +69,9 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <meta name="monetization" content="$ilp.uphold.com/hGqBNJM932UJ" />
+    </Helmet>
   )
 }
 
