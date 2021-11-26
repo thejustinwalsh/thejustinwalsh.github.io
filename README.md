@@ -4,7 +4,7 @@
   </a>
 </p>
 <h1 align="center">
-  tjw.dev
+  thejustinwalsh.com
 </h1>
 
 Minimal maintnance landing page for some kind of web presence built w/ [Gatsby](https://www.gatsbyjs.com/), [Astroturf](https://github.com/4Catalyzer/astroturf), and [Tailwind](https://tailwindcss.com/).
