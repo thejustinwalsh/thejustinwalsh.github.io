@@ -1,41 +1,16 @@
 {
-  "editor.linkedEditing": true,
-  
-  // Emmet for JSX tags
-  "emmet.includeLanguages": {
-      "javascript": "javascriptreact",
-      "typescript": "typescriptreact"
-  },
-  // CSS-In-JS css``, styled.div``
-  "editor.quickSuggestions": {
-    "strings": true
-  },
-
-  // Tailwind CSS
-  "tailwindCSS.experimental.classRegex": [
-    "@apply ([^'`\n\"]*)", // ${`@apply ...`}
-    "className={\"([^\"}]*)", // <div className="..." />
-  ],
-  "tailwindCSS.includeLanguages": {
-    "typescript": "javascript",
-    "typescriptreact": "javascript"
-  },
-
-  // Format On Save
-  "editor.formatOnSave": true,
-  "[javascript]": {
-    "editor.formatOnSave": false
-  },
-  "[javascriptreact]": {
-    "editor.formatOnSave": false
-  },
+  "tailwindCSS.experimental.classRegex": [["/\\*tw\\*/ ([^;]*);", "\"([^\"]*)\""]],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": "always"
   },
-  "eslint.validate": ["typescript", "typescriptreact"],
-  "eslint.workingDirectories": [
-    {
-      "mode": "auto"
-    }
-  ]
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "perforce.addOnFileCreate": true,
+  "perforce.editOnFileSave": true,
+  "perforce.editOnFileModified": true,
+  "cSpell.words": ["lucide", "partialize", "zustand"],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

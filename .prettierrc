@@ -1,8 +1,0 @@
-{
-  "arrowParens": "avoid",
-  "bracketSpacing": true,
-  "endOfLine": "auto",
-  "printWidth": 120,
-  "semi": false,
-  "trailingComma": "es5"
-}
