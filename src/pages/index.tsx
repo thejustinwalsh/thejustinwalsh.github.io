@@ -1,31 +1,22 @@
-import React from "react"
-import styled from "astroturf/react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faTwitter, faGithub, faLinkedin, faDiscord } from "@fortawesome/free-brands-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXTwitter, faGithub, faLinkedin, faDiscord } from "@fortawesome/free-brands-svg-icons";
 
-import { useAudio } from "../context/audio"
+import { useAudio } from "../context/audio";
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-
-const Greeting = styled.h1`
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  ${"@apply leading-normal font-sans font-semibold text-black bg-black"};
-  ${"@apply bg-gradient-to-r from-purple-700 via-red-500 to-yellow-500"};
-`
+import Layout from "../components/layout";
+import Title from "../components/title";
 
 const SocialIcons = () => {
-  const { playNote } = useAudio()
+  const { playNote } = useAudio();
 
   return (
-    <div className="flex font-normal leading-none align-middle text-center text-black dark:text-white sm:text-3xl md:text-5xl text-1xl transition-none">
-      <a href="https://twitter.com/thejustinwalsh" className="flex-grow">
+    <div className="text-1xl flex text-center align-middle font-normal leading-none text-black transition-none dark:text-white sm:text-3xl md:text-5xl">
+      <a href="https://x.com/thejustinwalsh" className="flex-grow">
         <FontAwesomeIcon
           className="transform transition-transform duration-200 hover:scale-125"
-          icon={faTwitter}
+          icon={faXTwitter}
           size="1x"
-          alt="twitter"
+          aria-label="X"
           onMouseEnter={() => playNote("C")}
         />
         <span className="hidden">Twitter</span>
@@ -35,7 +26,7 @@ const SocialIcons = () => {
           className="transform transition-transform duration-200 hover:scale-125"
           icon={faGithub}
           size="1x"
-          alt="github"
+          aria-label="GitHub"
           onMouseEnter={() => playNote("D")}
         />
         <span className="hidden">Github</span>
@@ -45,39 +36,41 @@ const SocialIcons = () => {
           className="transform transition-transform duration-200 hover:scale-125"
           icon={faLinkedin}
           size="1x"
-          alt="linkedin"
+          aria-label="Linkedin"
           onMouseEnter={() => playNote("E")}
         />
         <span className="hidden">LinkedIn</span>
       </a>
-      <a href="https://discordapp.com/channels/@me/223220721143382017/" className="flex-grow">
+      <a href="https://discord.gg/6nGuzvQcpB" className="flex-grow">
         <FontAwesomeIcon
           className="transform transition-transform duration-200 hover:scale-125"
           icon={faDiscord}
           size="1x"
-          alt="discord"
+          aria-label="Discord"
           onMouseEnter={() => playNote("G")}
         />
         <span className="hidden">Discord</span>
       </a>
     </div>
-  )
-}
+  );
+};
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
-    <div className="container mx-auto h-full flex justify-center items-center">
+    <Title title="Home" />
+    <div className="container mx-auto flex h-full items-center justify-center">
       <div className="flex">
         <div className="px-6 text-left">
-          <Greeting className="sm:text-7xl md:text-8xl text-4xl md:text-left text-center">
+          <h1
+            className={`bg-black bg-gradient-to-r from-purple-700 via-red-500 to-yellow-500 bg-clip-text text-center font-sans text-4xl font-semibold leading-normal text-black text-transparent sm:text-7xl md:text-left md:text-8xl`}
+          >
             Justin Walsh
-          </Greeting>
+          </h1>
           <SocialIcons />
         </div>
       </div>
     </div>
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
