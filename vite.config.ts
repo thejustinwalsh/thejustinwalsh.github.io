@@ -13,7 +13,13 @@ export default defineConfig({
         "404": resolve(__dirname, "404.html"),
         xr: resolve(__dirname, "xr.html"),
       },
+      output: {
+        manualChunks: {
+          three: ["three"],
+        },
+      },
     },
+    chunkSizeWarningLimit: 700,
   },
   plugins: [
     react(),
@@ -35,6 +41,7 @@ export default defineConfig({
 
       workbox: {
         globPatterns: ["**/*.{js,css,html,svg,png,ico,woff,woff2,json}"],
+        globIgnores: ["assets/three-*.js", "assets/xr-*.js", "assets/emulate-*.js"],
         cleanupOutdatedCaches: true,
         clientsClaim: true,
       },

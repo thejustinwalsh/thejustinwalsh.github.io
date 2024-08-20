@@ -25,7 +25,9 @@ declare module "@react-three/fiber" {
   }
 }
 
-const store = createXRStore();
+const store = createXRStore({
+  emulate: import.meta.env.MODE === "development",
+});
 
 function Title({
   darkMode,
