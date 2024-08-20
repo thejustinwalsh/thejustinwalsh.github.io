@@ -15,6 +15,7 @@ export default defineConfig({
       },
       output: {
         manualChunks: {
+          tone: ["tone"],
           three: ["three"],
         },
       },
