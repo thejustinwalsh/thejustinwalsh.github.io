@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { FMSynth } from "tone";
+import { start, FMSynth, Distortion } from "tone";
 
 type AudioProviderProps = React.PropsWithChildren<{}>;
 type AudioContextType = {
@@ -23,14 +23,12 @@ export const AudioProvider = ({ children }: AudioProviderProps) => {
       start: () => {
         if (!synth && !fetching) {
           setFetching(true);
-          import("tone").then((Tone) => {
-            (async () => {
-              await Tone.start;
-              const dist = new Tone.Distortion(0.8).toDestination();
-              setSynth(new Tone.FMSynth().connect(dist));
-              setFetching(false);
-            })();
-          });
+          (async () => {
+            await start();
+            const dist = new Distortion(0.8).toDestination();
+            setSynth(new FMSynth().connect(dist));
+            setFetching(false);
+          })();
         }
       },
       stop: () => {

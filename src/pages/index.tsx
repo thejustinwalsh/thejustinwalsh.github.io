@@ -1,8 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter, faGithub, faLinkedin, faDiscord } from "@fortawesome/free-brands-svg-icons";
-
 import { useAudio } from "../context/audio";
-
 import Layout from "../components/layout";
 import Title from "../components/title";
 

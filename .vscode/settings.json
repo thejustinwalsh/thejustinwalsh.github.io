@@ -11,6 +11,6 @@
   "perforce.addOnFileCreate": true,
   "perforce.editOnFileSave": true,
   "perforce.editOnFileModified": true,
-  "cSpell.words": ["lucide", "partialize", "zustand"],
+  "cSpell.words": ["GLTF", "lucide", "metalness", "partialize", "zustand"],
   "typescript.tsdk": "node_modules/typescript/lib"
 }
