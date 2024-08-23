@@ -6,6 +6,7 @@ import { VitePWA } from "vite-plugin-pwa";
 import { siteMetadata } from "./site-data.json";
 
 export default defineConfig({
+  appType: "mpa",
   build: {
     rollupOptions: {
       input: {
@@ -36,6 +37,7 @@ export default defineConfig({
         globPatterns: ["**/*.{js,css,html,svg,png,ico,woff,woff2,json}"],
         cleanupOutdatedCaches: true,
         clientsClaim: true,
+        navigateFallback: undefined,
       },
 
       devOptions: {
