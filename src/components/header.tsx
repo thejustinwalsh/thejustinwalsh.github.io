@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAdjust, faVolumeMute, faVolumeUp, faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { faMeta } from "@fortawesome/free-brands-svg-icons";
 
 import { useTheme } from "../context/theme";
 import { useAudio } from "../context/audio";
@@ -30,15 +29,6 @@ export default function Header() {
                       aria-label="audio volume"
                     />
                   </button>
-
-                  <button
-                    type="button"
-                    aria-label="launch on meta quest"
-                    className="flex-grow focus:outline-none"
-                  >
-                    <FontAwesomeIcon icon={faMeta} size="1x" aria-label="launch on meta quest" />
-                  </button>
-
                   <button
                     type="button"
                     aria-label="toggle theme"
