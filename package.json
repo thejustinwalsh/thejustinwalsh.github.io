@@ -42,7 +42,7 @@
     "tailwindcss": "^3.4.10",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^5.4.1",
+    "vite": "^5.4.6",
     "vite-plugin-insert-html": "^1.0.2",
     "vite-plugin-meta-tags": "^0.1.4",
     "vite-plugin-minify": "^2.0.0",
