@@ -1,0 +1,91 @@
+# Periodically sync GitHub repos to project content files and open a PR
+name: Sync Projects
+
+on:
+  schedule:
+    # Weekly on Monday at 9am UTC
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Sync projects from GitHub
+        id: sync
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          DISCORD_SERVER: ${{ secrets.DISCORD_SERVER }}
+        run: pnpm sync
+
+      - name: Check for changes
+        id: changes
+        run: |
+          # Stats JSON changes (outside CODEOWNERS)
+          stats_changed=$(git diff --name-only src/data/projects/stats.json)
+          # New project content files (inside CODEOWNERS)
+          new_content=$(git ls-files --others --exclude-standard src/content/projects/ public/projects/)
+          echo "has_stats=$( [ -n "$stats_changed" ] && echo true || echo false )" >> "$GITHUB_OUTPUT"
+          echo "has_new=$( [ -n "$new_content" ] && echo true || echo false )" >> "$GITHUB_OUTPUT"
+
+      # Stats updates: open a PR that auto-merges
+      - name: Create stats PR
+        if: steps.changes.outputs.has_stats == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b auto/sync-stats
+          git add src/data/projects/stats.json
+          git commit -m "content: update project stats"
+          git push -f origin auto/sync-stats
+          gh pr create \
+            --title "Update project stats" \
+            --body "Automated stats refresh (stars, npm downloads, activity scores)." \
+            --base main \
+            --head auto/sync-stats \
+            --label "automated"
+          gh pr merge auto/sync-stats --squash --auto --delete-branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # New projects: open a PR (CODEOWNERS requires review)
+      - name: Create Pull Request
+        if: steps.changes.outputs.has_new == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          add-paths: |
+            src/content/projects/
+            public/projects/
+          commit-message: "content: add new projects from GitHub"
+          branch: auto/sync-projects
+          delete-branch: true
+          title: "New projects discovered from GitHub"
+          body: |
+            Automated sync found **${{ steps.sync.outputs.new_projects }}** new project(s).
+
+            **New project files:**
+            ${{ steps.sync.outputs.project_list }}
+
+            Please review the generated frontmatter and descriptions, then merge.
+          labels: content, automated

@@ -1,0 +1,191 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Tag from "@/components/Tag.astro";
+import LinkIcons from "@/components/LinkIcons.astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"projects">;
+}
+
+const { entry } = Astro.props;
+const { title, description, tags, links, hero, status } = entry.data;
+
+const devlogEntries = await getCollection("devlog", ({ data }) => {
+  return data.project === entry.id;
+});
+devlogEntries.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title={title} description={description} ogImage={hero} accent="projects" searchScope="projects">
+  {/* Full-bleed hero */}
+  {hero && (
+    <div class="relative aspect-21/9 w-full overflow-hidden border-b border-border">
+      <img
+        src={hero}
+        alt=""
+        class="absolute inset-0 h-full w-full object-cover"
+      />
+      <div class="absolute inset-0 bg-linear-to-t from-black via-black/60 to-transparent" />
+      <div class="absolute inset-x-0 bottom-0 mx-auto max-w-6xl px-4 pb-8 sm:px-6">
+        <div class="flex items-end gap-4">
+          <h1 class="font-mono text-4xl font-extrabold text-white sm:text-5xl md:text-6xl">
+            {title}
+          </h1>
+          {status === "archived" && (
+            <span class="status-badge mb-1.5 border px-2 py-0.5 font-mono text-xs">
+              ARCHIVED
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+  )}
+
+  {/* Title block when no hero */}
+  {!hero && (
+    <div class="mx-auto max-w-6xl px-4 pt-12 sm:px-6">
+      <div class="flex items-center gap-4">
+        <h1 class="font-mono text-4xl font-extrabold text-white sm:text-5xl">
+          {title}
+        </h1>
+        {status === "archived" && (
+          <span class="status-badge border px-2 py-0.5 font-mono text-xs">
+            ARCHIVED
+          </span>
+        )}
+      </div>
+    </div>
+  )}
+
+  <article class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+    <div class="grid gap-12 lg:grid-cols-[1fr_280px]">
+      {/* Main content */}
+      <div>
+        {description && (
+          <p class="mb-8 text-xl leading-relaxed text-gray">{description}</p>
+        )}
+        <div class="prose">
+          <slot />
+        </div>
+
+        {/* Devlog entries */}
+        {devlogEntries.length > 0 && (
+          <div class="mt-12 border-t border-border pt-10">
+            <h2 class="mb-6 font-mono text-xs font-semibold tracking-widest text-dim">DEVLOG</h2>
+            <ul class="space-y-4">
+              {devlogEntries.map((post) => (
+                <li class="devlog-row group border-b border-border py-3 first:border-t">
+                  <a href={`/devlog/${post.id}`} class="flex items-baseline justify-between gap-4">
+                    <span class="devlog-title text-sm font-semibold text-white transition-colors duration-200">
+                      {post.data.title}
+                    </span>
+                    <time
+                      class="shrink-0 font-mono text-xs text-dim"
+                      datetime={post.data.date.toISOString()}
+                    >
+                      {new Date(post.data.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                    </time>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+
+      {/* Sidebar — links & metadata */}
+      <aside class="space-y-8 lg:border-l lg:border-border lg:pl-8">
+        {/* Quick links with icons */}
+        {links && (
+          <div>
+            <h2 class="mb-3 font-mono text-xs font-semibold tracking-widest text-dim">LINKS</h2>
+            <div class="space-y-2">
+              {links.live && (
+                <a
+                  href={links.live}
+                  target="_blank"
+                  rel="noopener"
+                  class="sidebar-link flex items-center gap-2 font-mono text-sm transition-colors hover:text-white"
+                >
+                  <span class="text-dim">→</span> Website
+                </a>
+              )}
+              {links.repo && (
+                <a
+                  href={links.repo}
+                  target="_blank"
+                  rel="noopener"
+                  class="sidebar-link flex items-center gap-2 font-mono text-sm transition-colors hover:text-white"
+                >
+                  <span class="text-dim">→</span> Source
+                </a>
+              )}
+              {links.docs && (
+                <a
+                  href={links.docs}
+                  target="_blank"
+                  rel="noopener"
+                  class="sidebar-link flex items-center gap-2 font-mono text-sm transition-colors hover:text-white"
+                >
+                  <span class="text-dim">→</span> Docs
+                </a>
+              )}
+              {links.discord && (
+                <a
+                  href={links.discord}
+                  target="_blank"
+                  rel="noopener"
+                  class="sidebar-link flex items-center gap-2 font-mono text-sm transition-colors hover:text-white"
+                >
+                  <span class="text-dim">→</span> Discord
+                </a>
+              )}
+              {links.store && (
+                <a
+                  href={links.store}
+                  target="_blank"
+                  rel="noopener"
+                  class="sidebar-link flex items-center gap-2 font-mono text-sm transition-colors hover:text-white"
+                >
+                  <span class="text-dim">→</span> Store
+                </a>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Tags */}
+        {tags && tags.length > 0 && (
+          <div>
+            <h2 class="mb-3 font-mono text-xs font-semibold tracking-widest text-dim">STACK</h2>
+            <div class="flex flex-wrap gap-1.5">
+              {tags.map((tag: string) => (
+                <Tag tag={tag} />
+              ))}
+            </div>
+          </div>
+        )}
+      </aside>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .status-badge {
+    color: var(--page-accent);
+    border-color: color-mix(in srgb, var(--page-accent) 30%, transparent);
+    background: color-mix(in srgb, var(--page-accent) 10%, transparent);
+  }
+  .sidebar-link {
+    color: var(--page-accent);
+  }
+  .devlog-row:hover {
+    border-bottom-color: color-mix(in srgb, var(--page-accent) 30%, transparent);
+    background: color-mix(in srgb, var(--page-accent) 3%, transparent);
+  }
+  .devlog-row:hover .devlog-title {
+    color: var(--page-accent);
+  }
+</style>

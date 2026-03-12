@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#222228" stroke-width="0.5"/>
+    </pattern>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5efdf7" stop-opacity="0.07"/>
+      <stop offset="35%" stop-color="#ab58a8" stop-opacity="0.05"/>
+      <stop offset="65%" stop-color="#ff5dcc" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#fdfe89" stop-opacity="0.04"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#141418"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <!-- accent crosshairs -->
+  <line x1="600" y1="0" x2="600" y2="630" stroke="#5efdf7" stroke-opacity="0.06" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="#ff5dcc" stroke-opacity="0.06" stroke-width="1"/>
+  <!-- corner marks -->
+  <path d="M 30 30 L 30 60 M 30 30 L 60 30" stroke="#5efdf7" stroke-opacity="0.15" stroke-width="1" fill="none"/>
+  <path d="M 1170 30 L 1170 60 M 1170 30 L 1140 30" stroke="#ff5dcc" stroke-opacity="0.15" stroke-width="1" fill="none"/>
+  <path d="M 30 600 L 30 570 M 30 600 L 60 600" stroke="#fdfe89" stroke-opacity="0.15" stroke-width="1" fill="none"/>
+  <path d="M 1170 600 L 1170 570 M 1170 600 L 1140 600" stroke="#ab58a8" stroke-opacity="0.15" stroke-width="1" fill="none"/>
+</svg>

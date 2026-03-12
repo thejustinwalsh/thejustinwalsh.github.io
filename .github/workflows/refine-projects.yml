@@ -1,0 +1,197 @@
+name: Refine New Projects
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened]
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  # -------------------------------------------------------------------------
+  # Phase 1: Copilot refinement — runs on PR open so you can review/edit
+  # -------------------------------------------------------------------------
+  refine:
+    if: >-
+      github.event_name == 'pull_request'
+      && github.event.action == 'opened'
+      && github.head_ref == 'auto/sync-projects'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Skip if last commit was from this workflow
+        id: check
+        run: |
+          msg=$(git log -1 --format="%s")
+          if [[ "$msg" == ci:* ]] || [[ "$msg" == chore:* ]]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Find new project files
+        if: steps.check.outputs.skip != 'true'
+        id: files
+        run: |
+          new_files=$(git diff --name-only --diff-filter=A origin/main -- src/content/projects/)
+          if [ -z "$new_files" ]; then
+            echo "No new project files found"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          FILE_LIST=""
+          for file in $new_files; do
+            if [[ "$file" == *.md ]]; then
+              FILE_LIST+=$'\n'"  - ${file}"
+            fi
+          done
+          echo "file_list<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$FILE_LIST" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Install Copilot CLI
+        if: steps.check.outputs.skip != 'true' && steps.files.outputs.skip != 'true'
+        run: npm install -g @github/copilot
+
+      - name: Refine project descriptions
+        if: steps.check.outputs.skip != 'true' && steps.files.outputs.skip != 'true'
+        continue-on-error: true
+        env:
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_PAT }}
+        run: |
+          copilot --yolo -p "You are refining auto-generated project pages for a developer portfolio site.
+
+          Each file listed below is a markdown file with YAML frontmatter describing a GitHub project.
+          Your job is to research each project and rewrite it to read like a featured project in a tech magazine.
+
+          For each file:
+          1. Read the file to get the repo URL from the links.repo frontmatter field
+          2. Extract the owner and repo name from the URL
+          3. Research the project thoroughly using these sources (in priority order):
+             a. Use gh to fetch the repo README — this is your primary source of truth
+             b. Check for llms.txt or llms-full.txt at the repo root (gh api repos/OWNER/REPO/contents/llms.txt) — these are AI-friendly project summaries
+             c. Check for CLAUDE.md or .claude/CLAUDE.md — these contain project context and architecture details
+             d. Check for a docs/ directory or docs site linked in the README — scan key pages for feature descriptions
+             e. Use gh to fetch repo description, topics, and recent releases for additional context
+             f. If the live site URL exists, fetch it and look for feature descriptions, taglines, or about pages
+             g. Read key source files (package.json, Cargo.toml, main entry points) to understand the tech stack and capabilities
+          4. Find the best hero image for the project:
+             a. Check the current hero field — if it is '/placeholder-project.svg' or missing, a better image is needed
+             b. Even if a hero image already exists, look for a better one — prefer larger, more visually interesting images
+             c. Sources to check (in priority order):
+                - GitHub social preview: use gh api repos/OWNER/REPO --jq '.open_graph_image_url' — skip if it contains 'opengraph.githubassets.com' (that is the auto-generated default)
+                - README images: look for screenshots, banners, or demo GIFs in the README
+                - Live site og:image: if the site has an og:image meta tag, fetch it
+                - Docs site screenshots or banner images
+             d. Download the best image you find using curl to public/projects/SLUG.EXT (use the project slug from the filename, preserve the original extension)
+             e. Update the hero frontmatter field to '/projects/SLUG.EXT'
+             f. If no good image is found, leave the hero field as-is
+             g. Prefer PNG/JPG/WebP over SVG. Prefer images that are at least 800px wide. Prefer screenshots or banners over logos or icons.
+          5. Validate ALL URLs in the frontmatter links block — for each link, use curl to check if it returns a 2xx or 3xx status. If a link is dead (4xx, 5xx, or timeout), see if there is a suitable link that was exposed from github about on the repo or README that can replace it. If not, remove the dead link from the frontmatter.
+          6. Rewrite the file with improved content based on everything you learned
+
+          Frontmatter rules:
+          - title: Keep as-is or improve capitalization/formatting (e.g. fix 'Thejustinwalsh.Github.Io' to a proper name)
+          - description: Rewrite as a single compelling sentence — what it is and why it matters
+          - hero: Update if a better image was found (see step 4), otherwise leave as-is
+          - tags, status, order, stars, npmDownloads, lastActivity: DO NOT MODIFY these fields
+          - featured, draft: DO NOT MODIFY if present, DO NOT ADD if absent
+          - links: Keep valid links, replace dead ones (except repo)
+
+          Body content rules:
+          - Replace the body (everything after the closing ---) with 2-4 paragraphs
+          - First paragraph: What is this project? Be specific about what it does
+          - Second paragraph: Who is it for and what problem does it solve?
+          - Third paragraph (if warranted): What makes it unique, interesting, or technically notable?
+          - Tone: Clean, friendly, energetic — like a featured project writeup in a tech magazine
+          - No emojis. No bullet lists. No installation instructions. No API docs.
+          - Do not start with 'Introducing' or any cliche opener
+          - These are portfolio showcase pages, not documentation
+
+          Files to refine:${{ steps.files.outputs.file_list }}
+
+          IMPORTANT: Only write to the files listed above. Preserve order, stars, npmDownloads, lastActivity, tags, status, featured, and draft fields exactly as they are."
+
+      - name: Commit refined descriptions
+        if: steps.check.outputs.skip != 'true' && steps.files.outputs.skip != 'true'
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add src/content/projects/ public/projects/
+          if ! git diff-index --quiet HEAD 2>/dev/null; then
+            git commit -m "chore: refine project descriptions"
+            git push
+            echo "Refined descriptions committed"
+          else
+            echo "No changes to commit"
+          fi
+
+  # -------------------------------------------------------------------------
+  # Phase 2: You approve the PR → Discord channels created → auto-merge
+  # -------------------------------------------------------------------------
+  finalize:
+    if: >-
+      github.event_name == 'pull_request_review'
+      && github.event.review.state == 'approved'
+      && github.event.pull_request.head.ref == 'auto/sync-projects'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Find new project files
+        id: files
+        run: |
+          new_md_files=""
+          new_files=$(git diff --name-only --diff-filter=A origin/main -- src/content/projects/)
+          for file in $new_files; do
+            if [[ "$file" == *.md ]]; then
+              new_md_files+=" $file"
+            fi
+          done
+          echo "files=$new_md_files" >> "$GITHUB_OUTPUT"
+
+      - name: Find or create Discord channels
+        if: steps.files.outputs.files != ''
+        env:
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          DISCORD_SERVER: ${{ secrets.DISCORD_SERVER }}
+          DISCORD_CATEGORY: ${{ secrets.DISCORD_CATEGORY }}
+        run: node scripts/discord-channels.mjs ${{ steps.files.outputs.files }}
+
+      - name: Commit Discord links
+        if: steps.files.outputs.files != ''
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add src/content/projects/
+          if ! git diff-index --quiet HEAD 2>/dev/null; then
+            git commit -m "chore: add Discord channel links"
+            git push
+            echo "Discord links committed"
+          else
+            echo "No Discord changes to commit"
+          fi
+
+      - name: Merge PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr merge ${{ github.event.pull_request.number }} --squash

@@ -1,0 +1,39 @@
+---
+import { version } from "../../package.json";
+
+const buildDate = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "2-digit" });
+
+const socials = [
+  { href: "https://github.com/thejustinwalsh", label: "GitHub" },
+  { href: "https://x.com/thejustinwalsh", label: "X" },
+  { href: "https://www.linkedin.com/in/justinwalsh/", label: "LinkedIn" },
+  { href: "https://discord.gg/6nGuzvQcpB", label: "Discord" },
+];
+---
+
+<footer>
+  <div class="accent-stripe" aria-hidden="true" />
+  <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+    <p class="font-mono text-xs text-dim">
+      &copy; {new Date().getFullYear()} Justin Walsh <span class="text-border-bright">/</span> v{version} <span class="text-border-bright">/</span> <time class="tabular-nums">{buildDate}</time>
+    </p>
+    <div class="flex gap-4">
+      {socials.map(({ href, label }) => (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-link font-mono text-xs text-dim transition-colors"
+        >
+          {label}
+        </a>
+      ))}
+    </div>
+  </div>
+</footer>
+
+<style>
+  .social-link:hover {
+    color: var(--page-accent);
+  }
+</style>

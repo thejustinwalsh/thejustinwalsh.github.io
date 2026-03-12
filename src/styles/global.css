@@ -1,0 +1,546 @@
+@import "tailwindcss";
+
+/*
+ * TJW.DEV Theme — Chasm Palette
+ * Replace ALL Tailwind defaults with our constrained color system.
+ * Only these colors exist. If you need a new color, it comes from Chasm or gets justified.
+ */
+@theme {
+  /* Reset Tailwind defaults */
+  --color-*: initial;
+  --font-*: initial;
+
+  /* ── Typography ── */
+  --font-sans: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  /* ── Surfaces (purple-tinted neutrals) ── */
+  --color-black: #0C0C0E;
+  --color-surface: #141418;
+  --color-elevated: #1C1C22;
+  --color-border: #222228;
+  --color-border-bright: #32313b;
+
+  /* ── Text ── */
+  --color-white: #D4D4D8;
+  --color-gray: #78787E;
+  --color-dim: #44444A;
+
+  /* ── Chasm Accent Palette ── */
+  --color-cyan: #5efdf7;
+  --color-pink: #ff5dcc;
+  --color-yellow: #fdfe89;
+  --color-blue: #5fa1e7;
+  --color-sky: #85daeb;
+  --color-indigo: #5f6ee7;
+  --color-purple: #ab58a8;
+  --color-rose: #ca60ae;
+  --color-orchid: #855395;
+  --color-peach: #f3a787;
+  --color-cream: #f5daa7;
+  --color-mint: #8dd894;
+  --color-teal: #4ab9a3;
+  --color-seafoam: #5dc190;
+  --color-steel: #4593a5;
+  --color-slate: #4c60aa;
+  --color-plum: #463c5e;
+  --color-grape: #5d4776;
+
+  /* ── Semantic Aliases ── */
+  --color-accent: var(--color-cyan);
+  --color-success: var(--color-mint);
+  --color-warning: var(--color-peach);
+  --color-error: var(--color-pink);
+  --color-info: var(--color-blue);
+}
+
+/*
+ * Force all palette colors to be present in output.
+ * Tailwind v4 tree-shakes @theme variables not used by utility classes.
+ * Colors referenced only via var() in inline styles or scoped CSS get stripped.
+ * This block ensures every Chasm color is always available.
+ */
+@layer base {
+  :root {
+    --color-sky: #85daeb;
+    --color-purple: #ab58a8;
+    --color-rose: #ca60ae;
+    --color-orchid: #855395;
+    --color-seafoam: #5dc190;
+    --color-steel: #4593a5;
+    --color-slate: #4c60aa;
+    --color-plum: #463c5e;
+    --color-grape: #5d4776;
+    --color-elevated: #1C1C22;
+  }
+}
+
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-black);
+}
+
+/* Fluid type scale */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+/* ── Page accent (set on body via inline style) ── */
+body {
+  --page-accent: var(--color-cyan);
+}
+
+/* ── Selection ── */
+::selection {
+  background-color: var(--page-accent);
+  color: var(--color-black);
+}
+
+/* ── Scrollbar (subtle) ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-bright);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray);
+}
+
+/* ── Focus ring ── */
+:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 2px;
+}
+
+/* ── Obsidian Callouts ── */
+.callout {
+  margin-block: 1.5rem;
+  padding: 1rem 1rem 1rem 1.25rem;
+  border-left: 3px solid var(--color-border-bright);
+  background: var(--color-surface);
+}
+
+.callout[data-callout="note"] {
+  border-left-color: var(--color-blue);
+}
+
+.callout[data-callout="tip"] {
+  border-left-color: var(--color-mint);
+}
+
+.callout[data-callout="warning"] {
+  border-left-color: var(--color-peach);
+}
+
+.callout[data-callout="danger"],
+.callout[data-callout="error"] {
+  border-left-color: var(--color-pink);
+}
+
+.callout[data-callout="info"] {
+  border-left-color: var(--color-cyan);
+}
+
+/* ── Prose (markdown content) ── */
+.prose {
+  max-width: 65ch;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  line-height: 1.7;
+  color: var(--color-gray);
+}
+
+.prose h1 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-size: clamp(1.75rem, 1.5rem + 1.25vw, 2.5rem);
+  line-height: 1.15;
+  color: var(--color-white);
+  letter-spacing: -0.02em;
+}
+
+.prose h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.75rem);
+  line-height: 1.2;
+  color: var(--color-white);
+  letter-spacing: -0.01em;
+}
+
+.prose h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem);
+  line-height: 1.3;
+  color: var(--color-white);
+}
+
+.prose p {
+  margin-bottom: 1.25rem;
+}
+
+.prose a {
+  color: var(--color-cyan);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--color-cyan) 30%, transparent);
+  transition: text-decoration-color 0.15s;
+}
+
+.prose a:hover {
+  text-decoration-color: var(--color-cyan);
+}
+
+.prose strong {
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.prose em {
+  color: var(--color-white);
+  font-style: italic;
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  padding: 0.15em 0.4em;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-peach);
+}
+
+.prose pre {
+  margin-block: 1.5rem;
+  padding: 1.25rem;
+  overflow-x: auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.prose pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+
+.prose blockquote {
+  margin-block: 1.5rem;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--color-border-bright);
+  color: var(--color-gray);
+  font-style: italic;
+}
+
+.prose ul {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.prose ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin-bottom: 0.35rem;
+}
+
+.prose li::marker {
+  color: var(--color-dim);
+}
+
+.prose img {
+  margin-block: 1.5rem;
+}
+
+.prose hr {
+  margin-block: 3rem;
+  border: none;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.prose table {
+  margin-block: 1.5rem;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+
+.prose th {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-white);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.prose td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Mermaid */
+.mermaid {
+  margin-block: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* ══════════════════════════════════════════════════════
+   SHARED COMPONENT TOKENS
+   Accent-aware primitives used across pages.
+   All derive from --page-accent (set on body) or
+   --section-accent (set on a parent container).
+   ══════════════════════════════════════════════════════ */
+
+/* Page title — accent-colored h1 */
+.page-title {
+  color: var(--page-accent);
+}
+
+/* ── Entry card (bordered card with accent hover) ── */
+.entry-card {
+  border: 1px solid var(--color-border);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.entry-card:hover {
+  border-color: color-mix(in srgb, var(--page-accent) 30%, transparent);
+  background: color-mix(in srgb, var(--page-accent) 2%, transparent);
+}
+
+/* ── Entry row (row with accent hover for lists) ── */
+.entry-row {
+  border-bottom: 1px solid var(--color-border);
+  transition: all 0.2s;
+}
+.entry-row:first-child,
+ul > li:first-child .entry-row {
+  border-top: 1px solid var(--color-border);
+}
+.entry-row:hover {
+  border-bottom-color: color-mix(in srgb, var(--page-accent) 30%, transparent);
+  background: color-mix(in srgb, var(--page-accent) 3%, transparent);
+}
+
+/* ── Entry title — accents on group hover ── */
+.group:hover .entry-title {
+  color: var(--page-accent);
+}
+
+/* ── Description clamp ── */
+.description-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+@media (max-width: 639px) {
+  .description-clamp {
+    -webkit-line-clamp: 3;
+  }
+}
+
+/* Accent stripe — solid, no fade */
+.accent-stripe {
+  height: 1px;
+  background: var(--page-accent);
+  opacity: 0.3;
+}
+
+/* ══════════════════════════════════════════════════════
+   TEXTURE — Subtle grain overlay
+   Apply to body via ::after pseudo for depth.
+   ══════════════════════════════════════════════════════ */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+/* ══════════════════════════════════════════════════════
+   SEARCH — Panel entrance (slide-up + fade, enter only)
+   Exit is a plain opacity fade handled by Headless UI transitions.
+   ══════════════════════════════════════════════════════ */
+@keyframes search-panel-enter {
+  from {
+    opacity: 0;
+    translate: 0 1rem;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.search-panel {
+  animation: search-panel-enter 0.25s cubic-bezier(0.16, 1, 0.3, 1) 0.075s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search-panel {
+    animation: none;
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   SEARCH — Input focus ring entrance
+   Fades in a focus ring around the input after the panel lands.
+   ══════════════════════════════════════════════════════ */
+@keyframes search-focus-ring {
+  0%   { box-shadow: 0 0 0 0 transparent; }
+  50%  { box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-cyan) 50%, transparent); }
+  100% { box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-cyan) 25%, transparent); }
+}
+
+.search-input-bar input:focus,
+.search-input-bar input:focus-visible {
+  outline: none;
+  animation: search-focus-ring 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search-input-bar input:focus,
+  .search-input-bar input:focus-visible {
+    animation: none;
+    outline: none;
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-cyan) 40%, transparent);
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   ANIMATION — Entrance keyframes
+   ══════════════════════════════════════════════════════ */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glitch-shift {
+  0%, 100% { transform: translate(0); }
+  10%      { transform: translate(-3px, 2px); }
+  20%      { transform: translate(3px, -1px); }
+  30%      { transform: translate(-2px, -2px); }
+  40%      { transform: translate(2px, 1px); }
+  50%      { transform: translate(-1px, 2px); }
+  60%      { transform: translate(3px, -1px); }
+  70%      { transform: translate(-3px, 1px); }
+  80%      { transform: translate(1px, -2px); }
+  90%      { transform: translate(-2px, 2px); }
+}
+
+@keyframes glitch-clip {
+  0%   { clip-path: inset(40% 0 30% 0); }
+  10%  { clip-path: inset(10% 0 60% 0); }
+  20%  { clip-path: inset(70% 0 5% 0); }
+  30%  { clip-path: inset(20% 0 50% 0); }
+  40%  { clip-path: inset(80% 0 0% 0); }
+  50%  { clip-path: inset(5% 0 70% 0); }
+  60%  { clip-path: inset(50% 0 20% 0); }
+  70%  { clip-path: inset(30% 0 40% 0); }
+  80%  { clip-path: inset(60% 0 10% 0); }
+  90%  { clip-path: inset(15% 0 55% 0); }
+  100% { clip-path: inset(40% 0 30% 0); }
+}
+
+@keyframes scanline-scroll {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(100%); }
+}
+
+/* ── Entrance utility classes ── */
+.animate-in {
+  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-in-slow {
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade {
+  animation: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-slide {
+  animation: slide-in-left 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Stagger delays — apply with data-delay or class */
+.delay-1 { animation-delay: 80ms; }
+.delay-2 { animation-delay: 160ms; }
+.delay-3 { animation-delay: 240ms; }
+.delay-4 { animation-delay: 320ms; }
+.delay-5 { animation-delay: 400ms; }
+.delay-6 { animation-delay: 480ms; }
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body::after {
+    display: none;
+  }
+}
