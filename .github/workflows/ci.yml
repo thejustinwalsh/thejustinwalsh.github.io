@@ -36,8 +36,23 @@ jobs:
       - name: Build site
         run: pnpm build
 
-      - name: Install Playwright browsers
-        run: pnpm exec playwright install --with-deps
+      - name: Get Playwright version
+        id: pw-version
+        run: echo "version=$(pnpm exec playwright --version | awk '{print $2}')" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Playwright browsers
+        id: pw-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ steps.pw-version.outputs.version }}
+
+      - name: Install Playwright Chromium
+        if: steps.pw-cache.outputs.cache-hit != 'true'
+        run: pnpm exec playwright install chromium
+
+      - name: Install Playwright system deps
+        run: pnpm exec playwright install-deps chromium
 
       - name: Run e2e tests
         run: pnpm test:e2e
