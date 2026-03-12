@@ -1,0 +1,58 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Tag from "@/components/Tag.astro";
+import { getCollection } from "astro:content";
+
+const articles = (await getCollection("articles", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Articles" accent="articles" searchScope="articles">
+  <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <header class="animate-in mb-12">
+      <h1 class="page-title font-mono text-3xl font-bold sm:text-4xl">Articles</h1>
+      <p class="mt-2 text-gray">Longform writing on game dev, creative tech, and the web.</p>
+    </header>
+
+    {articles.length > 0 ? (
+      <ul class="space-y-8">
+        {articles.map((article, i) => {
+          const wordCount = article.body?.split(/\s+/).length ?? 0;
+          const readingTime = Math.max(1, Math.round(wordCount / 200));
+          return (
+            <li class:list={[`animate-in delay-${Math.min(i + 1, 6)}`]}>
+              <a href={`/articles/${article.id}`} class="group block">
+                <h2 class="entry-title font-mono text-lg font-semibold text-white transition-colors duration-200">
+                  {article.data.title}
+                </h2>
+                {article.data.description && (
+                  <p class="description-clamp mt-1 text-sm leading-relaxed text-gray">{article.data.description}</p>
+                )}
+                <div class="mt-2 flex items-center gap-3">
+                  <div class="font-mono text-xs text-dim">
+                    <time datetime={article.data.date.toISOString()}>
+                      {new Date(article.data.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
+                    </time>
+                    <span class="mx-2 text-border-bright">/</span>
+                    <span>{readingTime} min read</span>
+                  </div>
+                  {article.data.tags.length > 0 && (
+                    <div class="flex gap-1">
+                      {article.data.tags.map((tag: string) => (
+                        <Tag tag={tag} />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    ) : (
+      <div class="border border-border px-6 py-12 text-center">
+        <p class="font-mono text-sm text-dim">Nothing here yet. Check back soon.</p>
+      </div>
+    )}
+  </section>
+</BaseLayout>

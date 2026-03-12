@@ -1,0 +1,53 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Tag from "@/components/Tag.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("devlog", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Devlog" accent="devlog" searchScope="devlog">
+  <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <header class="animate-in mb-12">
+      <h1 class="page-title font-mono text-3xl font-bold sm:text-4xl">Devlog</h1>
+      <p class="mt-2 text-gray">Build logs, experiments, and notes from the workbench.</p>
+    </header>
+
+    {posts.length > 0 ? (
+      <ul class="space-y-1">
+        {posts.map((post, i) => (
+          <li class:list={[`animate-in delay-${Math.min(i + 1, 6)}`]}>
+            <a
+              href={`/devlog/${post.id}`}
+              class="entry-row group flex items-baseline justify-between py-4"
+            >
+              <div>
+                <h2 class="entry-title font-mono text-sm font-medium text-white transition-colors duration-200">
+                  {post.data.title}
+                </h2>
+                {post.data.tags.length > 0 && (
+                  <div class="mt-1.5 flex flex-wrap gap-1">
+                    {post.data.tags.map((tag: string) => (
+                      <Tag tag={tag} />
+                    ))}
+                  </div>
+                )}
+              </div>
+              <time
+                class="shrink-0 pl-4 font-mono text-xs text-dim"
+                datetime={post.data.date.toISOString()}
+              >
+                {new Date(post.data.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "2-digit" })}
+              </time>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <div class="border border-border px-6 py-12 text-center">
+        <p class="font-mono text-sm text-dim">Nothing here yet. Check back soon.</p>
+      </div>
+    )}
+  </section>
+</BaseLayout>

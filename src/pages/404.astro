@@ -1,0 +1,112 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="404">
+  <section class="relative flex min-h-[80vh] flex-col justify-center overflow-hidden px-4">
+    {/* Giant background number */}
+    <div
+      class="pointer-events-none absolute inset-0 flex items-center justify-center select-none"
+      aria-hidden="true"
+    >
+      <span class="glitch-bg font-mono font-extrabold leading-none">
+        404
+      </span>
+    </div>
+
+    {/* Content */}
+    <div class="relative mx-auto max-w-lg text-center">
+      <p class="animate-fade font-mono text-xs font-semibold tracking-[0.3em] text-pink">
+        SIGNAL LOST
+      </p>
+      <h1 class="glitch-text animate-in delay-1 mt-4 font-mono text-5xl font-extrabold text-white sm:text-6xl md:text-7xl">
+        Nothing here.
+      </h1>
+      <p class="animate-in delay-2 mx-auto mt-4 max-w-sm text-gray">
+        The page you're looking for doesn't exist, was moved, or never existed in the first place.
+      </p>
+      <a
+        href="/"
+        class="animate-in delay-3 error-btn mt-8 inline-block border border-pink px-6 py-2.5 font-mono text-sm text-pink transition-all duration-200"
+      >
+        ← BACK HOME
+      </a>
+    </div>
+
+    {/* Animated scanline */}
+    <div
+      class="pointer-events-none absolute inset-0 select-none"
+      aria-hidden="true"
+    >
+      <div class="scanline" />
+    </div>
+
+    {/* Static scanline texture */}
+    <div
+      class="pointer-events-none absolute inset-0 select-none"
+      aria-hidden="true"
+      style="background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(12, 12, 14, 0.15) 2px,
+        rgba(12, 12, 14, 0.15) 4px
+      );"
+    />
+  </section>
+</BaseLayout>
+
+<style>
+  .glitch-bg {
+    font-size: clamp(20rem, 50vw, 60rem);
+    color: var(--color-surface);
+    animation: glitch-shift 8s infinite steps(1);
+  }
+
+  /* Glitch text — dual pseudo-element clip layers */
+  .glitch-text {
+    position: relative;
+  }
+
+  .glitch-text::before,
+  .glitch-text::after {
+    content: "Nothing here.";
+    position: absolute;
+    inset: 0;
+    color: var(--color-white);
+    overflow: hidden;
+  }
+
+  .glitch-text::before {
+    text-shadow: -2px 0 var(--color-pink);
+    animation: glitch-clip 3s infinite linear alternate-reverse;
+  }
+
+  .glitch-text::after {
+    text-shadow: 2px 0 var(--color-cyan);
+    animation: glitch-clip 3s infinite -1.5s linear alternate;
+  }
+
+  /* Moving scanline band */
+  .scanline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--color-pink) 20%, transparent),
+      transparent
+    );
+    animation: scanline-scroll 4s linear infinite;
+  }
+
+  .error-btn {
+    background: color-mix(in srgb, var(--color-pink) 5%, transparent);
+  }
+  .error-btn:hover {
+    background: color-mix(in srgb, var(--color-pink) 15%, transparent);
+    box-shadow: 0 0 24px color-mix(in srgb, var(--color-pink) 20%, transparent);
+  }
+</style>

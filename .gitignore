@@ -1,24 +1,42 @@
-# Logs
-logs
+# build
+dist/
+.astro/
+
+# deps
+node_modules/
+
+# env
+.env
+.env.*
+
+# logs
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# vendor (licensed UI kits - do not commit)
+vendor/
 
-# Editor directories and files
+# playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# os
+.DS_Store
+Thumbs.db
+
+# obsidian
+.obsidian/
+
+# editor
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# claude
+.claude/settings.local.json

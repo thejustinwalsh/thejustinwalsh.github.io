@@ -1,0 +1,19 @@
+---
+import DevlogLayout from "@/layouts/DevlogLayout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("devlog");
+  return posts.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<DevlogLayout entry={entry}>
+  <Content />
+</DevlogLayout>

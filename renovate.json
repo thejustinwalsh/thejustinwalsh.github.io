@@ -1,0 +1,34 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices",
+    "github>bfra-me/renovate-config"
+  ],
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "labels": ["security"],
+    "schedule": [],
+    "prCreation": "immediate"
+  },
+  "minimumReleaseAge": "3 days",
+  "packageRules": [
+    {
+      "matchPackageNames": ["astro", "@astrojs/*"],
+      "groupName": "astro",
+      "automerge": true
+    },
+    {
+      "matchPackageNames": ["tailwindcss", "@tailwindcss/*"],
+      "groupName": "tailwindcss"
+    },
+    {
+      "matchPackageNames": ["rehype-mermaid", "remark-wiki-link", "@r4ai/remark-callout"],
+      "groupName": "remark/rehype plugins"
+    },
+    {
+      "matchPackageNames": ["@playwright/test"],
+      "groupName": "playwright"
+    }
+  ]
+}

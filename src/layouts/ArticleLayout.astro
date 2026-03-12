@@ -1,0 +1,58 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Tag from "@/components/Tag.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"articles">;
+}
+
+const { entry } = Astro.props;
+const { title, description, date, tags } = entry.data;
+
+const formattedDate = new Date(date).toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+
+const wordCount = entry.body?.split(/\s+/).length ?? 0;
+const readingTime = Math.max(1, Math.round(wordCount / 200));
+---
+
+<BaseLayout title={title} description={description} accent="articles" searchScope="articles">
+  <article class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <header class="mb-16">
+      <div class="mb-4 flex items-center gap-3 font-mono text-xs tracking-widest text-dim">
+        <time datetime={date.toISOString()}>{formattedDate.toUpperCase()}</time>
+        <span class="text-border-bright">/</span>
+        <span>{readingTime} MIN READ</span>
+      </div>
+      <h1 class="font-mono text-4xl font-extrabold leading-tight text-white sm:text-5xl">
+        {title}
+      </h1>
+      {description && (
+        <p class="mt-4 text-xl leading-relaxed text-gray">{description}</p>
+      )}
+      {tags && tags.length > 0 && (
+        <div class="mt-6 flex flex-wrap gap-2">
+          {tags.map((tag: string) => (
+            <Tag tag={tag} />
+          ))}
+        </div>
+      )}
+      <div class="divider mt-8 h-px" />
+    </header>
+
+    <div class="prose">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .divider {
+    background: var(--page-accent);
+    opacity: 0.2;
+  }
+</style>

@@ -1,0 +1,244 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import LinkIcons from "@/components/LinkIcons.astro";
+import Automata from "@/components/Automata.tsx";
+import { getCollection } from "astro:content";
+import { PAGE_ACCENTS } from "@/lib/colors";
+import { getProjectOrder } from "@/lib/project-stats";
+
+const recentPosts = (await getCollection("devlog", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 5);
+
+const projects = (await getCollection("projects", ({ data }) => !data.draft))
+  .sort((a, b) => {
+    if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
+    return getProjectOrder(b.id) - getProjectOrder(a.id);
+  })
+  .slice(0, 4);
+
+const articles = (await getCollection("articles", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 5);
+---
+
+<BaseLayout title="Home" accent="home">
+  {/* Hero */}
+  <section class="relative overflow-hidden">
+    <Automata client:load className="absolute inset-0" />
+    <div class="relative mx-auto max-w-6xl px-4 pb-20 pt-24 sm:px-6 sm:pt-32">
+      <h1 class="animate-in font-mono text-5xl font-extrabold leading-none text-white sm:text-7xl md:text-8xl" style="text-shadow: 0 2px 12px rgba(0,0,0,0.8);">
+        Justin<br />Walsh
+      </h1>
+      <p class="animate-in delay-1 mt-6 max-w-lg text-lg leading-relaxed text-gray" style="text-shadow: 0 1px 8px rgba(0,0,0,0.9);">
+        Game dev, creative tech, and interactive experiences.
+        Building tools for real-time graphics and audio on the web.
+      </p>
+      <div class="animate-in delay-2 mt-6 flex gap-4">
+        <a
+          href="/projects"
+          class="hero-btn-primary border px-4 py-2 font-mono text-sm transition-all duration-200"
+          style={`--btn-accent: var(--color-${PAGE_ACCENTS.projects});`}
+        >
+          PROJECTS
+        </a>
+        <a
+          href="/devlog"
+          class="hero-btn-secondary border px-4 py-2 font-mono text-sm transition-all duration-200"
+          style={`--btn-accent: var(--color-${PAGE_ACCENTS.devlog});`}
+        >
+          DEVLOG
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* Projects */}
+  {projects.length > 0 && (
+    <section class="section-accented" style={`--section-accent: var(--color-${PAGE_ACCENTS.projects});`}>
+      <div class="section-stripe" aria-hidden="true" />
+      <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <div class="animate-in delay-3 mb-8 flex items-baseline justify-between">
+          <h2 class="section-label font-mono text-xs font-semibold tracking-widest">PROJECTS</h2>
+          <a href="/projects" class="section-link font-mono text-xs transition-colors">
+            VIEW ALL →
+          </a>
+        </div>
+        <div class="section-list">
+          {projects.map((project, i) => (
+            <div
+              class:list={[
+                "section-row group flex cursor-pointer items-center gap-3 py-3 transition-all duration-200",
+                `animate-in delay-${Math.min(i + 4, 6)}`
+              ]}
+              onclick={`window.location.href='/projects/${project.id}'`}
+            >
+              {project.data.hero && (
+                <div class="hidden h-10 w-16 shrink-0 overflow-hidden sm:block">
+                  <img
+                    src={project.data.hero}
+                    alt=""
+                    class="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              <a href={`/projects/${project.id}`} class="section-row-title min-w-0 flex-1 truncate font-mono text-base font-semibold text-white transition-colors duration-200">
+                {project.data.title}
+              </a>
+              {project.data.status === "archived" && (
+                <span class="shrink-0 font-mono text-xs text-dim">
+                  archived
+                </span>
+              )}
+              {project.data.links && (
+                <LinkIcons links={project.data.links} class="shrink-0" />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {/* Recent writing */}
+  {(recentPosts.length > 0 || articles.length > 0) && (
+    <section>
+      <div class="accent-stripe" aria-hidden="true" />
+      <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <div class="grid gap-16 lg:grid-cols-2">
+          {/* Devlog */}
+          <div class="section-accented animate-in delay-3" style={`--section-accent: var(--color-${PAGE_ACCENTS.devlog});`}>
+            <div class="mb-6 flex items-baseline justify-between">
+              <h2 class="section-label font-mono text-xs font-semibold tracking-widest">DEVLOG</h2>
+              <a href="/devlog" class="section-link font-mono text-xs transition-colors">
+                ALL →
+              </a>
+            </div>
+            {recentPosts.length > 0 ? (
+              <ul class="section-list">
+                {recentPosts.map((post) => (
+                  <li>
+                    <a href={`/devlog/${post.id}`} class="section-row group flex items-baseline justify-between py-3 transition-all duration-200">
+                      <span class="section-row-title text-sm text-white transition-colors duration-200">
+                        {post.data.title}
+                      </span>
+                      <div class="shrink-0 pl-4 flex items-center gap-2 font-mono text-xs text-dim">
+                        <time datetime={post.data.date.toISOString()}>
+                          {new Date(post.data.date).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                        </time>
+                        {post.data.tags.length > 0 && (
+                          <>
+                            <span class="text-border-bright">/</span>
+                            <span>{post.data.tags[0]}</span>
+                          </>
+                        )}
+                      </div>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p class="text-sm text-dim">Nothing yet.</p>
+            )}
+          </div>
+
+          {/* Articles */}
+          <div class="section-accented animate-in delay-4" style={`--section-accent: var(--color-${PAGE_ACCENTS.articles});`}>
+            <div class="mb-6 flex items-baseline justify-between">
+              <h2 class="section-label font-mono text-xs font-semibold tracking-widest">ARTICLES</h2>
+              <a href="/articles" class="section-link font-mono text-xs transition-colors">
+                ALL →
+              </a>
+            </div>
+            {articles.length > 0 ? (
+              <ul class="section-list">
+                {articles.map((article) => (
+                  <li>
+                    <a href={`/articles/${article.id}`} class="section-row group flex items-baseline justify-between py-3 transition-all duration-200">
+                      <span class="section-row-title text-sm text-white transition-colors duration-200">
+                        {article.data.title}
+                      </span>
+                      <div class="shrink-0 pl-4 font-mono text-xs text-dim">
+                        <time datetime={article.data.date.toISOString()}>
+                          {new Date(article.data.date).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                        </time>
+                      </div>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p class="text-sm text-dim">Nothing yet.</p>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  .hero-btn-primary {
+    color: var(--btn-accent);
+    border-color: var(--btn-accent);
+    background: color-mix(in srgb, var(--btn-accent) 5%, transparent);
+  }
+  .hero-btn-primary:hover {
+    background: color-mix(in srgb, var(--btn-accent) 15%, transparent);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--btn-accent) 15%, transparent);
+  }
+
+  .hero-btn-secondary {
+    color: var(--color-gray);
+    border-color: var(--color-border);
+    background: transparent;
+  }
+  .hero-btn-secondary:hover {
+    color: var(--btn-accent);
+    border-color: color-mix(in srgb, var(--btn-accent) 50%, transparent);
+    background: color-mix(in srgb, var(--btn-accent) 5%, transparent);
+  }
+
+  /* Section-scoped accent — each section sets --section-accent via inline style */
+  .section-label {
+    color: color-mix(in srgb, var(--section-accent) 60%, var(--color-dim));
+  }
+
+  .section-link {
+    color: var(--color-dim);
+  }
+  .section-link:hover {
+    color: var(--section-accent);
+  }
+
+  .section-stripe {
+    height: 1px;
+    background: var(--section-accent);
+    opacity: 0.3;
+  }
+
+  /* Shared-border list: each row owns its top border, last row also gets bottom */
+  .section-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .section-row {
+    border-top: 1px solid var(--color-border);
+  }
+  .section-list > :last-child > .section-row,
+  .section-list > :last-child.section-row {
+    border-bottom: 1px solid var(--color-border);
+  }
+  .section-row:hover {
+    position: relative;
+    z-index: 1;
+    border-top-color: color-mix(in srgb, var(--section-accent) 30%, transparent);
+    background: color-mix(in srgb, var(--section-accent) 3%, transparent);
+    box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--section-accent) 30%, transparent);
+  }
+  .group:hover .section-row-title {
+    color: var(--section-accent);
+  }
+</style>

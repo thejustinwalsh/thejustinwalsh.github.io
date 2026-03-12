@@ -1,0 +1,29 @@
+name: Renovate
+
+on:
+  # Run on push to main to pick up config changes immediately
+  push:
+    branches: ["main"]
+    paths: ["renovate.json", ".github/workflows/renovate.yml"]
+  # Weekly on Tuesday at 6am EST (11:00 UTC)
+  schedule:
+    - cron: "0 11 * * 2"
+  # Manual trigger for on-demand runs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Renovate
+        uses: renovatebot/github-action@v46.1.4
+        with:
+          token: ${{ secrets.RENOVATE_TOKEN }}
+          configurationFile: renovate.json
