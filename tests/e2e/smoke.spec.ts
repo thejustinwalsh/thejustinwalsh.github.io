@@ -56,7 +56,7 @@ test.describe("smoke tests", () => {
     await expect(searchInput).toBeVisible({ timeout: 5000 });
 
     // Type a search query
-    await searchInput.fill("react");
+    await searchInput.fill("astro");
 
     // Wait for results to appear
     const listbox = page.getByRole("listbox");
