@@ -55,6 +55,12 @@ jobs:
           echo "$FILE_LIST" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
 
+      - name: Setup Node
+        if: steps.check.outputs.skip != 'true' && steps.files.outputs.skip != 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
       - name: Install Copilot CLI
         if: steps.check.outputs.skip != 'true' && steps.files.outputs.skip != 'true'
         run: npm install -g @github/copilot
@@ -64,6 +70,7 @@ jobs:
         continue-on-error: true
         env:
           COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_PAT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           copilot --yolo -p "You are refining auto-generated project pages for a developer portfolio site.
 
@@ -191,7 +198,7 @@ jobs:
             echo "No Discord changes to commit"
           fi
 
-      - name: Merge PR
+      - name: Enable auto-merge
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr merge ${{ github.event.pull_request.number }} --squash
+        run: gh pr merge ${{ github.event.pull_request.number }} --squash --auto

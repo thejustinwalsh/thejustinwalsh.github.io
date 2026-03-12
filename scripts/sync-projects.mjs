@@ -235,26 +235,18 @@ async function resolveHeroImage(repo, slug) {
 // ---------------------------------------------------------------------------
 
 /** Returns the npm package name if the repo has a published (non-private) package, else null. */
-async function getNpmPackageName(owner, repoName) {
+async function getNpmPackageName(repo) {
   try {
-    const content = await gh(
-      "api",
-      `repos/${owner}/${repoName}/contents/package.json`,
-      "--jq",
-      ".content",
+    const text = repo.packageJson?.text;
+    if (!text) return null;
+    const decoded = JSON.parse(text);
+    if (decoded.private) return null;
+    const npmRes = await fetch(
+      `https://registry.npmjs.org/${encodeURIComponent(decoded.name)}`,
     );
-    if (content) {
-      const decoded = JSON.parse(
-        Buffer.from(content, "base64").toString("utf-8"),
-      );
-      if (decoded.private) return null;
-      const npmRes = await fetch(
-        `https://registry.npmjs.org/${encodeURIComponent(decoded.name)}`,
-      );
-      return npmRes.ok ? decoded.name : null;
-    }
+    return npmRes.ok ? decoded.name : null;
   } catch {
-    // no package.json or other error
+    // no package.json or parse error
   }
   return null;
 }
@@ -279,34 +271,14 @@ async function getNpmWeeklyDownloads(packageName) {
 // GitHub release helpers
 // ---------------------------------------------------------------------------
 
-/** Returns the number of releases (0 on failure). */
-async function getReleaseCount(owner, repoName) {
-  try {
-    const out = await gh(
-      "api",
-      `repos/${owner}/${repoName}/releases`,
-      "--jq",
-      "length",
-    );
-    return parseInt(out, 10) || 0;
-  } catch {
-    return 0;
-  }
+/** Returns the number of releases from GraphQL data. */
+function getReleaseCount(repo) {
+  return repo.releases?.totalCount || 0;
 }
 
-/** Returns ISO date string of the most recent release, or null. */
-async function getLatestReleaseDate(owner, repoName) {
-  try {
-    const out = await gh(
-      "api",
-      `repos/${owner}/${repoName}/releases/latest`,
-      "--jq",
-      ".published_at",
-    );
-    return out || null;
-  } catch {
-    return null;
-  }
+/** Returns ISO date string of the most recent release from GraphQL data, or null. */
+function getLatestReleaseDate(repo) {
+  return repo.releases?.nodes?.[0]?.publishedAt || null;
 }
 
 function isRecentlyActive(repo) {
@@ -402,14 +374,9 @@ function computeScore(repo, { npmDownloads, releaseCount, latestReleaseDate }) {
  * Returns { npmPackageName, npmDownloads, releaseCount, latestReleaseDate, score, signals }.
  */
 async function gatherRepoSignals(repo) {
-  const owner = repo.owner.login;
-
-  const [npmPackageName, releaseCount, latestReleaseDate] = await Promise.all([
-    getNpmPackageName(owner, repo.name),
-    getReleaseCount(owner, repo.name),
-    getLatestReleaseDate(owner, repo.name),
-  ]);
-
+  const releaseCount = getReleaseCount(repo);
+  const latestReleaseDate = getLatestReleaseDate(repo);
+  const npmPackageName = await getNpmPackageName(repo);
   const npmDownloads = await getNpmWeeklyDownloads(npmPackageName);
 
   const { score, signals } = computeScore(repo, {
@@ -455,6 +422,13 @@ async function fetchUserRepos(username) {
             primaryLanguage { name }
             openGraphImageUrl
             repositoryTopics(first: 20) { nodes { topic { name } } }
+            releases(first: 1, orderBy: {field: CREATED_AT, direction: DESC}) {
+              totalCount
+              nodes { publishedAt }
+            }
+            packageJson: object(expression: "HEAD:package.json") {
+              ... on Blob { text }
+            }
           }
         }
       }
@@ -496,6 +470,13 @@ async function fetchOrgRepos(username) {
                 primaryLanguage { name }
                 openGraphImageUrl
                 repositoryTopics(first: 20) { nodes { topic { name } } }
+                releases(first: 1, orderBy: {field: CREATED_AT, direction: DESC}) {
+                  totalCount
+                  nodes { publishedAt }
+                }
+                packageJson: object(expression: "HEAD:package.json") {
+                  ... on Blob { text }
+                }
               }
             }
           }

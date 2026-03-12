@@ -34,6 +34,7 @@ jobs:
         id: sync
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: thejustinwalsh
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
           DISCORD_SERVER: ${{ secrets.DISCORD_SERVER }}
         run: pnpm sync
