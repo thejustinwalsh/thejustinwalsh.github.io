@@ -6,6 +6,7 @@ status: active
 hero: /projects/three-flatland.png
 links:
   repo: https://github.com/thejustinwalsh/three-flatland
+  live: https://tjw.dev/three-flatland/
   discord: https://discord.gg/ZtN8QRQEJR
 
 ---

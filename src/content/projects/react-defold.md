@@ -6,6 +6,7 @@ status: completed
 hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/react-defold
+  live: https://tjw.dev/react-defold/
   discord: https://discord.gg/9XV8pDbz4H
 
 ---

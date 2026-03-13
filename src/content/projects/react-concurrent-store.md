@@ -6,6 +6,7 @@ status: active
 hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/react-concurrent-store
+  live: https://tjw.dev/react-concurrent-store/
   discord: https://discord.gg/jFpJHbGSqJ
 
 ---

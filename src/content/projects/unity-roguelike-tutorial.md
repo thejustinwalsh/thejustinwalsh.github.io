@@ -6,6 +6,7 @@ status: completed
 hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/unity-roguelike-tutorial
+  live: https://tjw.dev/unity-roguelike-tutorial/
   discord: https://discord.gg/7JF3ZKMmU6
 
 ---

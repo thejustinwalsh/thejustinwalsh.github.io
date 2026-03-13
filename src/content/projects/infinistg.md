@@ -6,7 +6,7 @@ status: completed
 hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/infinistg
-  live: https://thejustinwalsh.com/infinistg/
+  live: https://tjw.dev/infinistg/
   discord: https://discord.gg/e3hnKqZpeA
 
 ---

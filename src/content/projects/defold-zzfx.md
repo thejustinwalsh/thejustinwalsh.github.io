@@ -6,6 +6,7 @@ status: completed
 hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/defold-zzfx
+  live: https://tjw.dev/defold-zzfx/
   discord: https://discord.gg/8wXAZgb2ft
 
 ---

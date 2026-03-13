@@ -6,6 +6,7 @@ status: active
 hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/defold-xmath
+  live: https://tjw.dev/defold-xmath/
   discord: https://discord.gg/qTM3aRaKqR
 
 ---

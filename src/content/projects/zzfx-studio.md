@@ -6,6 +6,7 @@ status: active
 hero: /projects/zzfx-studio.gif
 links:
   repo: https://github.com/thejustinwalsh/zzfx-studio
+  live: https://tjw.dev/zzfx-studio/
   discord: https://discord.gg/eRWuk7W4tY
 
 ---

@@ -6,6 +6,7 @@ status: completed
 hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/dev-challenges
+  live: https://tjw.dev/dev-challenges/
   discord: https://discord.gg/48VGBFZFEf
 
 ---
