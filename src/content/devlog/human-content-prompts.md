@@ -9,11 +9,13 @@ tags:
   - agentic
   - skills
 project: thejustinwalsh-github-io
-draft: true
+draft: false
 ---
+
 <!-- WRITING PROMPT — target 150-300 words
 You added two custom Claude Code skills to your user account: /devlog and /article. Both analyze the current session's work and generate markdown drafts with correct frontmatter, writing prompts, and structure — dropped directly into the right content directory. The interesting bit is the content-type guardrail: /devlog checks if a topic is too broad and suggests /article instead (and vice versa), using AskUserQuestion to confirm before proceeding. Word targets enforce the distinction — 150-300 for devlog, 800-1500 for articles. Write this as a quick "here's what I rigged up and why" post.
 -->
+
 ## Agents Prompting Humans
 
 I want to write and share more of what I do, and I live in VS Code, Obsidian, and an agent TUI. While the dopamine drips from the AI pair programming session with infinite possibility, when is there time to write anything down?
@@ -29,6 +31,7 @@ Created two Claude Code slash commands (`~/.claude/commands/devlog.md` and `arti
 ## Notes
 
 <!-- Bullet points: raw context, links, commands, file paths from the session -->
+
 - Commands live in `~/.claude/commands/` (user-level, not project-level)
 - `/devlog` targets `src/content/devlog/`, `/article` targets `src/content/articles/`
 - Both use `AskUserQuestion` tool to confirm topic selection and content-type fit
