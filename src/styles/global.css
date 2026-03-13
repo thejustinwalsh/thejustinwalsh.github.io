@@ -149,33 +149,102 @@ body {
   outline-offset: 2px;
 }
 
-/* ── Obsidian Callouts ── */
-.callout {
+/* ── Obsidian Callouts ──
+   Structure: div[data-callout][data-callout-type]
+              ├─ div[data-callout-title]
+              └─ div[data-callout-body]
+   Each type gets a --callout-accent variable for border + title color.
+   ── */
+[data-callout] {
+  --callout-accent: var(--color-gray);
   margin-block: 1.5rem;
-  padding: 1rem 1rem 1rem 1.25rem;
-  border-left: 3px solid var(--color-border-bright);
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--callout-accent);
   background: var(--color-surface);
 }
 
-.callout[data-callout="note"] {
-  border-left-color: var(--color-blue);
+[data-callout-title] {
+  padding: 0.625rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--callout-accent);
+  border-bottom: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--callout-accent) 4%, transparent);
 }
 
-.callout[data-callout="tip"] {
-  border-left-color: var(--color-mint);
+[data-callout-body] {
+  padding: 0.75rem 1rem;
 }
 
-.callout[data-callout="warning"] {
-  border-left-color: var(--color-peach);
+[data-callout-body] > :first-child { margin-top: 0; }
+[data-callout-body] > :last-child  { margin-bottom: 0; }
+
+/* ── Note (default informational) ── */
+[data-callout-type="note"] { --callout-accent: var(--color-blue); }
+
+/* ── Abstract / Summary / TLDR ── */
+[data-callout-type="abstract"],
+[data-callout-type="summary"],
+[data-callout-type="tldr"] { --callout-accent: var(--color-sky); }
+
+/* ── Info ── */
+[data-callout-type="info"] { --callout-accent: var(--color-cyan); }
+
+/* ── Todo ── */
+[data-callout-type="todo"] { --callout-accent: var(--color-blue); }
+
+/* ── Tip / Hint / Important ── */
+[data-callout-type="tip"],
+[data-callout-type="hint"],
+[data-callout-type="important"] { --callout-accent: var(--color-mint); }
+
+/* ── Success / Check / Done ── */
+[data-callout-type="success"],
+[data-callout-type="check"],
+[data-callout-type="done"] { --callout-accent: var(--color-seafoam); }
+
+/* ── Question / Help / FAQ ── */
+[data-callout-type="question"],
+[data-callout-type="help"],
+[data-callout-type="faq"] { --callout-accent: var(--color-yellow); }
+
+/* ── Warning / Caution / Attention ── */
+[data-callout-type="warning"],
+[data-callout-type="caution"],
+[data-callout-type="attention"] { --callout-accent: var(--color-peach); }
+
+/* ── Failure / Fail / Missing ── */
+[data-callout-type="failure"],
+[data-callout-type="fail"],
+[data-callout-type="missing"] { --callout-accent: var(--color-rose); }
+
+/* ── Danger / Error ── */
+[data-callout-type="danger"],
+[data-callout-type="error"] { --callout-accent: var(--color-pink); }
+
+/* ── Bug ── */
+[data-callout-type="bug"] { --callout-accent: var(--color-pink); }
+
+/* ── Example ── */
+[data-callout-type="example"] { --callout-accent: var(--color-purple); }
+
+/* ── Quote / Cite ── */
+[data-callout-type="quote"],
+[data-callout-type="cite"] {
+  --callout-accent: var(--color-dim);
+  border-left-style: solid;
 }
 
-.callout[data-callout="danger"],
-.callout[data-callout="error"] {
-  border-left-color: var(--color-pink);
-}
-
-.callout[data-callout="info"] {
-  border-left-color: var(--color-cyan);
+/* ── Prevent prose blockquote styles from bleeding into callouts ── */
+.prose [data-callout] {
+  font-style: normal;
+  padding-left: 0;
+  border-left-width: 3px;
+  color: var(--color-gray);
 }
 
 /* ── Prose (markdown content) ── */

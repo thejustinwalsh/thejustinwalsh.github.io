@@ -3,7 +3,7 @@ title: Hello World
 description: First post — migrated to Astro with Obsidian-first content.
 date: 2026-03-09
 tags: [meta, astro, obsidian]
-project: example-project
+project: three-flatland
 ---
 
 Welcome to the devlog. This site is built with [Astro](https://astro.build) and authored in Obsidian.
@@ -20,4 +20,4 @@ Welcome to the devlog. This site is built with [Astro](https://astro.build) and 
 
 ## Linking to projects
 
-This post is linked to [[example-project]] via the `project` frontmatter field. The project page automatically lists this devlog entry.
+This post is linked to [[projects/three-flatland]] via the `project` frontmatter field. The project page automatically lists this devlog entry.
