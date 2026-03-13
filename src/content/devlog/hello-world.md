@@ -2,8 +2,10 @@
 title: Hello World
 description: First post — migrated to Astro with Obsidian-first content.
 date: 2026-03-09
-tags: [meta, astro, obsidian]
-project: three-flatland
+tags:
+  - meta
+  - astro
+  - obsidian
 ---
 
 Welcome to the devlog. This site is built with [Astro](https://astro.build) and authored in Obsidian.
