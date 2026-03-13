@@ -162,7 +162,7 @@ export default function Search({ scope = "global" }: { scope?: SearchScope }) {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="cursor-pointer px-2 py-1 text-dim transition-colors duration-200 hover:text-white"
+        className="flex cursor-pointer items-center px-2 py-1 text-dim transition-colors duration-200 hover:text-white"
         aria-label={`Search (${modKey("K")})`}
         aria-keyshortcuts={isMac ? "Meta+k" : "Control+k"}
         title={`Search (${modKey("K")})`}

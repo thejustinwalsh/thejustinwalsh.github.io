@@ -21,6 +21,8 @@
     "@astrojs/mdx": "^4.3.0",
     "@astrojs/react": "^4.4.2",
     "@astrojs/sitemap": "^3.7.0",
+    "@fontsource-variable/jetbrains-mono": "^5.2.8",
+    "@fontsource-variable/space-grotesk": "^5.2.10",
     "@headlessui/react": "^2.2.9",
     "@r4ai/remark-callout": "^0.6.2",
     "@tailwindcss/vite": "^4.2.1",
