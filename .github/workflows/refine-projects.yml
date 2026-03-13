@@ -55,11 +55,20 @@ jobs:
           echo "$FILE_LIST" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
 
+      - name: Setup pnpm
+        if: steps.check.outputs.skip != 'true' && steps.files.outputs.skip != 'true'
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node
         if: steps.check.outputs.skip != 'true' && steps.files.outputs.skip != 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: "pnpm"
+
+      - name: Install dependencies
+        if: steps.check.outputs.skip != 'true' && steps.files.outputs.skip != 'true'
+        run: pnpm install --frozen-lockfile
 
       - name: Install Copilot CLI
         if: steps.check.outputs.skip != 'true' && steps.files.outputs.skip != 'true'
@@ -123,7 +132,14 @@ jobs:
 
           Files to refine:${{ steps.files.outputs.file_list }}
 
-          IMPORTANT: Only write to the files listed above. Preserve order, stars, npmDownloads, lastActivity, tags, status, featured, and draft fields exactly as they are."
+          IMPORTANT: Only write to the files listed above. Preserve order, stars, npmDownloads, lastActivity, tags, status, featured, and draft fields exactly as they are.
+
+          IMPORTANT: After you finish editing ALL files, run 'pnpm lint:projects' to validate every file's YAML frontmatter.
+          If the linter reports errors, fix them and re-run until it passes with zero errors.
+          Common mistakes to avoid:
+          - Each YAML key in the links block MUST be on its own line, properly indented with 2 spaces
+          - Strings containing colons must be quoted
+          - URLs do not need quotes unless they contain special YAML characters"
 
       - name: Commit refined descriptions
         if: steps.check.outputs.skip != 'true' && steps.files.outputs.skip != 'true'
@@ -198,7 +214,15 @@ jobs:
             echo "No Discord changes to commit"
           fi
 
+      # Use a GitHub App token so the merge push triggers CI → Deploy
+      - name: Generate app token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_CLIENT_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - name: Enable auto-merge
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: gh pr merge ${{ github.event.pull_request.number }} --squash --auto
