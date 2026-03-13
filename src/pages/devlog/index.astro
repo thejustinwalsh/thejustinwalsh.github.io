@@ -3,7 +3,8 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Tag from "@/components/Tag.astro";
 import { getCollection } from "astro:content";
 
-const posts = (await getCollection("devlog", ({ data }) => !data.draft))
+const isDev = import.meta.env.DEV;
+const posts = (await getCollection("devlog", ({ data }) => isDev || !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
@@ -17,15 +18,23 @@ const posts = (await getCollection("devlog", ({ data }) => !data.draft))
     {posts.length > 0 ? (
       <ul class="space-y-1">
         {posts.map((post, i) => (
-          <li class:list={[`animate-in delay-${Math.min(i + 1, 6)}`]}>
+          <li class:list={[
+            `animate-in delay-${Math.min(i + 1, 6)}`,
+            post.data.draft && "draft-card",
+          ]}>
             <a
               href={`/devlog/${post.id}`}
               class="entry-row group flex items-baseline justify-between py-4"
             >
               <div>
-                <h2 class="entry-title font-mono text-sm font-medium text-white transition-colors duration-200">
-                  {post.data.title}
-                </h2>
+                <div class="flex items-center gap-2">
+                  <h2 class="entry-title font-mono text-sm font-medium text-white transition-colors duration-200">
+                    {post.data.title}
+                  </h2>
+                  {post.data.draft && (
+                    <span class="font-mono text-xs text-dim border border-border px-1.5 py-0.5">DRAFT</span>
+                  )}
+                </div>
                 {post.data.tags.length > 0 && (
                   <div class="mt-1.5 flex flex-wrap gap-1">
                     {post.data.tags.map((tag: string) => (
@@ -51,3 +60,10 @@ const posts = (await getCollection("devlog", ({ data }) => !data.draft))
     )}
   </section>
 </BaseLayout>
+
+<style>
+  .draft-card {
+    opacity: 0.4;
+    filter: grayscale(100%);
+  }
+</style>

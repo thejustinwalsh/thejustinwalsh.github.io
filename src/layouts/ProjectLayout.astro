@@ -79,21 +79,26 @@ devlogEntries.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
         {/* Devlog entries */}
         {devlogEntries.length > 0 && (
-          <div class="mt-12 border-t border-border pt-10">
-            <h2 class="mb-6 font-mono text-xs font-semibold tracking-widest text-dim">DEVLOG</h2>
-            <ul class="space-y-4">
+          <div class="mt-12 border-t border-border pt-10 section-accented">
+            <h2 class="mb-6 section-label font-mono text-xs font-semibold tracking-widest">DEVLOG</h2>
+            <ul class="section-list">
               {devlogEntries.map((post) => (
-                <li class="devlog-row group border-b border-border py-3 first:border-t">
-                  <a href={`/devlog/${post.id}`} class="flex items-baseline justify-between gap-4">
-                    <span class="devlog-title text-sm font-semibold text-white transition-colors duration-200">
+                <li>
+                  <a href={`/devlog/${post.id}`} class="section-row group flex items-baseline justify-between py-3 transition-all duration-200">
+                    <span class="section-row-title text-sm text-white transition-colors duration-200">
                       {post.data.title}
                     </span>
-                    <time
-                      class="shrink-0 font-mono text-xs text-dim"
-                      datetime={post.data.date.toISOString()}
-                    >
-                      {new Date(post.data.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
-                    </time>
+                    <div class="shrink-0 pl-4 flex items-center gap-2 font-mono text-xs text-dim">
+                      <time datetime={post.data.date.toISOString()}>
+                        {new Date(post.data.date).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                      </time>
+                      {post.data.tags.length > 0 && (
+                        <>
+                          <span class="text-border-bright">/</span>
+                          <span>{post.data.tags[0]}</span>
+                        </>
+                      )}
+                    </div>
                   </a>
                 </li>
               ))}
@@ -193,11 +198,32 @@ devlogEntries.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
   .sidebar-link {
     color: var(--page-accent);
   }
-  .devlog-row:hover {
-    border-bottom-color: color-mix(in srgb, var(--page-accent) 30%, transparent);
-    background: color-mix(in srgb, var(--page-accent) 3%, transparent);
+  .section-accented {
+    --section-accent: var(--page-accent);
   }
-  .devlog-row:hover .devlog-title {
-    color: var(--page-accent);
+  .section-label {
+    color: color-mix(in srgb, var(--section-accent) 60%, var(--color-dim));
+  }
+  .section-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .section-row {
+    border-top: 1px solid var(--color-border);
+  }
+  .section-list > :last-child > .section-row,
+  .section-list > :last-child.section-row {
+    border-bottom: 1px solid var(--color-border);
+  }
+  .section-row:hover {
+    position: relative;
+    z-index: 1;
+    border-top-color: color-mix(in srgb, var(--section-accent) 30%, transparent);
+    background: color-mix(in srgb, var(--section-accent) 3%, transparent);
+    box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--section-accent) 30%, transparent);
+  }
+  .group:hover .section-row-title {
+    color: var(--section-accent);
   }
 </style>

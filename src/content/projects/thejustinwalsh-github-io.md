@@ -3,8 +3,7 @@ title: "tjw.dev"
 description: "Justin Walsh's personal devlog and portfolio — a dark, fast, Astro-powered site for game dev writing, creative tech projects, and interactive experiments."
 tags: [typescript]
 status: active
-draft: true
-hero: ../../assets/projects/thejustinwalsh-github-io.png
+draft: false
 links:
   repo: https://github.com/thejustinwalsh/thejustinwalsh.github.io
   live: https://tjw.dev/

@@ -3,6 +3,7 @@ import { version } from "../../package.json";
 
 const now = new Date();
 const calver = `${now.getFullYear()}.${now.getMonth() + 1}.${now.getDate()}`;
+const isDev = import.meta.env.DEV;
 
 const socials = [
   { href: "https://github.com/thejustinwalsh", label: "GitHub" },
@@ -29,6 +30,14 @@ const socials = [
           {label}
         </a>
       ))}
+      {isDev && (
+        <a
+          href="/branding"
+          class="social-link font-mono text-xs text-pink transition-colors"
+        >
+          Branding
+        </a>
+      )}
     </div>
   </div>
 </footer>

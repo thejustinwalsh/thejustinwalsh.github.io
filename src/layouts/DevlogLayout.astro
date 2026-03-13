@@ -2,6 +2,7 @@
 import BaseLayout from "./BaseLayout.astro";
 import Tag from "@/components/Tag.astro";
 import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
 
 interface Props {
   entry: CollectionEntry<"devlog">;
@@ -9,6 +10,10 @@ interface Props {
 
 const { entry } = Astro.props;
 const { title, description, date, tags, project } = entry.data;
+
+const isDev = import.meta.env.DEV;
+const projectEntry = project ? await getEntry("projects", project) : null;
+const showProject = projectEntry && (isDev || !projectEntry.data.draft);
 
 const formattedDate = new Date(date).toLocaleDateString("en-US", {
   year: "numeric",
@@ -22,11 +27,11 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
     <header class="mb-12">
       <div class="mb-4 flex items-center gap-3 font-mono text-xs tracking-widest text-dim">
         <time datetime={date.toISOString()}>{formattedDate.toUpperCase()}</time>
-        {project && (
+        {showProject && (
           <>
             <span class="text-border-bright">/</span>
             <a href={`/projects/${project}`} class="accent-link transition-colors hover:text-white">
-              {project.toUpperCase()}
+              {projectEntry.data.title.toUpperCase()}
             </a>
           </>
         )}

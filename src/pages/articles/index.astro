@@ -3,7 +3,8 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Tag from "@/components/Tag.astro";
 import { getCollection } from "astro:content";
 
-const articles = (await getCollection("articles", ({ data }) => !data.draft))
+const isDev = import.meta.env.DEV;
+const articles = (await getCollection("articles", ({ data }) => isDev || !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
@@ -20,11 +21,19 @@ const articles = (await getCollection("articles", ({ data }) => !data.draft))
           const wordCount = article.body?.split(/\s+/).length ?? 0;
           const readingTime = Math.max(1, Math.round(wordCount / 200));
           return (
-            <li class:list={[`animate-in delay-${Math.min(i + 1, 6)}`]}>
+            <li class:list={[
+              `animate-in delay-${Math.min(i + 1, 6)}`,
+              article.data.draft && "draft-card",
+            ]}>
               <a href={`/articles/${article.id}`} class="group block">
-                <h2 class="entry-title font-mono text-lg font-semibold text-white transition-colors duration-200">
-                  {article.data.title}
-                </h2>
+                <div class="flex items-center gap-2">
+                  <h2 class="entry-title font-mono text-lg font-semibold text-white transition-colors duration-200">
+                    {article.data.title}
+                  </h2>
+                  {article.data.draft && (
+                    <span class="font-mono text-xs text-dim border border-border px-1.5 py-0.5">DRAFT</span>
+                  )}
+                </div>
                 {article.data.description && (
                   <p class="description-clamp mt-1 text-sm leading-relaxed text-gray">{article.data.description}</p>
                 )}
@@ -56,3 +65,10 @@ const articles = (await getCollection("articles", ({ data }) => !data.draft))
     )}
   </section>
 </BaseLayout>
+
+<style>
+  .draft-card {
+    opacity: 0.4;
+    filter: grayscale(100%);
+  }
+</style>

@@ -8,18 +8,20 @@ import { getCollection } from "astro:content";
 import { PAGE_ACCENTS } from "@/lib/colors";
 import { getProjectOrder } from "@/lib/project-stats";
 
-const recentPosts = (await getCollection("devlog", ({ data }) => !data.draft))
+const isDev = import.meta.env.DEV;
+
+const recentPosts = (await getCollection("devlog", ({ data }) => isDev || !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 5);
 
-const projects = (await getCollection("projects", ({ data }) => !data.draft))
+const projects = (await getCollection("projects", ({ data }) => isDev || !data.draft))
   .sort((a, b) => {
     if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
     return getProjectOrder(b.id) - getProjectOrder(a.id);
   })
   .slice(0, 4);
 
-const articles = (await getCollection("articles", ({ data }) => !data.draft))
+const articles = (await getCollection("articles", ({ data }) => isDev || !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 5);
 ---
@@ -128,10 +130,13 @@ const articles = (await getCollection("articles", ({ data }) => !data.draft))
             {recentPosts.length > 0 ? (
               <ul class="section-list">
                 {recentPosts.map((post) => (
-                  <li>
+                  <li class:list={[post.data.draft && "draft-card"]}>
                     <a href={`/devlog/${post.id}`} class="section-row group flex items-baseline justify-between py-3 transition-all duration-200">
                       <span class="section-row-title text-sm text-white transition-colors duration-200">
                         {post.data.title}
+                        {post.data.draft && (
+                          <span class="ml-2 font-mono text-xs text-dim border border-border px-1.5 py-0.5">DRAFT</span>
+                        )}
                       </span>
                       <div class="shrink-0 pl-4 flex items-center gap-2 font-mono text-xs text-dim">
                         <time datetime={post.data.date.toISOString()}>
@@ -164,10 +169,13 @@ const articles = (await getCollection("articles", ({ data }) => !data.draft))
             {articles.length > 0 ? (
               <ul class="section-list">
                 {articles.map((article) => (
-                  <li>
+                  <li class:list={[article.data.draft && "draft-card"]}>
                     <a href={`/articles/${article.id}`} class="section-row group flex items-baseline justify-between py-3 transition-all duration-200">
                       <span class="section-row-title text-sm text-white transition-colors duration-200">
                         {article.data.title}
+                        {article.data.draft && (
+                          <span class="ml-2 font-mono text-xs text-dim border border-border px-1.5 py-0.5">DRAFT</span>
+                        )}
                       </span>
                       <div class="shrink-0 pl-4 font-mono text-xs text-dim">
                         <time datetime={article.data.date.toISOString()}>
@@ -250,5 +258,10 @@ const articles = (await getCollection("articles", ({ data }) => !data.draft))
   }
   .group:hover .section-row-title {
     color: var(--section-accent);
+  }
+
+  .draft-card {
+    opacity: 0.4;
+    filter: grayscale(100%);
   }
 </style>

@@ -1,0 +1,517 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const assets = [
+  {
+    id: "og-image",
+    label: "OG Image",
+    note: "1200 × 630 — website social preview (Discord, Twitter, LinkedIn, iMessage)",
+    width: 1200,
+    height: 630,
+    type: "banner" as const,
+  },
+  {
+    id: "github-banner",
+    label: "GitHub Banner",
+    note: "1280 × 640 — repository social preview",
+    width: 1280,
+    height: 640,
+    type: "banner" as const,
+  },
+  {
+    id: "square-image",
+    label: "Square Image",
+    note: "512 × 512 — profile picture, app icon, npm avatar",
+    width: 512,
+    height: 512,
+    type: "square" as const,
+  },
+  {
+    id: "favicon",
+    label: "Favicon",
+    note: "32 × 32 — browser tab icon (export as SVG or PNG)",
+    width: 32,
+    height: 32,
+    type: "favicon" as const,
+  },
+];
+---
+
+<BaseLayout title="Branding" accent="home">
+  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <h1 class="font-mono text-xs font-semibold uppercase tracking-widest text-dim">
+      Branding Assets
+    </h1>
+    <p class="mt-2 text-sm text-gray">
+      Click any asset to open it at 1:1 in the top layer for pixel-perfect node capture.
+    </p>
+
+    <div class="mt-12 space-y-20">
+      {assets.map(({ id, label, note, width, height, type }) => (
+        <section>
+          <div class="mb-3 flex items-baseline justify-between">
+            <h2 class="font-mono text-sm font-bold text-white">{label}</h2>
+            <span class="font-mono text-xs text-dim">{width} × {height}</span>
+          </div>
+          <p class="mb-4 text-xs text-dim">{note}</p>
+
+          {/* Scrollable preview — click to open dialog */}
+          <div
+            class:list={[
+              "asset-preview overflow-auto border border-border cursor-pointer transition-colors hover:border-cyan",
+              (type === "square" || type === "favicon") && "inline-block"
+            ]}
+            data-opens={`${id}-dialog`}
+            role="button"
+            tabindex="0"
+          >
+            {type === "banner" && (
+              <div class="banner" style={`width:${width}px;height:${height}px;`}>
+                <div class="banner-noise" />
+                <div class="banner-top-stripe" />
+                <div class="banner-content">
+                  <div class="banner-left">
+                    <div class="banner-name">
+                      <span class="name-first">Justin</span>
+                      <span class="name-last">Walsh</span>
+                    </div>
+                    <div class="banner-domain">tjw<span class="dot">.</span>dev</div>
+                  </div>
+                  <div class="banner-right">
+                    <p class="banner-tagline">
+                      Game dev, creative tech<br />& interactive experiences
+                    </p>
+                    <div class="banner-handles">
+                      <span>github.com/thejustinwalsh</span>
+                      <span class="banner-sep">/</span>
+                      <span>@thejustinwalsh</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="banner-bottom-stripe">
+                  <div class="s-cyan" /><div class="s-pink" /><div class="s-yellow" />
+                </div>
+              </div>
+            )}
+
+            {type === "square" && (
+              <div class="square" style={`width:${width}px;height:${height}px;`}>
+                <div class="banner-noise" />
+                <div class="banner-top-stripe" />
+                <div class="square-content">
+                  <div class="square-name">
+                    <span class="sq-first">Justin</span>
+                    <span class="sq-last">Walsh</span>
+                  </div>
+                  <div class="square-domain">tjw<span class="dot">.</span>dev</div>
+                </div>
+                <div class="banner-bottom-stripe">
+                  <div class="s-cyan" /><div class="s-pink" /><div class="s-yellow" />
+                </div>
+              </div>
+            )}
+
+            {type === "favicon" && (
+              <div class="favicon-wrapper">
+                <div class="fav" style={`width:${width}px;height:${height}px;`}>
+                  <div class="fav-mark">tjw</div>
+                  <div class="fav-underline" />
+                </div>
+                <div class="ml-8 flex flex-col items-center gap-2">
+                  <div class="fav fav-preview" style="width:320px;height:320px;">
+                    <div class="fav-mark">tjw</div>
+                    <div class="fav-underline" />
+                  </div>
+                  <span class="font-mono text-xs text-dim">10× preview</span>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* ── Top-layer dialog — exact 1:1 for export ── */}
+          <dialog id={`${id}-dialog`} class="export-dialog">
+            <div class="export-backdrop" />
+            <div class="export-container">
+              <div class="export-header">
+                <span class="font-mono text-xs text-dim">{label} — {width} × {height} — right-click node → "Capture node screenshot"</span>
+                <button class="export-close font-mono text-xs text-dim hover:text-white" type="button">ESC</button>
+              </div>
+
+              {type === "banner" && (
+                <div id={`${id}-export`} class="banner" style={`width:${width}px;height:${height}px;`}>
+                  <div class="banner-noise" />
+                  <div class="banner-top-stripe" />
+                  <div class="banner-content">
+                    <div class="banner-left">
+                      <div class="banner-name">
+                        <span class="name-first">Justin</span>
+                        <span class="name-last">Walsh</span>
+                      </div>
+                      <div class="banner-domain">tjw<span class="dot">.</span>dev</div>
+                    </div>
+                    <div class="banner-right">
+                      <p class="banner-tagline">
+                        Game dev, creative tech<br />& interactive experiences
+                      </p>
+                      <div class="banner-handles">
+                        <span>github.com/thejustinwalsh</span>
+                        <span class="banner-sep">/</span>
+                        <span>@thejustinwalsh</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="banner-bottom-stripe">
+                    <div class="s-cyan" /><div class="s-pink" /><div class="s-yellow" />
+                  </div>
+                </div>
+              )}
+
+              {type === "square" && (
+                <div id={`${id}-export`} class="square" style={`width:${width}px;height:${height}px;`}>
+                  <div class="banner-noise" />
+                  <div class="banner-top-stripe" />
+                  <div class="square-content">
+                    <div class="square-name">
+                      <span class="sq-first">Justin</span>
+                      <span class="sq-last">Walsh</span>
+                    </div>
+                    <div class="square-domain">tjw<span class="dot">.</span>dev</div>
+                  </div>
+                  <div class="banner-bottom-stripe">
+                    <div class="s-cyan" /><div class="s-pink" /><div class="s-yellow" />
+                  </div>
+                </div>
+              )}
+
+              {type === "favicon" && (
+                <div id={`${id}-export`} class="fav" style={`width:${width}px;height:${height}px;`}>
+                  <div class="fav-mark">tjw</div>
+                  <div class="fav-underline" />
+                </div>
+              )}
+            </div>
+          </dialog>
+        </section>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-opens]").forEach((btn) => {
+    const dialogId = btn.dataset.opens!;
+    const dialog = document.getElementById(dialogId) as HTMLDialogElement;
+    if (!dialog) return;
+
+    btn.addEventListener("click", () => dialog.showModal());
+
+    // Close on backdrop click
+    dialog.querySelector(".export-backdrop")?.addEventListener("click", () => dialog.close());
+
+    // Close button
+    dialog.querySelector(".export-close")?.addEventListener("click", () => dialog.close());
+  });
+</script>
+
+<style>
+  /* ══════════════════════════════════════════
+     Export dialog — top layer, no clipping
+     ══════════════════════════════════════════ */
+
+  .export-dialog {
+    border: none;
+    background: transparent;
+    padding: 0;
+    max-width: none;
+    max-height: none;
+    overflow: auto;
+    margin: 0;
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .export-dialog:not([open]) {
+    display: none;
+  }
+
+  .export-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.85);
+  }
+
+  .export-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .export-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .export-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 24px;
+  }
+
+  .export-close {
+    background: none;
+    border: 1px solid #222228;
+    padding: 4px 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .export-close:hover {
+    border-color: #5efdf7;
+  }
+
+  /* ══════════════════════════════════════════
+     Preview button reset
+     ══════════════════════════════════════════ */
+
+  .asset-preview {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* ══════════════════════════════════════════
+     Shared — noise, stripes
+     ══════════════════════════════════════════ */
+
+  .banner-noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+    pointer-events: none;
+  }
+
+  .banner-top-stripe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      #5efdf7 0%, #5efdf7 33%,
+      #ff5dcc 33%, #ff5dcc 66%,
+      #fdfe89 66%, #fdfe89 100%
+    );
+  }
+
+  .banner-bottom-stripe {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    height: 4px;
+  }
+
+  .s-cyan   { flex: 5; background: #5efdf7; }
+  .s-pink   { flex: 3; background: #ff5dcc; }
+  .s-yellow { flex: 2; background: #fdfe89; }
+
+  /* ══════════════════════════════════════════
+     Wide banners (OG 1200×630, GitHub 1280×640)
+     ══════════════════════════════════════════ */
+
+  .banner {
+    position: relative;
+    overflow: hidden;
+    background-color: #0C0C0E;
+    font-family: var(--font-mono);
+    color: #D4D4D8;
+    flex-shrink: 0;
+  }
+
+  .banner-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+    padding: 80px 96px;
+    gap: 48px;
+  }
+
+  .banner-left {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .banner-name {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.88;
+  }
+
+  .name-first,
+  .name-last {
+    font-size: 128px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #D4D4D8;
+  }
+
+  .banner-domain {
+    font-size: 36px;
+    font-weight: 700;
+    color: #78787E;
+    letter-spacing: 0.02em;
+    margin-top: 4px;
+  }
+
+  .dot {
+    color: #5efdf7;
+  }
+
+  .banner-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: auto;
+    padding-bottom: 4px;
+  }
+
+  .banner-tagline {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #78787E;
+    margin: 0;
+    text-align: right;
+  }
+
+  .banner-handles {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #44444A;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .banner-sep {
+    color: #222228;
+  }
+
+  /* ══════════════════════════════════════════
+     Square (512×512)
+     ══════════════════════════════════════════ */
+
+  .square {
+    position: relative;
+    overflow: hidden;
+    background-color: #0C0C0E;
+    font-family: var(--font-mono);
+    flex-shrink: 0;
+  }
+
+  .square-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 64px;
+    gap: 12px;
+  }
+
+  .square-name {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.88;
+  }
+
+  .sq-first,
+  .sq-last {
+    font-size: 88px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #D4D4D8;
+  }
+
+  .square-domain {
+    font-size: 28px;
+    font-weight: 700;
+    color: #78787E;
+    letter-spacing: 0.02em;
+    margin-top: 8px;
+  }
+
+  /* ══════════════════════════════════════════
+     Favicon (32×32)
+     ══════════════════════════════════════════ */
+
+  .favicon-wrapper {
+    display: flex;
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .fav {
+    position: relative;
+    flex-shrink: 0;
+    background-color: #0C0C0E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    overflow: hidden;
+  }
+
+  .fav-mark {
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    color: #D4D4D8;
+  }
+
+  .fav-underline {
+    background: linear-gradient(
+      90deg,
+      #5efdf7 0%, #5efdf7 50%,
+      #ff5dcc 50%, #ff5dcc 75%,
+      #fdfe89 75%, #fdfe89 100%
+    );
+  }
+
+  /* True 32px favicon */
+  .fav:not(.fav-preview) .fav-mark {
+    font-size: 14px;
+  }
+  .fav:not(.fav-preview) .fav-underline {
+    width: 20px;
+    height: 2px;
+    margin-top: 1px;
+  }
+
+  /* 10x preview */
+  .fav-preview .fav-mark {
+    font-size: 140px;
+  }
+  .fav-preview .fav-underline {
+    width: 200px;
+    height: 20px;
+    margin-top: 10px;
+  }
+</style>
