@@ -1,7 +1,8 @@
 ---
 import { version } from "../../package.json";
 
-const buildDate = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "2-digit" });
+const now = new Date();
+const calver = `${now.getFullYear()}.${now.getMonth() + 1}.${now.getDate()}`;
 
 const socials = [
   { href: "https://github.com/thejustinwalsh", label: "GitHub" },
@@ -15,7 +16,7 @@ const socials = [
   <div class="accent-stripe" aria-hidden="true" />
   <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-6">
     <p class="font-mono text-xs text-dim">
-      &copy; {new Date().getFullYear()} Justin Walsh <span class="text-border-bright">/</span> v{version} <span class="text-border-bright">/</span> <time class="tabular-nums">{buildDate}</time>
+      &copy; {new Date().getFullYear()} Justin Walsh <span class="text-border-bright">/</span> v{version} <span class="text-border-bright">/</span> <time class="tabular-nums">{calver}</time>
     </p>
     <div class="flex gap-4">
       {socials.map(({ href, label }) => (
