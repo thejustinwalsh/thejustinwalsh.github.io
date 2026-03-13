@@ -3,6 +3,7 @@ title: "Three Flatland"
 description: "A WebGPU-native 2D rendering library for Three.js with composable TSL shaders, automatic batching, and first-class React Three Fiber support."
 tags: [typescript, 2d, graphics, r3f, react-three-fiber, three-js, threejs, tsl, webgpu]
 status: active
+featured: true
 hero: /projects/three-flatland.png
 links:
   repo: https://github.com/thejustinwalsh/three-flatland

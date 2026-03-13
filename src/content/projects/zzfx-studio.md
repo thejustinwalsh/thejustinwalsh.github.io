@@ -3,6 +3,7 @@ title: "ZzFX Studio"
 description: "An algorithmic 4-channel chiptune tracker that generates complete retro game music in milliseconds using pure math — no samples, no AI, no network calls."
 tags: [typescript, algorithmic-music, audio, chiptune, game-jam, retro, tracker, zzfx, zzfxm]
 status: active
+featured: true
 hero: /projects/zzfx-studio.gif
 links:
   repo: https://github.com/thejustinwalsh/zzfx-studio

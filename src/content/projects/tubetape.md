@@ -3,6 +3,7 @@ title: "Tubetape"
 description: "A native desktop app for extracting audio from YouTube, slicing precise samples with BPM detection, and building a local library — no yt-dlp installation required."
 tags: [typescript, audio-editing, beats, music-production, react, rust, tauri, youtube-downloader]
 status: active
+featured: true
 hero: /projects/tubetape.png
 links:
   repo: https://github.com/thejustinwalsh/tubetape
