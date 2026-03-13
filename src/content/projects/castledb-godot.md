@@ -5,7 +5,8 @@ tags: [gdscript]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/castledb-godot  discord: https://discord.gg/sXQBsfxWRe
+  repo: https://github.com/thejustinwalsh/castledb-godot
+  discord: https://discord.gg/sXQBsfxWRe
 
 ---
 

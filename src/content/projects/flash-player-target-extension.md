@@ -5,7 +5,8 @@ tags: []
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/flash-player-target-extension  discord: https://discord.gg/k2XbQmUSBs
+  repo: https://github.com/thejustinwalsh/flash-player-target-extension
+  discord: https://discord.gg/k2XbQmUSBs
 
 ---
 

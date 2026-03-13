@@ -5,7 +5,8 @@ tags: [typescript, adobe, uxp, spectrum, react]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/react-uxp-spectrum  discord: https://discord.gg/qftZaETmbz
+  repo: https://github.com/thejustinwalsh/react-uxp-spectrum
+  discord: https://discord.gg/qftZaETmbz
 
 ---
 

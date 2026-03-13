@@ -5,7 +5,8 @@ tags: [typescript]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/protoparse  discord: https://discord.gg/4xFv7VjvCX
+  repo: https://github.com/thejustinwalsh/protoparse
+  discord: https://discord.gg/4xFv7VjvCX
 
 ---
 

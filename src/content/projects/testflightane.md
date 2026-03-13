@@ -5,7 +5,8 @@ tags: [objective-c]
 status: archived
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/TestFlightANE  discord: https://discord.gg/YCAwZhA4xT
+  repo: https://github.com/thejustinwalsh/TestFlightANE
+  discord: https://discord.gg/YCAwZhA4xT
 
 ---
 

@@ -5,7 +5,8 @@ tags: [c, cmake, raylib, shermes, hermes]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/sh-raylib  discord: https://discord.gg/SWW9KD66RY
+  repo: https://github.com/thejustinwalsh/sh-raylib
+  discord: https://discord.gg/SWW9KD66RY
 
 ---
 

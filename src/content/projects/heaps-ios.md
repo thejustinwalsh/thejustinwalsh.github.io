@@ -5,7 +5,8 @@ tags: [haxe]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/heaps-ios  discord: https://discord.gg/9n4TQswb9K
+  repo: https://github.com/thejustinwalsh/heaps-ios
+  discord: https://discord.gg/9n4TQswb9K
 
 ---
 

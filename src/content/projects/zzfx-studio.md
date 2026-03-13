@@ -5,7 +5,8 @@ tags: [typescript, algorithmic-music, audio, chiptune, game-jam, retro, tracker,
 status: active
 hero: /projects/zzfx-studio.gif
 links:
-  repo: https://github.com/thejustinwalsh/zzfx-studio  discord: https://discord.gg/eRWuk7W4tY
+  repo: https://github.com/thejustinwalsh/zzfx-studio
+  discord: https://discord.gg/eRWuk7W4tY
 
 ---
 

@@ -5,7 +5,8 @@ tags: [typescript, expo, pixijs, react, koota]
 status: active
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/hyper-space-wave  discord: https://discord.gg/8JvV8zrkzM
+  repo: https://github.com/thejustinwalsh/hyper-space-wave
+  discord: https://discord.gg/8JvV8zrkzM
 
 ---
 

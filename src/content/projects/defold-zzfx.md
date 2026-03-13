@@ -5,7 +5,8 @@ tags: [c++, defold, defold-native-extension, lua, game]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/defold-zzfx  discord: https://discord.gg/8wXAZgb2ft
+  repo: https://github.com/thejustinwalsh/defold-zzfx
+  discord: https://discord.gg/8wXAZgb2ft
 
 ---
 

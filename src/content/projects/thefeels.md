@@ -6,7 +6,8 @@ status: completed
 hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/thefeels
-  live: https://thefeels.tjw.dev  discord: https://discord.gg/gxkCz7f6xd
+  live: https://thefeels.tjw.dev
+  discord: https://discord.gg/gxkCz7f6xd
 
 ---
 

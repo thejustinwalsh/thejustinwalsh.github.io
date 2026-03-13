@@ -5,7 +5,8 @@ tags: [javascript]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/rotmg-minimal  discord: https://discord.gg/GHdwCeeBcA
+  repo: https://github.com/thejustinwalsh/rotmg-minimal
+  discord: https://discord.gg/GHdwCeeBcA
 
 ---
 

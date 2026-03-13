@@ -5,7 +5,8 @@ tags: [typescript, react, rust, tauri-app, rspc, prisma-client-rust, prisma, rea
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/deque  discord: https://discord.gg/u8cMKpWEJN
+  repo: https://github.com/thejustinwalsh/deque
+  discord: https://discord.gg/u8cMKpWEJN
 
 ---
 

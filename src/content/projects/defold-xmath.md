@@ -5,7 +5,8 @@ tags: [c++, defold, defold-native-extension, lua, game]
 status: active
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/defold-xmath  discord: https://discord.gg/qTM3aRaKqR
+  repo: https://github.com/thejustinwalsh/defold-xmath
+  discord: https://discord.gg/qTM3aRaKqR
 
 ---
 

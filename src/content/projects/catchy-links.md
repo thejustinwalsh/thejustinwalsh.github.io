@@ -6,7 +6,8 @@ status: completed
 hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/catchy-links
-  live: https://catchy-links.vercel.app  discord: https://discord.gg/RUGMPjy9UM
+  live: https://catchy-links.vercel.app
+  discord: https://discord.gg/RUGMPjy9UM
 
 ---
 

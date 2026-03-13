@@ -6,7 +6,8 @@ status: completed
 hero: /projects/ts-defold-create.png
 links:
   repo: https://github.com/ts-defold/create
-  live: https://ts-defold.dev  discord: https://discord.gg/4cKcC9AyPw
+  live: https://ts-defold.dev
+  discord: https://discord.gg/4cKcC9AyPw
 
 ---
 

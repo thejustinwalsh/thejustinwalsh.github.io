@@ -5,7 +5,8 @@ tags: [c]
 status: archived
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/ServerSocketANE  discord: https://discord.gg/qy6DkkQdJk
+  repo: https://github.com/thejustinwalsh/ServerSocketANE
+  discord: https://discord.gg/qy6DkkQdJk
 
 ---
 

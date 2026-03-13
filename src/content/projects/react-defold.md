@@ -5,7 +5,8 @@ tags: [typescript, react, defold]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/react-defold  discord: https://discord.gg/9XV8pDbz4H
+  repo: https://github.com/thejustinwalsh/react-defold
+  discord: https://discord.gg/9XV8pDbz4H
 
 ---
 

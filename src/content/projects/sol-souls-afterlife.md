@@ -6,7 +6,8 @@ status: completed
 hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/sol-souls-afterlife
-  live: https://sol-souls-afterlife.vercel.app  discord: https://discord.gg/9y28x9nnWt
+  live: https://sol-souls-afterlife.vercel.app
+  discord: https://discord.gg/9y28x9nnWt
 
 ---
 

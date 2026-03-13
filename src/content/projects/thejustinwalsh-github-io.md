@@ -6,7 +6,8 @@ status: active
 hero: /projects/thejustinwalsh-github-io.png
 links:
   repo: https://github.com/thejustinwalsh/thejustinwalsh.github.io
-  live: https://tjw.dev/  discord: https://discord.gg/wPeUSfhkzf
+  live: https://tjw.dev/
+  discord: https://discord.gg/wPeUSfhkzf
 
 ---
 

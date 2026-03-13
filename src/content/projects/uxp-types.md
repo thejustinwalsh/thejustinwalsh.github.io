@@ -5,7 +5,8 @@ tags: [typescript, types, photoshop, adobe, uxp]
 status: archived
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/uxp-types  discord: https://discord.gg/Fnh5YVX4tX
+  repo: https://github.com/thejustinwalsh/uxp-types
+  discord: https://discord.gg/Fnh5YVX4tX
 
 ---
 

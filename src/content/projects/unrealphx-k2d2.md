@@ -5,7 +5,8 @@ tags: [c#]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/UnrealPhx/K2D2  discord: https://discord.gg/vP4ED8aed3
+  repo: https://github.com/UnrealPhx/K2D2
+  discord: https://discord.gg/vP4ED8aed3
 
 ---
 

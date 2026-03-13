@@ -5,7 +5,8 @@ tags: [c++, raylib, raylib-cpp, template]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/raylib-gamejam-template  discord: https://discord.gg/TghrHjFsej
+  repo: https://github.com/thejustinwalsh/raylib-gamejam-template
+  discord: https://discord.gg/TghrHjFsej
 
 ---
 

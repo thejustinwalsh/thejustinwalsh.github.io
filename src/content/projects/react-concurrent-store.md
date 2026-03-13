@@ -5,7 +5,8 @@ tags: [typescript, concurrent, experimental, feedback, ponyfill, react, store, u
 status: active
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/react-concurrent-store  discord: https://discord.gg/jFpJHbGSqJ
+  repo: https://github.com/thejustinwalsh/react-concurrent-store
+  discord: https://discord.gg/jFpJHbGSqJ
 
 ---
 

@@ -5,7 +5,8 @@ tags: [typescript, audio-editing, beats, music-production, react, rust, tauri, y
 status: active
 hero: /projects/tubetape.png
 links:
-  repo: https://github.com/thejustinwalsh/tubetape  discord: https://discord.gg/ckTq4mHeYc
+  repo: https://github.com/thejustinwalsh/tubetape
+  discord: https://discord.gg/ckTq4mHeYc
 
 ---
 

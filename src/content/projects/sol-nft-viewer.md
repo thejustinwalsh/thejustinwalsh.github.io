@@ -6,7 +6,8 @@ status: completed
 hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/sol-nft-viewer
-  live: https://sol-nft-viewer.vercel.app  discord: https://discord.gg/EFexbnatcq
+  live: https://sol-nft-viewer.vercel.app
+  discord: https://discord.gg/EFexbnatcq
 
 ---
 

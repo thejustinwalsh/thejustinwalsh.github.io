@@ -5,7 +5,8 @@ tags: [c++]
 status: archived
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/airejdb  discord: https://discord.gg/zE3rrDxk8B
+  repo: https://github.com/thejustinwalsh/airejdb
+  discord: https://discord.gg/zE3rrDxk8B
 
 ---
 

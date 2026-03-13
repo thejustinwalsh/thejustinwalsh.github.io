@@ -6,7 +6,8 @@ status: completed
 hero: /projects/textproto-grammar.png
 links:
   repo: https://github.com/thejustinwalsh/textproto-grammar
-  live: https://marketplace.visualstudio.com/items?itemName=thejustinwalsh.textproto-grammer  discord: https://discord.gg/DbURCnJ7Tp
+  live: https://marketplace.visualstudio.com/items?itemName=thejustinwalsh.textproto-grammer
+  discord: https://discord.gg/DbURCnJ7Tp
 
 ---
 

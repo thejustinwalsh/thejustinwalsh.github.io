@@ -6,7 +6,8 @@ status: completed
 hero: /projects/gatsby-astroturf-tailwind.png
 links:
   repo: https://github.com/thejustinwalsh/gatsby-astroturf-tailwind
-  live: https://thejustinwalsh.com/gatsby-astroturf-tailwind/  discord: https://discord.gg/RMgP8Vu5YG
+  live: https://thejustinwalsh.com/gatsby-astroturf-tailwind/
+  discord: https://discord.gg/RMgP8Vu5YG
 
 ---
 

@@ -5,7 +5,8 @@ tags: [c++]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/libbulletml  discord: https://discord.gg/v3YGkzhB5g
+  repo: https://github.com/thejustinwalsh/libbulletml
+  discord: https://discord.gg/v3YGkzhB5g
 
 ---
 

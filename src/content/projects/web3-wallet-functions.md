@@ -5,7 +5,8 @@ tags: [typescript]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/web3-wallet-functions  discord: https://discord.gg/9GjKYTrUvY
+  repo: https://github.com/thejustinwalsh/web3-wallet-functions
+  discord: https://discord.gg/9GjKYTrUvY
 
 ---
 

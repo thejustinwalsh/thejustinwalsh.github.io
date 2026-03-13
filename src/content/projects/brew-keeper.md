@@ -5,7 +5,8 @@ tags: [shell]
 status: active
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/brew-keeper  discord: https://discord.gg/xj6ntUHxpN
+  repo: https://github.com/thejustinwalsh/brew-keeper
+  discord: https://discord.gg/xj6ntUHxpN
 
 ---
 
