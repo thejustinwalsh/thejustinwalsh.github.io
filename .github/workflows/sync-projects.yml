@@ -70,11 +70,20 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # New projects: open a PR (CODEOWNERS requires review)
+      # Use a GitHub App token so the PR triggers downstream workflows (e.g. refine-projects)
+      - name: Generate app token
+        if: steps.changes.outputs.has_new == 'true'
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_CLIENT_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - name: Create Pull Request
         if: steps.changes.outputs.has_new == 'true'
         uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
           add-paths: |
             src/content/projects/
             public/projects/
