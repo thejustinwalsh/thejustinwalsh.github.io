@@ -5,7 +5,8 @@ tags: [typescript]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/dev-challenges
+  repo: https://github.com/thejustinwalsh/dev-challenges  discord: https://discord.gg/48VGBFZFEf
+
 ---
 
 DevChallenges is a collection of solutions to challenges from DevChallenges.io, a platform that presents frontend developers with realistic UI component and layout problems to solve independently. Each challenge targets a specific component — buttons, inputs, and other foundational building blocks — with the goal of producing clean, accessible, production-quality implementations rather than quick throwaway sketches.

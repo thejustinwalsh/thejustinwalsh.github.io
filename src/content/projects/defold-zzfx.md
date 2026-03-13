@@ -5,7 +5,8 @@ tags: [c++, defold, defold-native-extension, lua, game]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/defold-zzfx
+  repo: https://github.com/thejustinwalsh/defold-zzfx  discord: https://discord.gg/8wXAZgb2ft
+
 ---
 
 Defold ZzFX brings the ZzFX "Zuper Zmall Zound Zynth" into the Defold game engine as a native extension. ZzFX is a procedural audio synthesizer originally created for JavaScript game jams — it generates sound effects entirely from a compact array of numeric parameters, no audio assets required. This port takes that same idea and packages it as a Defold dependency, letting Lua scripts trigger synthesized sounds with the same parameter arrays you'd design in the ZzFX Sound Designer tool.

@@ -5,7 +5,8 @@ tags: [typescript, react, defold]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/react-defold
+  repo: https://github.com/thejustinwalsh/react-defold  discord: https://discord.gg/9XV8pDbz4H
+
 ---
 
 Defold's HTML5 export can run in a browser, but wiring it into a React application — handling the canvas lifecycle, loading the dmloader script, and getting data flowing in both directions — is more work than it should be. React Defold wraps all of that into a set of composable components.

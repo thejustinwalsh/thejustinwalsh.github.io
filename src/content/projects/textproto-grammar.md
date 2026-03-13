@@ -6,7 +6,8 @@ status: completed
 hero: /projects/textproto-grammar.png
 links:
   repo: https://github.com/thejustinwalsh/textproto-grammar
-  live: https://marketplace.visualstudio.com/items?itemName=thejustinwalsh.textproto-grammer
+  live: https://marketplace.visualstudio.com/items?itemName=thejustinwalsh.textproto-grammer  discord: https://discord.gg/DbURCnJ7Tp
+
 ---
 
 Protocol Buffers are everywhere in production systems, but the text format — the human-readable `.textproto` and `.pbtxt` variant used for config files, test fixtures, and readable serialization — has always been a second-class citizen in editors. Textproto Grammar fixes that for VS Code, shipping a proper TextMate grammar that highlights field names, scalar values, string literals, nested message blocks, and enum identifiers with the precision the format deserves.

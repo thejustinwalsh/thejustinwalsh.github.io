@@ -6,7 +6,8 @@ status: completed
 hero: /projects/gatsby-astroturf-tailwind.png
 links:
   repo: https://github.com/thejustinwalsh/gatsby-astroturf-tailwind
-  live: https://thejustinwalsh.com/gatsby-astroturf-tailwind/
+  live: https://thejustinwalsh.com/gatsby-astroturf-tailwind/  discord: https://discord.gg/RMgP8Vu5YG
+
 ---
 
 This Gatsby starter answers a specific question: what if you could write scoped, colocated CSS using real CSS syntax — not template literals — while still having the full Tailwind utility library at your fingertips? That's exactly what Astroturf enables, and this starter wires it all together with sensible defaults so you can start building instead of configuring.

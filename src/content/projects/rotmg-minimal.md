@@ -5,7 +5,8 @@ tags: [javascript]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/rotmg-minimal
+  repo: https://github.com/thejustinwalsh/rotmg-minimal  discord: https://discord.gg/GHdwCeeBcA
+
 ---
 
 Realm of the Mad God is a browser-based bullet hell MMO with a devoted following — but the game is buried in a website full of navigation, ads, and chrome that eats screen real estate and distracts from the action. RotMG Minimal fixes that with a single-purpose Chrome extension.

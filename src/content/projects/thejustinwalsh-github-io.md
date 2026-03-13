@@ -6,7 +6,8 @@ status: active
 hero: /projects/thejustinwalsh-github-io.png
 links:
   repo: https://github.com/thejustinwalsh/thejustinwalsh.github.io
-  live: https://tjw.dev/
+  live: https://tjw.dev/  discord: https://discord.gg/wPeUSfhkzf
+
 ---
 
 This site is itself a project worth talking about. tjw.dev is a personal devlog and portfolio built with Astro, Tailwind CSS v4, and React islands — a stack chosen for its speed, flexibility, and zero-compromise static output. Content lives in Obsidian-first markdown files, making it easy to write and publish without leaving the tools already in daily use.

@@ -5,7 +5,8 @@ tags: [c#]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/unity-roguelike-tutorial
+  repo: https://github.com/thejustinwalsh/unity-roguelike-tutorial  discord: https://discord.gg/7JF3ZKMmU6
+
 ---
 
 This is a hands-on implementation of Unity's official 2D Roguelike tutorial series — a structured project that walks through building a complete tile-based dungeon crawler from scratch in Unity using C#. The finished game features procedurally generated board layouts, turn-based player and enemy movement, food-based health mechanics, and level progression, all built on Unity's 2D tilemap and component systems.

@@ -6,7 +6,8 @@ status: completed
 hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/infinistg
-  live: https://thejustinwalsh.com/infinistg/
+  live: https://thejustinwalsh.com/infinistg/  discord: https://discord.gg/e3hnKqZpeA
+
 ---
 
 InfiniSTG is a shoot-em-up (STG) built in 72 hours for React Jam Spring 2024 — a game jam that challenges developers to build games using React as the primary technology. The result is a fully playable vertical shooter that runs in the browser, using Pixi React to drive a WebGL renderer from within the React component tree and Zustand to manage all game state across systems.

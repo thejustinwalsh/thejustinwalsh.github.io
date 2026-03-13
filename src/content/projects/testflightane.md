@@ -5,7 +5,8 @@ tags: [objective-c]
 status: archived
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/TestFlightANE
+  repo: https://github.com/thejustinwalsh/TestFlightANE  discord: https://discord.gg/YCAwZhA4xT
+
 ---
 
 Before Apple acquired TestFlight and baked it into Xcode, TestFlight was the go-to external service for iOS beta distribution and over-the-air crash reporting. For Adobe AIR developers, though, integrating native SDKs meant writing a Native Extension — a thin Objective-C bridge that translates ActionScript calls into native API calls. TestFlightANE is exactly that bridge, keeping the API surface as faithful to the original Objective-C SDK as an ANE can.

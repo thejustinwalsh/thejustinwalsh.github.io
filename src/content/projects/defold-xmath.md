@@ -5,7 +5,8 @@ tags: [c++, defold, defold-native-extension, lua, game]
 status: active
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/defold-xmath
+  repo: https://github.com/thejustinwalsh/defold-xmath  discord: https://discord.gg/qTM3aRaKqR
+
 ---
 
 Defold xMath is a native extension for the Defold game engine that rethinks how vector and quaternion math works in Lua. The standard `vmath` library returns new objects from every operation, which means every `add`, `mul`, or `normalize` in your update loop quietly allocates heap memory. xMath sidesteps this entirely by taking the output variable as the first argument — write once, reuse every frame, zero garbage.

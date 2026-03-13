@@ -5,7 +5,8 @@ tags: [c]
 status: archived
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/ServerSocketANE
+  repo: https://github.com/thejustinwalsh/ServerSocketANE  discord: https://discord.gg/qy6DkkQdJk
+
 ---
 
 Adobe AIR gave Flash developers a path to mobile, but it shipped with a notable omission: the `ServerSocket` class simply didn't work on iOS. For developers building multiplayer games, local network tools, or any peer-to-peer communication on top of AIR, that was a hard wall. ServerSocketANE tears it down by implementing the missing API as a native Objective-C extension, exposing a package path — `com.thejustinwalsh.net.ServerSocket` — that maps directly onto the familiar `flash.net` API shape.

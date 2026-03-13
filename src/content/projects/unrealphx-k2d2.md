@@ -5,7 +5,8 @@ tags: [c#]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/UnrealPhx/K2D2
+  repo: https://github.com/UnrealPhx/K2D2  discord: https://discord.gg/vP4ED8aed3
+
 ---
 
 K2D2 — short for Kill Kill Die Die — is a group project developed by the UnrealPhx collective in 2017. Built in Unity with C#, it represents a collaborative game development effort where multiple contributors worked toward a shared design under a shared codebase.

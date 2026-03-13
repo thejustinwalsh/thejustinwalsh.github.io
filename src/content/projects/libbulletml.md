@@ -5,7 +5,8 @@ tags: [c++]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/libbulletml
+  repo: https://github.com/thejustinwalsh/libbulletml  discord: https://discord.gg/v3YGkzhB5g
+
 ---
 
 BulletML is the declarative XML-based language invented by Kenta Cho for describing bullet patterns in shoot-em-up games. libBulletML is the canonical C++ parser for that format — but it was showing its age: Boost dependencies, `std::auto_ptr` everywhere, and no modern build system. This fork fixes that.

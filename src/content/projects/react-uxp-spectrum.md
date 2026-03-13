@@ -5,7 +5,8 @@ tags: [typescript, adobe, uxp, spectrum, react]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/react-uxp-spectrum
+  repo: https://github.com/thejustinwalsh/react-uxp-spectrum  discord: https://discord.gg/qftZaETmbz
+
 ---
 
 Building Adobe extensions with React and Spectrum should be straightforward — it isn't. Adobe's UXP platform uses Spectrum as a web-component library, and web components and React have a famously uncomfortable relationship. Event handling, property binding, and ref forwarding all require specific handling that the official React Spectrum package doesn't fully address for the UXP environment specifically.

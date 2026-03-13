@@ -5,7 +5,8 @@ tags: [shell]
 status: active
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/brew-keeper
+  repo: https://github.com/thejustinwalsh/brew-keeper  discord: https://discord.gg/xj6ntUHxpN
+
 ---
 
 Brew Keeper is an Oh My Zsh plugin that takes the manual chore out of keeping Homebrew packages current. On first load it compiles a small C agent binary and registers a native macOS LaunchAgent that runs daily at 9:00 AM — or whenever the machine next wakes if it was asleep. The package list lives in a plain text file and is managed through a handful of tight shell commands: add, remove, list, update, and log.

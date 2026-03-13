@@ -5,7 +5,8 @@ tags: [typescript, expo, pixijs, react, koota]
 status: active
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/hyper-space-wave
+  repo: https://github.com/thejustinwalsh/hyper-space-wave  discord: https://discord.gg/8JvV8zrkzM
+
 ---
 
 Hyper Space Wave is a wave-based shoot-em-up prototype that targets web and native mobile from a single TypeScript codebase. The monorepo splits into two app clients — a Vite-powered web client using React and PixiJS for rendering, and an Expo React Native client for iOS and Android — with all core game logic, ECS, and rendering hooks living in a shared `packages/core` library that neither client duplicates.

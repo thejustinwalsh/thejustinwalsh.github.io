@@ -6,7 +6,8 @@ status: completed
 hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/sol-souls-afterlife
-  live: https://sol-souls-afterlife.vercel.app
+  live: https://sol-souls-afterlife.vercel.app  discord: https://discord.gg/9y28x9nnWt
+
 ---
 
 Sol Souls was a generative NFT collection on the Solana blockchain with a community worth building for. The Afterlife hub is the social layer that ties holders together — a Next.js portal that connects to the Solana network via a DataHub RPC endpoint and surfaces collection data, ownership, and community context in one place.

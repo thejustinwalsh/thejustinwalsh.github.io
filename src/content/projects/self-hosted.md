@@ -5,7 +5,8 @@ tags: [shell]
 status: active
 hero: /projects/self-hosted.png
 links:
-  repo: https://github.com/thejustinwalsh/self-hosted
+  repo: https://github.com/thejustinwalsh/self-hosted  discord: https://discord.gg/6kbT9F8Pcs
+
 ---
 
 Running your own infrastructure at home means solving two hard problems at once: keeping services reachable from the internet without exposing your home network, and managing a growing catalog of containers without it becoming a configuration nightmare. This repo is the living solution to both.

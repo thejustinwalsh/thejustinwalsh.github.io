@@ -5,7 +5,8 @@ tags: [typescript, adobe, uxp, spectrum, react, jsx, tsx]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/uxp-starter-react
+  repo: https://github.com/thejustinwalsh/uxp-starter-react  discord: https://discord.gg/93XASFavEv
+
 ---
 
 UXP Starter React is a complete project template for building plugins for Adobe Photoshop and Adobe XD using the Unified Extensibility Platform (UXP) — Adobe's modern replacement for the aging CEP/ExtendScript system. The starter configures React, TypeScript, and Adobe Spectrum components out of the box, with a build pipeline that handles both development watching and production bundling. An interactive setup script generates the required plugin manifest, so you spend your first session writing UI code rather than wrestling with configuration.

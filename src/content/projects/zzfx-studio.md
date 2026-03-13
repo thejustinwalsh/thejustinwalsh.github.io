@@ -5,7 +5,8 @@ tags: [typescript, algorithmic-music, audio, chiptune, game-jam, retro, tracker,
 status: active
 hero: /projects/zzfx-studio.gif
 links:
-  repo: https://github.com/thejustinwalsh/zzfx-studio
+  repo: https://github.com/thejustinwalsh/zzfx-studio  discord: https://discord.gg/eRWuk7W4tY
+
 ---
 
 ZzFX Studio is an algorithmic music generator and tracker built for game jam developers who need retro audio immediately. Click a button and it produces a complete 4-channel chiptune song — lead, harmony, bass, and drums — in under 10 milliseconds. All synthesis runs through ZzFX and ZzFXM, tiny JavaScript audio engines that together weigh about 1KB. No samples are loaded, no network calls are made, and the entire thing works offline. Five vibe templates (Adventure, Battle, Dungeon, Title Screen, Boss) control density, BPM range, preferred scales, and effect probability, giving each generated song a distinct character from the start.

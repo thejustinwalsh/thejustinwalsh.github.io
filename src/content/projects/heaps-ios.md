@@ -5,7 +5,8 @@ tags: [haxe]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/heaps-ios
+  repo: https://github.com/thejustinwalsh/heaps-ios  discord: https://discord.gg/9n4TQswb9K
+
 ---
 
 Heaps is a high-performance Haxe game engine that targets multiple backends — but getting it running on iOS requires navigating the HashLink native runtime, Xcode's build system, and platform-specific audio and rendering constraints all at once. This project is a complete, buildable example that shows exactly how to pull it off, using the official Base2D Heaps sample as the reference application.

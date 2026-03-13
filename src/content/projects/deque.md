@@ -5,7 +5,8 @@ tags: [typescript, react, rust, tauri-app, rspc, prisma-client-rust, prisma, rea
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/deque
+  repo: https://github.com/thejustinwalsh/deque  discord: https://discord.gg/u8cMKpWEJN
+
 ---
 
 Deque is a desktop todo application built on Tauri that serves as a playground for modern Rust-native desktop development. The stack pairs a React frontend with a full Rust backend wired together through rspc — a tRPC-inspired type-safe RPC layer for Tauri — giving the app end-to-end type safety from the Rust data layer all the way up to React Query hooks in the UI. Prisma Client Rust handles database access, keeping schema and query logic in one place without sacrificing the performance characteristics of a native backend.

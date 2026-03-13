@@ -5,7 +5,8 @@ tags: [c, cmake, raylib, shermes, hermes]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/sh-raylib
+  repo: https://github.com/thejustinwalsh/sh-raylib  discord: https://discord.gg/SWW9KD66RY
+
 ---
 
 Static Hermes is Meta's experimental ahead-of-time compiler for JavaScript that produces native machine code rather than bytecode. Raylib is the beloved C library for 2D and 3D game development that keeps things gloriously simple. Combining the two shouldn't work — and yet sh-raylib makes it happen, generating TypeScript-callable bindings for the entire raylib surface so you can write game loops in a typed, modern language and compile them down to native binaries.

@@ -5,7 +5,8 @@ tags: [typescript, concurrent, experimental, feedback, ponyfill, react, store, u
 status: active
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/react-concurrent-store
+  repo: https://github.com/thejustinwalsh/react-concurrent-store  discord: https://discord.gg/jFpJHbGSqJ
+
 ---
 
 `useSyncExternalStore` is how React apps integrate with external state today — but the name says it all. It's synchronous. Mutate a store during a `useTransition` and React de-opts to a blocking update, throwing away the concurrency benefits you were trying to use. The React team has announced a new concurrent store API to fix this, but it isn't in a stable release yet.

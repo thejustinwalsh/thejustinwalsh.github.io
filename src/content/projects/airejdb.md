@@ -5,7 +5,8 @@ tags: [c++]
 status: archived
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/airejdb
+  repo: https://github.com/thejustinwalsh/airejdb  discord: https://discord.gg/zE3rrDxk8B
+
 ---
 
 AirEJDB is an Adobe AIR Native Extension (ANE) that bridges EJDB — a fast, MongoDB-inspired embedded document database — into the AIR runtime across iOS, Mac OS X, and Windows. Before mobile backends were commoditized, embedding a capable document store directly into an AIR application was a real engineering challenge, and this extension made it practical with a clean ActionScript 3 API.

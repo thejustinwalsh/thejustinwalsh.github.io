@@ -5,7 +5,8 @@ tags: [c#]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/Untile
+  repo: https://github.com/thejustinwalsh/Untile  discord: https://discord.gg/UXgct3xNDQ
+
 ---
 
 Untile is a .NET command-line tool that takes a packed tilesheet image — the kind that ships with nearly every 2D game asset pack — and slices it into individual tile files. You point it at an input image, specify a tile size like `16x16`, and it writes each extracted tile to an output directory. That's the whole pitch: a focused, single-purpose tool that does exactly one thing without ceremony.

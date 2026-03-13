@@ -5,7 +5,8 @@ tags: []
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/flash-player-target-extension
+  repo: https://github.com/thejustinwalsh/flash-player-target-extension  discord: https://discord.gg/k2XbQmUSBs
+
 ---
 
 Flash Professional CS6 shipped without support for the newest Flash Player runtime versions — a frustrating gap for developers who needed to publish SWFs targeting Player 11.5, 11.6, or 11.7. This extension closes that gap by patching the Publish Settings dialog to list those versions in the Target dropdown, exactly where you'd expect to find them.

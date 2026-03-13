@@ -5,7 +5,8 @@ tags: [typescript, types, photoshop, adobe, uxp]
 status: archived
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/uxp-types
+  repo: https://github.com/thejustinwalsh/uxp-types  discord: https://discord.gg/Fnh5YVX4tX
+
 ---
 
 UXP Types is an npm package providing TypeScript definitions for Adobe's Unified Extensibility Platform API and the Photoshop scripting API. Drop it into a UXP plugin project, add the `typeRoots` entry to your `tsconfig.json`, and you get full autocomplete and type checking for `uxp` and `photoshop` module imports — `storage.localFileSystem`, `action.batchPlay`, and the rest of the surface area that UXP plugin developers reach for daily.

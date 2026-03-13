@@ -5,7 +5,8 @@ tags: [typescript]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/dice-caster
+  repo: https://github.com/thejustinwalsh/dice-caster  discord: https://discord.gg/fK9zChkMBx
+
 ---
 
 Dice Caster is a lightweight REST API for rolling dice using standard tabletop notation — the same `XdY+Z` format any TTRPG player knows by heart. Hit `/api/roll/3d6` and get back each die result alongside the total, with an optional modifier baked right into the URL path. No query strings, no request bodies, just clean RESTful semantics for a universally understood mechanic.

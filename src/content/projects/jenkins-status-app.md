@@ -5,7 +5,8 @@ tags: [typescript]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/jenkins-status-app
+  repo: https://github.com/thejustinwalsh/jenkins-status-app  discord: https://discord.gg/gfDy2VHu37
+
 ---
 
 Jenkins Status App is a native dashboard for Jenkins CI that runs on all four major platforms — Android, iOS, macOS, and Windows — from a single React Native TypeScript codebase. Using React Native's desktop support via Microsoft's React Native Windows and macOS targets, it delivers a proper native app experience regardless of which operating system your team uses to monitor builds.

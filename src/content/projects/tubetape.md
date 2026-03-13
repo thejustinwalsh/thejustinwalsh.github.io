@@ -5,7 +5,8 @@ tags: [typescript, audio-editing, beats, music-production, react, rust, tauri, y
 status: active
 hero: /projects/tubetape.png
 links:
-  repo: https://github.com/thejustinwalsh/tubetape
+  repo: https://github.com/thejustinwalsh/tubetape  discord: https://discord.gg/ckTq4mHeYc
+
 ---
 
 Tubetape is a desktop application for music producers and beat makers who want to pull audio from YouTube and turn it into clean, precisely cut samples. Paste a URL, and the app extracts the audio track and renders a full waveform visualization. From there you click and drag to define sample regions with DAW-level accuracy — start point, end point, loop settings — and export them directly to your filesystem. BPM detection runs automatically via aubio so you know what you're working with before you commit a cut.

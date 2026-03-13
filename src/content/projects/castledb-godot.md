@@ -5,7 +5,8 @@ tags: [gdscript]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/castledb-godot
+  repo: https://github.com/thejustinwalsh/castledb-godot  discord: https://discord.gg/sXQBsfxWRe
+
 ---
 
 CastleDB for Godot is a plugin that turns CastleDB's structured `.cdb` files into first-class static data inside Godot 3 projects. Rather than parsing JSON at runtime or manually maintaining lookup dictionaries, the plugin's importer generates typed GDScript from your database the moment Godot processes the file — giving you immediate, autocompleted access to every sheet and row directly in the editor.

@@ -6,7 +6,8 @@ status: completed
 hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/sol-nft-viewer
-  live: https://sol-nft-viewer.vercel.app
+  live: https://sol-nft-viewer.vercel.app  discord: https://discord.gg/EFexbnatcq
+
 ---
 
 At the height of the Solana NFT boom, the tooling to simply look at what you owned was scattered and slow. Sol NFT Viewer cuts through the noise — connect your wallet address, and it fetches your on-chain NFT holdings directly from the Solana network and renders them cleanly. No marketplace overhead, no token-gating, just a straightforward view of what lives in your wallet.

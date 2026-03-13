@@ -6,7 +6,8 @@ status: completed
 hero: /projects/ts-defold-create.png
 links:
   repo: https://github.com/ts-defold/create
-  live: https://ts-defold.dev
+  live: https://ts-defold.dev  discord: https://discord.gg/4cKcC9AyPw
+
 ---
 
 `ts-defold/create` is the official project generator for the ts-defold ecosystem — a single command that scaffolds a fully configured Defold game project with TypeScript support ready to go. Running `npm init @ts-defold <project-directory>` pulls down a template, wires up the TypeScript toolchain, and drops you into a working game project in seconds. No manual config, no hunting down type definitions, no fighting with the build pipeline.

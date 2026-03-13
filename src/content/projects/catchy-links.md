@@ -6,7 +6,8 @@ status: completed
 hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/catchy-links
-  live: https://catchy-links.vercel.app
+  live: https://catchy-links.vercel.app  discord: https://discord.gg/RUGMPjy9UM
+
 ---
 
 Catchy Links is a self-hosted URL shortener built for developers who want memorable, shareable links without depending on a third-party service mining their data. It was born from a concrete problem: sharing enormously long lz-string–encoded URLs from a TypeScript playground into Discord felt terrible, so the solution was to build something better from scratch.

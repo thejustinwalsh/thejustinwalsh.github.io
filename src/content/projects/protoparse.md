@@ -5,7 +5,8 @@ tags: [typescript]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/protoparse
+  repo: https://github.com/thejustinwalsh/protoparse  discord: https://discord.gg/4xFv7VjvCX
+
 ---
 
 Protocol Buffers have two serialization formats: the compact binary encoding most tools use, and a human-readable text format that shows up in config files, debug output, and data pipelines. The text format is well-specified but parsers for it are rare in the JavaScript ecosystem. protoparse fills that gap.

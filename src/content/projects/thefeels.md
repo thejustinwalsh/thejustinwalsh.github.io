@@ -6,7 +6,8 @@ status: completed
 hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/thefeels
-  live: https://thefeels.tjw.dev
+  live: https://thefeels.tjw.dev  discord: https://discord.gg/gxkCz7f6xd
+
 ---
 
 Most journaling apps ask too much — a blank page, infinite flexibility, and the implicit pressure to write something meaningful. theFEELS takes the opposite approach: just log your vibe for the day. It's a lightweight mood-tracking app that strips journaling down to the essentials, giving you a fast daily check-in without the ceremony.

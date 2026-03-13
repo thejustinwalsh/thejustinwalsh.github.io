@@ -5,7 +5,8 @@ tags: [typescript, 2d, graphics, r3f, react-three-fiber, three-js, threejs, tsl,
 status: active
 hero: /projects/three-flatland.png
 links:
-  repo: https://github.com/thejustinwalsh/three-flatland
+  repo: https://github.com/thejustinwalsh/three-flatland  discord: https://discord.gg/ZtN8QRQEJR
+
 ---
 
 Three Flatland is a high-performance 2D rendering library for Three.js built from the ground up for WebGPU. Rather than retrofitting legacy techniques, it uses TSL (Three Shader Language) as its native shader authoring format — meaning every sprite, tilemap, and visual effect is expressed as a composable shader graph that runs efficiently on both WebGPU and WebGL backends. Sprites sharing a material batch automatically into single draw calls, and the scene graph separates transform hierarchy from render order through an independent layer and zIndex system.

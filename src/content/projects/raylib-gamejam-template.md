@@ -5,7 +5,8 @@ tags: [c++, raylib, raylib-cpp, template]
 status: completed
 hero: /placeholder-project.svg
 links:
-  repo: https://github.com/thejustinwalsh/raylib-gamejam-template
+  repo: https://github.com/thejustinwalsh/raylib-gamejam-template  discord: https://discord.gg/TghrHjFsej
+
 ---
 
 Game jams live and die on setup time. This template exists so you can hit the green "Use this template" button on Friday night and be writing gameplay code within minutes — not wrestling with CMake, Emscripten, or CI configuration.
