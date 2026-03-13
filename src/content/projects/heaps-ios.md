@@ -3,7 +3,6 @@ title: "Heaps iOS"
 description: "A working example of the Heaps game engine running on iOS, bridging Haxe's HashLink runtime to Apple's mobile platform."
 tags: [haxe]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/heaps-ios
   discord: https://discord.gg/9n4TQswb9K

@@ -3,7 +3,6 @@ title: "React Defold"
 description: "React components and a bidirectional message-passing bridge for embedding Defold game engine builds in web applications."
 tags: [typescript, react, defold]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/react-defold
   live: https://tjw.dev/react-defold/

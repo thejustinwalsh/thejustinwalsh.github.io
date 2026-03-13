@@ -3,7 +3,6 @@ title: "Hyper Space Wave"
 description: "A cross-platform wave-based shoot-em-up prototype built as a TypeScript monorepo targeting both web and mobile with shared game logic."
 tags: [typescript, expo, pixijs, react, koota]
 status: active
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/hyper-space-wave
   discord: https://discord.gg/8JvV8zrkzM

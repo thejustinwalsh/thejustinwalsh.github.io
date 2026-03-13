@@ -3,7 +3,6 @@ title: "raylib Game Jam Template"
 description: "A zero-friction CMake template for raylib C++ game jam entries with GitHub Actions CI for both desktop and web builds."
 tags: [c++, raylib, raylib-cpp, template]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/raylib-gamejam-template
   discord: https://discord.gg/TghrHjFsej

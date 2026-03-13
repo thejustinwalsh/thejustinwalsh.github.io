@@ -27,6 +27,9 @@ jobs:
           node-version: 22
           cache: "pnpm"
 
+      - name: Ensure ffmpeg is available
+        run: command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
@@ -39,13 +42,16 @@ jobs:
           DISCORD_SERVER: ${{ secrets.DISCORD_SERVER }}
         run: pnpm sync
 
+      - name: Convert GIF heroes to video
+        run: pnpm convert:gifs
+
       - name: Check for changes
         id: changes
         run: |
           # Stats JSON changes (outside CODEOWNERS)
           stats_changed=$(git diff --name-only src/data/projects/stats.json)
           # New project content files (inside CODEOWNERS)
-          new_content=$(git ls-files --others --exclude-standard src/content/projects/ public/projects/)
+          new_content=$(git ls-files --others --exclude-standard src/content/projects/ src/assets/projects/ public/projects/)
           echo "has_stats=$( [ -n "$stats_changed" ] && echo true || echo false )" >> "$GITHUB_OUTPUT"
           echo "has_new=$( [ -n "$new_content" ] && echo true || echo false )" >> "$GITHUB_OUTPUT"
 
@@ -86,6 +92,7 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           add-paths: |
             src/content/projects/
+            src/assets/projects/
             public/projects/
           commit-message: "content: add new projects from GitHub"
           branch: auto/sync-projects

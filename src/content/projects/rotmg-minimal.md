@@ -3,7 +3,6 @@ title: "RotMG Minimal"
 description: "A Chrome extension that strips the Realm of the Mad God website down to just the game, scaling it to fill the entire browser window."
 tags: [javascript]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/rotmg-minimal
   discord: https://discord.gg/GHdwCeeBcA

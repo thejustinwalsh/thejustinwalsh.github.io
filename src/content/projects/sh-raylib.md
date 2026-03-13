@@ -3,7 +3,6 @@ title: "sh-raylib"
 description: "Experimental raylib bindings for Static Hermes that let you write real-time 2D games and visualizations in TypeScript with near-native performance."
 tags: [c, cmake, raylib, shermes, hermes]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/sh-raylib
   discord: https://discord.gg/SWW9KD66RY

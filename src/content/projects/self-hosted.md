@@ -3,7 +3,6 @@ title: "Self Hosted"
 description: "Infrastructure configuration for self-hosted services on TrueNAS, routed through a Cloudflare Tunnel with zero open ports on the home network."
 tags: [shell]
 status: active
-hero: /projects/self-hosted.png
 links:
   repo: https://github.com/thejustinwalsh/self-hosted
   discord: https://discord.gg/6kbT9F8Pcs

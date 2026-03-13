@@ -15,6 +15,7 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "sync": "node scripts/sync-projects.mjs",
+    "convert:gifs": "node scripts/convert-hero-gifs.mjs",
     "lint:projects": "node scripts/lint-projects.mjs"
   },
   "dependencies": {

@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Tag from "@/components/Tag.astro";
 import LinkIcons from "@/components/LinkIcons.astro";
+import ProjectPlaceholder from "@/components/ProjectPlaceholder.astro";
 import { getCollection } from "astro:content";
 import { getProjectOrder } from "@/lib/project-stats";
 
@@ -27,23 +29,33 @@ const projects = (await getCollection("projects", ({ data }) => isDev || !data.d
             class:list={[
               "entry-card group block",
               `animate-in delay-${Math.min(i + 1, 6)}`,
-              project.data.draft && "draft-card"
+              project.data.draft && "draft-card",
             ]}
-            onclick={!project.data.draft ? `window.location.href='/projects/${project.id}'` : undefined}
+            onclick={`window.location.href='/projects/${project.id}'`}
           >
             <div class="flex flex-col sm:flex-row sm:h-40">
               <div class="aspect-video w-full overflow-hidden sm:aspect-auto sm:h-full sm:w-60 sm:shrink-0">
-                <img
-                  src={project.data.hero || "/placeholder-project.svg"}
-                  alt=""
-                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                  style="will-change: transform;"
-                  loading="lazy"
-                />
+                {project.data.hero ? (
+                  <Image
+                    src={project.data.hero}
+                    alt=""
+                    widths={[240, 480]}
+                    sizes="(min-width: 640px) 240px, 100vw"
+                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                    style="will-change: transform;"
+                    loading="lazy"
+                  />
+                ) : (
+                  <ProjectPlaceholder
+                    name={project.data.title}
+                    variant="thumbnail"
+                    class="h-full w-full transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
+                )}
               </div>
               <div class="flex min-w-0 flex-1 flex-col justify-center p-5 sm:p-6">
                 <div class="flex items-center gap-3">
-                  <a href={!project.data.draft ? `/projects/${project.id}` : undefined} class="entry-title font-mono text-lg font-bold text-white transition-colors duration-200 truncate">
+                  <a href={`/projects/${project.id}`} class="entry-title font-mono text-lg font-bold text-white transition-colors duration-200 truncate">
                     {project.data.title}
                   </a>
                   {project.data.draft && (
@@ -53,7 +65,7 @@ const projects = (await getCollection("projects", ({ data }) => isDev || !data.d
                     <span class="hidden font-mono text-xs text-dim sm:inline">archived</span>
                   )}
                   {project.data.links && (
-                    <LinkIcons links={project.data.links} class="ml-auto shrink-0" />
+                    <LinkIcons links={project.data.links} name={project.data.title} class="ml-auto shrink-0" />
                   )}
                 </div>
                 {project.data.description && (
@@ -82,7 +94,7 @@ const projects = (await getCollection("projects", ({ data }) => isDev || !data.d
 <style>
   .draft-card {
     opacity: 0.4;
-    pointer-events: none;
     filter: grayscale(100%);
   }
 </style>
+

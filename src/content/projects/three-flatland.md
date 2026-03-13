@@ -4,7 +4,7 @@ description: "A WebGPU-native 2D rendering library for Three.js with composable 
 tags: [typescript, 2d, graphics, r3f, react-three-fiber, three-js, threejs, tsl, webgpu]
 status: active
 featured: true
-hero: /projects/three-flatland.png
+hero: ../../assets/projects/three-flatland.png
 links:
   repo: https://github.com/thejustinwalsh/three-flatland
   live: https://tjw.dev/three-flatland/

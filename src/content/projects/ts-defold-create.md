@@ -3,7 +3,7 @@ title: "ts-defold/create"
 description: "One-command project scaffolding for Defold games written in TypeScript, with a community template registry and zero manual setup."
 tags: [typescript, game-development, defold, lua, defold-game]
 status: completed
-hero: /projects/ts-defold-create.png
+hero: ../../assets/projects/ts-defold-create.png
 links:
   repo: https://github.com/ts-defold/create
   live: https://ts-defold.dev

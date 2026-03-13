@@ -4,7 +4,8 @@ description: "An algorithmic 4-channel chiptune tracker that generates complete 
 tags: [typescript, algorithmic-music, audio, chiptune, game-jam, retro, tracker, zzfx, zzfxm]
 status: active
 featured: true
-hero: /projects/zzfx-studio.gif
+hero: ../../assets/projects/zzfx-studio.png
+heroVideo: /projects/zzfx-studio.mp4
 links:
   repo: https://github.com/thejustinwalsh/zzfx-studio
   live: https://tjw.dev/zzfx-studio/

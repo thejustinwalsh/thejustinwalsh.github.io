@@ -3,7 +3,6 @@ title: "React Concurrent Store"
 description: "A ponyfill for React's upcoming concurrent stores API that lets you safely mutate state during non-blocking transitions today."
 tags: [typescript, concurrent, experimental, feedback, ponyfill, react, store, usestore-hook]
 status: active
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/react-concurrent-store
   live: https://tjw.dev/react-concurrent-store/

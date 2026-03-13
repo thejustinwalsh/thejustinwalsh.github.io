@@ -1,7 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
 import Tag from "@/components/Tag.astro";
-import LinkIcons from "@/components/LinkIcons.astro";
+import ProjectPlaceholder from "@/components/ProjectPlaceholder.astro";
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
@@ -10,7 +11,8 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const { title, description, tags, links, hero, status } = entry.data;
+const { title, description, tags, links, hero, heroVideo, status, draft } = entry.data;
+const isDev = import.meta.env.DEV;
 
 const devlogEntries = await getCollection("devlog", ({ data }) => {
   return data.project === entry.id;
@@ -18,46 +20,51 @@ const devlogEntries = await getCollection("devlog", ({ data }) => {
 devlogEntries.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<BaseLayout title={title} description={description} ogImage={hero} accent="projects" searchScope="projects">
+<BaseLayout title={title} description={description} ogImage={hero?.src} accent="projects" searchScope="projects">
   {/* Full-bleed hero */}
-  {hero && (
-    <div class="relative aspect-21/9 w-full overflow-hidden border-b border-border">
-      <img
+  <div class="relative aspect-21/9 w-full overflow-hidden border-b border-border">
+    {heroVideo ? (
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        poster={hero?.src}
+        class="absolute inset-0 h-full w-full object-cover"
+      >
+        <source src={heroVideo.replace(/\.\w+$/, '.webm')} type="video/webm" />
+        <source src={heroVideo} type="video/mp4" />
+      </video>
+    ) : hero ? (
+      <Image
         src={hero}
         alt=""
+        widths={[640, 960, 1280, 1920]}
+        sizes="100vw"
         class="absolute inset-0 h-full w-full object-cover"
       />
-      <div class="absolute inset-0 bg-linear-to-t from-black via-black/60 to-transparent" />
-      <div class="absolute inset-x-0 bottom-0 mx-auto max-w-6xl px-4 pb-8 sm:px-6">
-        <div class="flex items-end gap-4">
-          <h1 class="font-mono text-4xl font-extrabold text-white sm:text-5xl md:text-6xl">
-            {title}
-          </h1>
-          {status === "archived" && (
-            <span class="status-badge mb-1.5 border px-2 py-0.5 font-mono text-xs">
-              ARCHIVED
-            </span>
-          )}
-        </div>
-      </div>
-    </div>
-  )}
-
-  {/* Title block when no hero */}
-  {!hero && (
-    <div class="mx-auto max-w-6xl px-4 pt-12 sm:px-6">
-      <div class="flex items-center gap-4">
-        <h1 class="font-mono text-4xl font-extrabold text-white sm:text-5xl">
+    ) : (
+      <ProjectPlaceholder name={title} variant="hero" class="absolute inset-0" />
+    )}
+    <div class="absolute inset-0 bg-linear-to-t from-black via-black/60 to-transparent" />
+    <div class="absolute inset-x-0 bottom-0 mx-auto max-w-6xl px-4 pb-8 sm:px-6">
+      <div class="flex items-end gap-4">
+        <h1 class="font-mono text-4xl font-extrabold text-white sm:text-5xl md:text-6xl">
           {title}
         </h1>
         {status === "archived" && (
-          <span class="status-badge border px-2 py-0.5 font-mono text-xs">
+          <span class="status-badge mb-1.5 border px-2 py-0.5 font-mono text-xs">
             ARCHIVED
+          </span>
+        )}
+        {isDev && draft && (
+          <span class="draft-badge mb-1.5 border px-2 py-0.5 font-mono text-xs">
+            DRAFT
           </span>
         )}
       </div>
     </div>
-  )}
+  </div>
 
   <article class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
     <div class="grid gap-12 lg:grid-cols-[1fr_280px]">
@@ -177,6 +184,11 @@ devlogEntries.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
     color: var(--page-accent);
     border-color: color-mix(in srgb, var(--page-accent) 30%, transparent);
     background: color-mix(in srgb, var(--page-accent) 10%, transparent);
+  }
+  .draft-badge {
+    color: var(--color-dim);
+    border-color: var(--color-border);
+    background: color-mix(in srgb, var(--color-dim) 10%, transparent);
   }
   .sidebar-link {
     color: var(--page-accent);

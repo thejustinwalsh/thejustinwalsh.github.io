@@ -3,7 +3,6 @@ title: "K2D2"
 description: "A collaborative Unity game built by the UnrealPhx group in 2017, titled Kill Kill Die Die."
 tags: [c#]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/UnrealPhx/K2D2
   discord: https://discord.gg/vP4ED8aed3

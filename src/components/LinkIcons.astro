@@ -11,10 +11,11 @@ interface Props {
     store?: string;
     discord?: string;
   };
+  name?: string;
   class?: string;
 }
 
-const { links, class: className } = Astro.props;
+const { links, name, class: className } = Astro.props;
 
 /**
  * Icon color mapping into our Chasm palette.
@@ -46,6 +47,7 @@ const items = [
         target="_blank"
         rel="noopener noreferrer"
         title={label}
+        aria-label={name ? `${label} — ${name}` : label}
         class="link-icon inline-flex items-center justify-center p-1 transition-colors"
         style={`--icon-color: ${ICON_COLORS[icon] ?? "var(--color-dim)"};`}
         onclick="event.stopPropagation();"

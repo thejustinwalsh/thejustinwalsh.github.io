@@ -3,7 +3,6 @@ title: "UXP Types"
 description: "TypeScript type definitions for the Adobe UXP and Photoshop APIs, generated from the live runtime and hand-refined for accuracy."
 tags: [typescript, types, photoshop, adobe, uxp]
 status: archived
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/uxp-types
   discord: https://discord.gg/Fnh5YVX4tX

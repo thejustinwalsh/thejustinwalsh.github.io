@@ -9,7 +9,7 @@ import type { SearchScope } from "@/lib/search";
 interface Props {
   title: string;
   description?: string;
-  ogImage?: string;
+  ogImage?: string | undefined;
   accent?: PageAccent;
   searchScope?: SearchScope;
   class?: string;
@@ -54,14 +54,11 @@ const accentColor = pageAccentVar(accent);
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Fonts: self-hosted via @fontsource (imported in global.css) -->
-    <!-- Analytics -->
     {import.meta.env.PROD && (
-      <script
-        defer
-        src="https://metrics.tjw.dev/metrics.js"
-        data-website-id="345cb050-cdc9-4278-8502-70825fdd4c2b"
-      />
+      <>
+        <link rel="preconnect" href="https://metrics.tjw.dev" />
+        <script is:inline defer src="https://metrics.tjw.dev/metrics.js" data-website-id="345cb050-cdc9-4278-8502-70825fdd4c2b"></script>
+      </>
     )}
   </head>
   <body

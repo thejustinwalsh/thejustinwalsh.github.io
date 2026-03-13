@@ -3,7 +3,6 @@ title: "theFEELS"
 description: "A daily vibe-tracking app that makes emotional check-ins fast and frictionless, so you actually stick with it."
 tags: [typescript]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/thefeels
   live: https://thefeels.tjw.dev

@@ -3,7 +3,6 @@ title: "Deque"
 description: "A work-in-progress desktop todo app built on Tauri, exploring a full-stack Rust backend paired with a React frontend."
 tags: [typescript, react, rust, tauri-app, rspc, prisma-client-rust, prisma, react-query]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/deque
   discord: https://discord.gg/u8cMKpWEJN

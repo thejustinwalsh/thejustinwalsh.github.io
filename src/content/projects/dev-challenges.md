@@ -3,7 +3,6 @@ title: "DevChallenges"
 description: "TypeScript solutions to DevChallenges.io UI component challenges, focused on accessible, production-quality implementations."
 tags: [typescript]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/dev-challenges
   live: https://tjw.dev/dev-challenges/

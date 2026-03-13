@@ -3,7 +3,6 @@ title: "ServerSocketANE"
 description: "An Adobe AIR Native Extension that unlocks server socket functionality on iOS, filling a critical gap Adobe left in the mobile AIR SDK."
 tags: [c]
 status: archived
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/ServerSocketANE
   discord: https://discord.gg/qy6DkkQdJk

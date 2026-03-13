@@ -3,7 +3,6 @@ title: "Brew Keeper"
 description: "An Oh My Zsh plugin that silently keeps your curated Homebrew packages current via a native macOS LaunchAgent."
 tags: [shell]
 status: active
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/brew-keeper
   discord: https://discord.gg/xj6ntUHxpN

@@ -3,7 +3,6 @@ title: "React UXP Spectrum"
 description: "A complete set of React wrappers for Adobe's UXP Spectrum Web Components, taming the quirks of web-component-based UI inside Adobe plugin extensions."
 tags: [typescript, adobe, uxp, spectrum, react]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/react-uxp-spectrum
   discord: https://discord.gg/qftZaETmbz

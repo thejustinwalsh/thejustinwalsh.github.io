@@ -4,7 +4,7 @@ description: "A native desktop app for extracting audio from YouTube, slicing pr
 tags: [typescript, audio-editing, beats, music-production, react, rust, tauri, youtube-downloader]
 status: active
 featured: true
-hero: /projects/tubetape.png
+hero: ../../assets/projects/tubetape.png
 links:
   repo: https://github.com/thejustinwalsh/tubetape
   discord: https://discord.gg/ckTq4mHeYc

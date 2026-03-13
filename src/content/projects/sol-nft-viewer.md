@@ -3,7 +3,6 @@ title: "Sol NFT Viewer"
 description: "A fast, no-frills browser for viewing Solana NFT collections directly from the blockchain, built with Next.js."
 tags: [typescript]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/sol-nft-viewer
   live: https://sol-nft-viewer.vercel.app

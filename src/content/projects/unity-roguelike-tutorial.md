@@ -3,7 +3,6 @@ title: "Unity Roguelike Tutorial"
 description: "A completed playthrough of Unity's official 2D Roguelike tutorial project, exploring procedural level generation, turn-based movement, and tile-based combat in C#."
 tags: [c#]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/unity-roguelike-tutorial
   live: https://tjw.dev/unity-roguelike-tutorial/

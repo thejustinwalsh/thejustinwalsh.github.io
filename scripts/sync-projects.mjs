@@ -102,7 +102,7 @@ async function findDiscordChannelForProject(projectName) {
 // Hero image resolution
 // ---------------------------------------------------------------------------
 
-const HERO_DIR = join(__dirname, "..", "public", "projects");
+const HERO_DIR = join(__dirname, "..", "src", "assets", "projects");
 
 async function ensureHeroDir() {
   await mkdir(HERO_DIR, { recursive: true });
@@ -196,7 +196,7 @@ async function resolveHeroImage(repo, slug) {
     const ext = imageExtFromUrl(repo.openGraphImageUrl);
     const dest = join(HERO_DIR, `${slug}${ext}`);
     if (await downloadImage(repo.openGraphImageUrl, dest)) {
-      return `/projects/${slug}${ext}`;
+      return `../../assets/projects/${slug}${ext}`;
     }
   }
 
@@ -207,7 +207,7 @@ async function resolveHeroImage(repo, slug) {
       const ext = imageExtFromUrl(ogUrl);
       const dest = join(HERO_DIR, `${slug}${ext}`);
       if (await downloadImage(ogUrl, dest)) {
-        return `/projects/${slug}${ext}`;
+        return `../../assets/projects/${slug}${ext}`;
       }
     }
   }
@@ -219,7 +219,7 @@ async function resolveHeroImage(repo, slug) {
     const ext = imageExtFromUrl(readmeImg);
     const dest = join(HERO_DIR, `${slug}${ext}`);
     if (await downloadImage(readmeImg, dest)) {
-      return `/projects/${slug}${ext}`;
+      return `../../assets/projects/${slug}${ext}`;
     }
   }
 
@@ -615,15 +615,16 @@ async function generateProjectMarkdown(repo, slug, existingProjects, repoSignals
   // Escape YAML strings: wrap in quotes and escape internal quotes/backslashes
   const yamlStr = (s) => `"${s.replace(/\\/g, "\\\\").replace(/"/g, '\\"')}"`;
 
-  // Always set a hero — use downloaded image or the generic placeholder
-  const hero = heroPath || "/placeholder-project.svg";
+  // Only set hero if we found an actual image
+  const hero = heroPath || null;
+
+  const heroLine = hero ? `\nhero: ${hero}` : "";
 
   return `---
 title: ${yamlStr(title)}
 description: ${yamlStr(description)}
 tags: [${tags.join(", ")}]
-status: ${status}
-hero: ${hero}
+status: ${status}${heroLine}
 links:
 ${links.join("\n")}
 ---

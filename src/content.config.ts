@@ -15,12 +15,13 @@ const devlog = defineCollection({
 
 const projects = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/projects" }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     description: z.string().optional(),
     tags: z.array(z.string()).default([]),
     status: z.enum(["active", "completed", "archived", "prototype"]).optional(),
-    hero: z.string().optional(),
+    hero: image().optional(),
+    heroVideo: z.string().optional(),
     links: z
       .object({
         repo: z.string().url().optional(),

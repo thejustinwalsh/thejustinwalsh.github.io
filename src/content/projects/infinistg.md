@@ -3,7 +3,6 @@ title: "InfiniSTG"
 description: "A browser-based shoot-em-up built for React Jam Spring 2024 using Pixi React for rendering and Zustand for game state."
 tags: [typescript]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/infinistg
   live: https://tjw.dev/infinistg/

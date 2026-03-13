@@ -3,7 +3,6 @@ title: "TestFlightANE"
 description: "An Adobe AIR Native Extension that wraps the TestFlight SDK for iOS, bringing beta testing and crash reporting to AIR-based mobile apps."
 tags: [objective-c]
 status: archived
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/TestFlightANE
   discord: https://discord.gg/YCAwZhA4xT

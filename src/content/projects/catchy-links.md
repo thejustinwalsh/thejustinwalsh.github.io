@@ -3,7 +3,6 @@ title: "Catchy Links"
 description: "A self-hosted link shortener that generates collision-free, human-friendly slugs backed by Upstash Redis on Vercel."
 tags: [typescript, nextjs, vercel, upstash, redis, url-shortener]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/catchy-links
   live: https://catchy-links.vercel.app

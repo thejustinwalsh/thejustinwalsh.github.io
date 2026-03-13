@@ -3,7 +3,6 @@ title: "Defold xMath"
 description: "A Defold native extension reimagining vmath with allocation-free vector and quaternion math for performance-critical game loops."
 tags: [c++, defold, defold-native-extension, lua, game]
 status: active
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/defold-xmath
   live: https://tjw.dev/defold-xmath/

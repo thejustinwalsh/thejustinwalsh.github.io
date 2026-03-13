@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import LinkIcons from "@/components/LinkIcons.astro";
+import ProjectPlaceholder from "@/components/ProjectPlaceholder.astro";
 import Automata from "@/components/Automata.tsx";
 import { getCollection } from "astro:content";
 import { PAGE_ACCENTS } from "@/lib/colors";
@@ -73,16 +75,24 @@ const articles = (await getCollection("articles", ({ data }) => !data.draft))
               ]}
               onclick={`window.location.href='/projects/${project.id}'`}
             >
-              {project.data.hero && (
-                <div class="hidden h-10 w-16 shrink-0 overflow-hidden sm:block">
-                  <img
+              <div class="hidden h-10 w-16 shrink-0 overflow-hidden sm:block">
+                {project.data.hero ? (
+                  <Image
                     src={project.data.hero}
                     alt=""
+                    width={64}
+                    height={40}
                     class="h-full w-full object-cover"
                     loading="lazy"
                   />
-                </div>
-              )}
+                ) : (
+                  <ProjectPlaceholder
+                    name={project.data.title}
+                    variant="thumbnail"
+                    class="h-full w-full"
+                  />
+                )}
+              </div>
               <a href={`/projects/${project.id}`} class="section-row-title min-w-0 flex-1 truncate font-mono text-base font-semibold text-white transition-colors duration-200">
                 {project.data.title}
               </a>
@@ -92,7 +102,7 @@ const articles = (await getCollection("articles", ({ data }) => !data.draft))
                 </span>
               )}
               {project.data.links && (
-                <LinkIcons links={project.data.links} class="shrink-0" />
+                <LinkIcons links={project.data.links} name={project.data.title} class="shrink-0" />
               )}
             </div>
           ))}

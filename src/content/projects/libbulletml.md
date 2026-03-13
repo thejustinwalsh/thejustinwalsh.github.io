@@ -3,7 +3,6 @@ title: "libBulletML"
 description: "A modernized fork of libBulletML that strips Boost dependencies and upgrades the codebase to contemporary C++ standards."
 tags: [c++]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/libbulletml
   discord: https://discord.gg/v3YGkzhB5g

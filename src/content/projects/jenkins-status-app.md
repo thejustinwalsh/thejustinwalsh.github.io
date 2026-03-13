@@ -3,7 +3,6 @@ title: "Jenkins Status App"
 description: "A React Native multi-platform Jenkins dashboard that runs natively on Android, iOS, macOS, and Windows from a single TypeScript codebase."
 tags: [typescript]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/jenkins-status-app
   discord: https://discord.gg/gfDy2VHu37

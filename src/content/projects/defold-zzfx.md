@@ -3,7 +3,6 @@ title: "Defold ZzFX"
 description: "A Defold native extension porting the ZzFX procedural sound synthesizer for in-engine audio generation without asset files."
 tags: [c++, defold, defold-native-extension, lua, game]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/defold-zzfx
   live: https://tjw.dev/defold-zzfx/

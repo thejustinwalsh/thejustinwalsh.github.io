@@ -3,7 +3,6 @@ title: "Untile"
 description: "A .NET CLI tool that splits packed tilesheet images into individual tile files, given a target tile size."
 tags: [c#]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/Untile
   discord: https://discord.gg/UXgct3xNDQ

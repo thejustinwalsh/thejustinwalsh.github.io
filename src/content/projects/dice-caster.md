@@ -3,7 +3,6 @@ title: "Dice Caster"
 description: "A hosted dice rolling API with standard notation support and statistically sound distribution, built on TypeScript and Redis."
 tags: [typescript]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/dice-caster
   discord: https://discord.gg/fK9zChkMBx

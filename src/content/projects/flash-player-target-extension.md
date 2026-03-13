@@ -3,7 +3,6 @@ title: "Flash Player Target Extension"
 description: "Adobe Flash CS6 extension that patches the Publish Settings dialog to expose Flash Player 11.5, 11.6, and 11.7 as compile targets."
 tags: []
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/flash-player-target-extension
   discord: https://discord.gg/k2XbQmUSBs

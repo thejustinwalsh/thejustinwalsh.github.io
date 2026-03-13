@@ -3,7 +3,6 @@ title: "CastleDB for Godot"
 description: "A Godot 3 plugin that imports CastleDB files and generates typed GDScript for fully autocompleted static game data."
 tags: [gdscript]
 status: completed
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/castledb-godot
   discord: https://discord.gg/sXQBsfxWRe

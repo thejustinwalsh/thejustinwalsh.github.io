@@ -3,7 +3,6 @@ title: "AirEJDB"
 description: "An Adobe AIR Native Extension that brings EJDB's fast MongoDB-style document storage to iOS, Mac, and Windows."
 tags: [c++]
 status: archived
-hero: /placeholder-project.svg
 links:
   repo: https://github.com/thejustinwalsh/airejdb
   discord: https://discord.gg/zE3rrDxk8B

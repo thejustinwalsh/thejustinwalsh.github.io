@@ -3,7 +3,7 @@ title: "Gatsby Astroturf Tailwind"
 description: "A Gatsby starter that combines Astroturf scoped CSS-in-JS with Tailwind utility classes, wired for zero-config GitHub Pages deployment."
 tags: [javascript, gatsby, tailwindcss, astroturf, gatsby-starter]
 status: completed
-hero: /projects/gatsby-astroturf-tailwind.png
+hero: ../../assets/projects/gatsby-astroturf-tailwind.png
 links:
   repo: https://github.com/thejustinwalsh/gatsby-astroturf-tailwind
   live: https://tjw.dev/gatsby-astroturf-tailwind/

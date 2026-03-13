@@ -1,0 +1,179 @@
+---
+/**
+ * Generates a unique placeholder graphic for projects without hero images.
+ * Uses the project name to deterministically pick an accent color and
+ * generate a geometric pattern background.
+ *
+ * variant="thumbnail" — shows a monogram (used in cards/lists)
+ * variant="hero"      — pattern only, no monogram (title is overlaid by layout)
+ */
+
+import { ACCENT_HEX } from "@/lib/colors";
+
+interface Props {
+  name: string;
+  class?: string;
+  variant?: "thumbnail" | "hero";
+}
+
+const { name, class: className = "", variant = "thumbnail" } = Astro.props;
+
+// Deterministic hash from project name
+function hash(str: string): number {
+  let h = 0;
+  for (let i = 0; i < str.length; i++) {
+    h = ((h << 5) - h + str.charCodeAt(i)) | 0;
+  }
+  return Math.abs(h);
+}
+
+const ACCENTS = Object.values(ACCENT_HEX);
+
+const h = hash(name);
+const accent = ACCENTS[h % ACCENTS.length];
+
+// Generate monogram: up to 2 chars from project name
+function monogram(title: string): string {
+  const cleaned = title.replace(/['"]/g, "");
+  const words = cleaned.split(/[\s\-_]+/).filter(Boolean);
+  if (words.length === 1) {
+    // Single word: use first 2 chars uppercase
+    return cleaned.slice(0, 2).toUpperCase();
+  }
+  // Multi-word: first char of first two significant words
+  return (words[0][0] + words[1][0]).toUpperCase();
+}
+
+const mono = monogram(name);
+
+// Generate pattern elements based on hash
+// We use different pattern types for variety
+const patternType = h % 4;
+
+function generatePattern(h: number, type: number): string {
+  const elements: string[] = [];
+  // Use hash to seed a simple PRNG
+  let seed = h;
+  const rand = () => {
+    seed = (seed * 16807 + 0) % 2147483647;
+    return (seed & 0x7fffffff) / 0x7fffffff;
+  };
+
+  if (type === 0) {
+    // Dot grid with varying opacity
+    for (let x = 20; x < 800; x += 40) {
+      for (let y = 20; y < 400; y += 40) {
+        const opacity = 0.03 + rand() * 0.12;
+        const radius = 1.5 + rand() * 2.5;
+        elements.push(
+          `<circle cx="${x}" cy="${y}" r="${radius}" fill="${accent}" opacity="${opacity.toFixed(2)}"/>`
+        );
+      }
+    }
+  } else if (type === 1) {
+    // Diagonal lines
+    for (let i = -400; i < 1200; i += 24) {
+      const opacity = 0.03 + rand() * 0.08;
+      const strokeWidth = 0.5 + rand() * 1;
+      elements.push(
+        `<line x1="${i}" y1="0" x2="${i + 400}" y2="400" stroke="${accent}" stroke-width="${strokeWidth.toFixed(1)}" opacity="${opacity.toFixed(2)}"/>`
+      );
+    }
+  } else if (type === 2) {
+    // Scattered rectangles
+    for (let i = 0; i < 40; i++) {
+      const x = rand() * 800;
+      const y = rand() * 400;
+      const w = 4 + rand() * 24;
+      const h = 4 + rand() * 24;
+      const opacity = 0.03 + rand() * 0.08;
+      elements.push(
+        `<rect x="${x.toFixed(0)}" y="${y.toFixed(0)}" width="${w.toFixed(0)}" height="${h.toFixed(0)}" fill="${accent}" opacity="${opacity.toFixed(2)}"/>`
+      );
+    }
+  } else {
+    // Concentric arcs
+    const cx = 400;
+    const cy = 200;
+    for (let r = 30; r < 500; r += 20 + rand() * 15) {
+      const opacity = 0.03 + rand() * 0.08;
+      const startAngle = rand() * Math.PI * 2;
+      const sweep = 0.5 + rand() * 2.5;
+      const x1 = cx + r * Math.cos(startAngle);
+      const y1 = cy + r * Math.sin(startAngle);
+      const x2 = cx + r * Math.cos(startAngle + sweep);
+      const y2 = cy + r * Math.sin(startAngle + sweep);
+      const largeArc = sweep > Math.PI ? 1 : 0;
+      elements.push(
+        `<path d="M ${x1.toFixed(1)} ${y1.toFixed(1)} A ${r} ${r} 0 ${largeArc} 1 ${x2.toFixed(1)} ${y2.toFixed(1)}" fill="none" stroke="${accent}" stroke-width="1" opacity="${opacity.toFixed(2)}"/>`
+      );
+    }
+  }
+
+  return elements.join("\n    ");
+}
+
+const patternSvg = generatePattern(h, patternType);
+
+// Accent at lower opacity for the glow
+const glowOpacity = variant === "hero" ? "0.08" : "0.05";
+---
+
+<div class:list={["project-placeholder", `project-placeholder--${variant}`, className]}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 800 400"
+    preserveAspectRatio="xMidYMid slice"
+    class="project-placeholder__svg"
+    aria-hidden="true"
+  >
+    {/* Background */}
+    <rect width="800" height="400" fill="#141418"/>
+
+    {/* Pattern */}
+    <g>
+      <Fragment set:html={patternSvg} />
+    </g>
+
+    {/* Center glow */}
+    <radialGradient id={`glow-${h}`} cx="50%" cy="50%" r="40%">
+      <stop offset="0%" stop-color={accent} stop-opacity={glowOpacity}/>
+      <stop offset="100%" stop-color={accent} stop-opacity="0"/>
+    </radialGradient>
+    <rect width="800" height="400" fill={`url(#glow-${h})`}/>
+
+    {/* Top accent line */}
+    <rect width="800" height="1" fill={accent} opacity="0.2"/>
+
+    {/* Monogram — thumbnail only */}
+    {variant === "thumbnail" && (
+      <text
+        x="400"
+        y="215"
+        text-anchor="middle"
+        dominant-baseline="central"
+        font-family="'JetBrains Mono Variable', 'JetBrains Mono', monospace"
+        font-weight="800"
+        font-size="120"
+        fill={accent}
+        opacity="0.6"
+      >
+        {mono}
+      </text>
+    )}
+  </svg>
+</div>
+
+<style>
+  .project-placeholder {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .project-placeholder__svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+</style>

@@ -66,6 +66,10 @@ jobs:
           node-version: 22
           cache: "pnpm"
 
+      - name: Ensure ffmpeg is available
+        if: steps.check.outputs.skip != 'true' && steps.files.outputs.skip != 'true'
+        run: command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+
       - name: Install dependencies
         if: steps.check.outputs.skip != 'true' && steps.files.outputs.skip != 'true'
         run: pnpm install --frozen-lockfile
@@ -98,15 +102,15 @@ jobs:
              f. If the live site URL exists, fetch it and look for feature descriptions, taglines, or about pages
              g. Read key source files (package.json, Cargo.toml, main entry points) to understand the tech stack and capabilities
           4. Find the best hero image for the project:
-             a. Check the current hero field — if it is '/placeholder-project.svg' or missing, a better image is needed
+             a. Check the current hero field — if it is missing, a better image is needed
              b. Even if a hero image already exists, look for a better one — prefer larger, more visually interesting images
              c. Sources to check (in priority order):
                 - GitHub social preview: use gh api repos/OWNER/REPO --jq '.open_graph_image_url' — skip if it contains 'opengraph.githubassets.com' (that is the auto-generated default)
                 - README images: look for screenshots, banners, or demo GIFs in the README
                 - Live site og:image: if the site has an og:image meta tag, fetch it
                 - Docs site screenshots or banner images
-             d. Download the best image you find using curl to public/projects/SLUG.EXT (use the project slug from the filename, preserve the original extension)
-             e. Update the hero frontmatter field to '/projects/SLUG.EXT'
+             d. Download the best image you find using curl to src/assets/projects/SLUG.EXT (use the project slug from the filename, preserve the original extension)
+             e. Update the hero frontmatter field to '../../assets/projects/SLUG.EXT' (relative path from the content file)
              f. If no good image is found, leave the hero field as-is
              g. Prefer PNG/JPG/WebP over SVG. Prefer images that are at least 800px wide. Prefer screenshots or banners over logos or icons.
           5. Validate ALL URLs in the frontmatter links block — for each link, use curl to check if it returns a 2xx or 3xx status. If a link is dead (4xx, 5xx, or timeout), see if there is a suitable link that was exposed from github about on the repo or README that can replace it. If not, remove the dead link from the frontmatter.
@@ -141,12 +145,16 @@ jobs:
           - Strings containing colons must be quoted
           - URLs do not need quotes unless they contain special YAML characters"
 
+      - name: Convert GIF heroes to video
+        if: steps.check.outputs.skip != 'true' && steps.files.outputs.skip != 'true'
+        run: pnpm convert:gifs
+
       - name: Commit refined descriptions
         if: steps.check.outputs.skip != 'true' && steps.files.outputs.skip != 'true'
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          git add src/content/projects/ public/projects/
+          git add src/content/projects/ src/assets/projects/ public/projects/
           if ! git diff-index --quiet HEAD 2>/dev/null; then
             git commit -m "chore: refine project descriptions"
             git push
