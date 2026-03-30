@@ -12,13 +12,13 @@
     "lastActivity": "2025-05-12"
   },
   "react-concurrent-store": {
-    "order": 65,
-    "stars": 44,
+    "order": 66,
+    "stars": 46,
     "npmDownloads": 0,
     "lastActivity": "2026-01-15"
   },
   "defold-xmath": {
-    "order": 59,
+    "order": 57,
     "stars": 32,
     "npmDownloads": 0,
     "lastActivity": "2026-03-05"
@@ -50,13 +50,13 @@
   "react-uxp-spectrum": {
     "order": 16,
     "stars": 12,
-    "npmDownloads": 56,
+    "npmDownloads": 60,
     "lastActivity": "2022-10-30"
   },
   "uxp-types": {
     "order": 21,
     "stars": 12,
-    "npmDownloads": 147,
+    "npmDownloads": 85,
     "lastActivity": "2023-06-19"
   },
   "defold-zzfx": {
@@ -78,8 +78,8 @@
     "lastActivity": "2021-07-26"
   },
   "three-flatland": {
-    "order": 66,
-    "stars": 6,
+    "order": 68,
+    "stars": 11,
     "npmDownloads": 0,
     "lastActivity": "2026-03-12"
   },
@@ -98,7 +98,7 @@
   "react-defold": {
     "order": 11,
     "stars": 3,
-    "npmDownloads": 0,
+    "npmDownloads": 4,
     "lastActivity": "2021-12-13"
   },
   "catchy-links": {
@@ -108,7 +108,7 @@
     "lastActivity": "2021-09-07"
   },
   "tubetape": {
-    "order": 47,
+    "order": 44,
     "stars": 2,
     "npmDownloads": 0,
     "lastActivity": "2026-02-03"
@@ -132,13 +132,13 @@
     "lastActivity": "2021-02-22"
   },
   "zzfx-studio": {
-    "order": 62,
-    "stars": 1,
+    "order": 60,
+    "stars": 2,
     "npmDownloads": 0,
     "lastActivity": "2026-03-08"
   },
   "hyper-space-wave": {
-    "order": 14,
+    "order": 13,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2025-12-19"
@@ -204,13 +204,13 @@
     "lastActivity": "2011-08-17"
   },
   "self-hosted": {
-    "order": 20,
+    "order": 19,
     "stars": 0,
     "npmDownloads": 0,
-    "lastActivity": "2026-03-12"
+    "lastActivity": "2026-03-17"
   },
   "brew-keeper": {
-    "order": 19,
+    "order": 17,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-02-04"
@@ -224,7 +224,7 @@
   "protoparse": {
     "order": 3,
     "stars": 0,
-    "npmDownloads": 2,
+    "npmDownloads": 5,
     "lastActivity": "2022-03-23"
   },
   "sol-souls-afterlife": {
@@ -246,9 +246,27 @@
     "lastActivity": "2017-06-08"
   },
   "ts-defold-create": {
-    "order": 98,
-    "stars": 90,
-    "npmDownloads": 5,
+    "order": 97,
+    "stars": 89,
+    "npmDownloads": 2,
     "lastActivity": "2025-02-18"
+  },
+  "noron": {
+    "order": 58,
+    "stars": 1,
+    "npmDownloads": 0,
+    "lastActivity": "2026-03-25"
+  },
+  "claude-ghostty-notify": {
+    "order": 22,
+    "stars": 0,
+    "npmDownloads": 0,
+    "lastActivity": "2026-03-23"
+  },
+  "workflows": {
+    "order": 57,
+    "stars": 0,
+    "npmDownloads": 0,
+    "lastActivity": "2026-03-25"
   }
 }
