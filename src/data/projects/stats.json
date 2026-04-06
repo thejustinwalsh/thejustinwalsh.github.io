@@ -12,13 +12,13 @@
     "lastActivity": "2025-05-12"
   },
   "react-concurrent-store": {
-    "order": 66,
+    "order": 65,
     "stars": 46,
     "npmDownloads": 0,
     "lastActivity": "2026-01-15"
   },
   "defold-xmath": {
-    "order": 57,
+    "order": 56,
     "stars": 32,
     "npmDownloads": 0,
     "lastActivity": "2026-03-05"
@@ -50,13 +50,13 @@
   "react-uxp-spectrum": {
     "order": 16,
     "stars": 12,
-    "npmDownloads": 60,
+    "npmDownloads": 70,
     "lastActivity": "2022-10-30"
   },
   "uxp-types": {
-    "order": 21,
+    "order": 22,
     "stars": 12,
-    "npmDownloads": 85,
+    "npmDownloads": 174,
     "lastActivity": "2023-06-19"
   },
   "defold-zzfx": {
@@ -78,10 +78,10 @@
     "lastActivity": "2021-07-26"
   },
   "three-flatland": {
-    "order": 68,
-    "stars": 11,
+    "order": 70,
+    "stars": 12,
     "npmDownloads": 0,
-    "lastActivity": "2026-03-12"
+    "lastActivity": "2026-04-06"
   },
   "flash-player-target-extension": {
     "order": 8,
@@ -98,7 +98,7 @@
   "react-defold": {
     "order": 11,
     "stars": 3,
-    "npmDownloads": 4,
+    "npmDownloads": 13,
     "lastActivity": "2021-12-13"
   },
   "catchy-links": {
@@ -108,7 +108,7 @@
     "lastActivity": "2021-09-07"
   },
   "tubetape": {
-    "order": 44,
+    "order": 42,
     "stars": 2,
     "npmDownloads": 0,
     "lastActivity": "2026-02-03"
@@ -132,13 +132,13 @@
     "lastActivity": "2021-02-22"
   },
   "zzfx-studio": {
-    "order": 60,
+    "order": 58,
     "stars": 2,
     "npmDownloads": 0,
     "lastActivity": "2026-03-08"
   },
   "hyper-space-wave": {
-    "order": 13,
+    "order": 12,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2025-12-19"
@@ -204,13 +204,13 @@
     "lastActivity": "2011-08-17"
   },
   "self-hosted": {
-    "order": 19,
+    "order": 18,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-03-17"
   },
   "brew-keeper": {
-    "order": 17,
+    "order": 16,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-02-04"
@@ -224,7 +224,7 @@
   "protoparse": {
     "order": 3,
     "stars": 0,
-    "npmDownloads": 5,
+    "npmDownloads": 0,
     "lastActivity": "2022-03-23"
   },
   "sol-souls-afterlife": {
@@ -246,27 +246,39 @@
     "lastActivity": "2017-06-08"
   },
   "ts-defold-create": {
-    "order": 97,
-    "stars": 89,
+    "order": 98,
+    "stars": 90,
     "npmDownloads": 2,
     "lastActivity": "2025-02-18"
   },
   "noron": {
-    "order": 58,
+    "order": 56,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-03-25"
   },
   "claude-ghostty-notify": {
-    "order": 22,
+    "order": 21,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-03-23"
   },
   "workflows": {
-    "order": 57,
+    "order": 55,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-03-25"
+  },
+  "claude-restruct-plugin": {
+    "order": 20,
+    "stars": 0,
+    "npmDownloads": 0,
+    "lastActivity": "2026-04-02"
+  },
+  "claude-plugins": {
+    "order": 20,
+    "stars": 0,
+    "npmDownloads": 0,
+    "lastActivity": "2026-04-02"
   }
 }
