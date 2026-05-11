@@ -1,7 +1,7 @@
 {
   "castledb-godot": {
-    "order": 71,
-    "stars": 68,
+    "order": 72,
+    "stars": 69,
     "npmDownloads": 0,
     "lastActivity": "2022-06-30"
   },
@@ -12,7 +12,7 @@
     "lastActivity": "2025-05-12"
   },
   "react-concurrent-store": {
-    "order": 63,
+    "order": 62,
     "stars": 47,
     "npmDownloads": 0,
     "lastActivity": "2026-01-15"
@@ -24,8 +24,8 @@
     "lastActivity": "2026-03-05"
   },
   "heaps-ios": {
-    "order": 25,
-    "stars": 22,
+    "order": 26,
+    "stars": 23,
     "npmDownloads": 0,
     "lastActivity": "2019-04-15"
   },
@@ -48,15 +48,15 @@
     "lastActivity": "2024-11-05"
   },
   "react-uxp-spectrum": {
-    "order": 16,
+    "order": 15,
     "stars": 12,
-    "npmDownloads": 55,
+    "npmDownloads": 41,
     "lastActivity": "2022-10-30"
   },
   "uxp-types": {
     "order": 22,
     "stars": 12,
-    "npmDownloads": 203,
+    "npmDownloads": 204,
     "lastActivity": "2023-06-19"
   },
   "defold-zzfx": {
@@ -81,7 +81,7 @@
     "order": 72,
     "stars": 13,
     "npmDownloads": 0,
-    "lastActivity": "2026-04-26"
+    "lastActivity": "2026-05-09"
   },
   "flash-player-target-extension": {
     "order": 8,
@@ -98,7 +98,7 @@
   "react-defold": {
     "order": 11,
     "stars": 3,
-    "npmDownloads": 9,
+    "npmDownloads": 28,
     "lastActivity": "2021-12-13"
   },
   "catchy-links": {
@@ -108,7 +108,7 @@
     "lastActivity": "2021-09-07"
   },
   "tubetape": {
-    "order": 35,
+    "order": 33,
     "stars": 2,
     "npmDownloads": 0,
     "lastActivity": "2026-02-03"
@@ -132,13 +132,13 @@
     "lastActivity": "2021-02-22"
   },
   "zzfx-studio": {
-    "order": 51,
+    "order": 49,
     "stars": 2,
     "npmDownloads": 0,
     "lastActivity": "2026-03-08"
   },
   "hyper-space-wave": {
-    "order": 9,
+    "order": 8,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2025-12-19"
@@ -204,13 +204,13 @@
     "lastActivity": "2011-08-17"
   },
   "self-hosted": {
-    "order": 15,
+    "order": 14,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-03-17"
   },
   "brew-keeper": {
-    "order": 13,
+    "order": 12,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-02-04"
@@ -246,13 +246,13 @@
     "lastActivity": "2017-06-08"
   },
   "ts-defold-create": {
-    "order": 99,
+    "order": 98,
     "stars": 90,
-    "npmDownloads": 72,
+    "npmDownloads": 29,
     "lastActivity": "2025-02-18"
   },
   "noron": {
-    "order": 49,
+    "order": 47,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-03-25"
@@ -264,7 +264,7 @@
     "lastActivity": "2026-04-10"
   },
   "workflows": {
-    "order": 48,
+    "order": 46,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-03-25"
