@@ -12,13 +12,13 @@
     "lastActivity": "2025-05-12"
   },
   "react-concurrent-store": {
-    "order": 61,
+    "order": 60,
     "stars": 47,
     "npmDownloads": 0,
     "lastActivity": "2026-01-15"
   },
   "defold-xmath": {
-    "order": 52,
+    "order": 51,
     "stars": 33,
     "npmDownloads": 0,
     "lastActivity": "2026-03-05"
@@ -48,15 +48,15 @@
     "lastActivity": "2024-11-05"
   },
   "react-uxp-spectrum": {
-    "order": 15,
+    "order": 16,
     "stars": 12,
-    "npmDownloads": 32,
+    "npmDownloads": 53,
     "lastActivity": "2022-10-30"
   },
   "uxp-types": {
-    "order": 22,
+    "order": 21,
     "stars": 12,
-    "npmDownloads": 179,
+    "npmDownloads": 100,
     "lastActivity": "2023-06-19"
   },
   "defold-zzfx": {
@@ -78,10 +78,10 @@
     "lastActivity": "2021-07-26"
   },
   "three-flatland": {
-    "order": 78,
-    "stars": 15,
+    "order": 77,
+    "stars": 16,
     "npmDownloads": 0,
-    "lastActivity": "2026-05-25"
+    "lastActivity": "2026-05-29"
   },
   "flash-player-target-extension": {
     "order": 8,
@@ -98,7 +98,7 @@
   "react-defold": {
     "order": 11,
     "stars": 3,
-    "npmDownloads": 13,
+    "npmDownloads": 1,
     "lastActivity": "2021-12-13"
   },
   "catchy-links": {
@@ -108,7 +108,7 @@
     "lastActivity": "2021-09-07"
   },
   "tubetape": {
-    "order": 30,
+    "order": 28,
     "stars": 2,
     "npmDownloads": 0,
     "lastActivity": "2026-02-03"
@@ -132,13 +132,13 @@
     "lastActivity": "2021-02-22"
   },
   "zzfx-studio": {
-    "order": 62,
+    "order": 60,
     "stars": 2,
     "npmDownloads": 0,
     "lastActivity": "2026-05-12"
   },
   "hyper-space-wave": {
-    "order": 7,
+    "order": 6,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2025-12-19"
@@ -210,7 +210,7 @@
     "lastActivity": "2026-03-17"
   },
   "brew-keeper": {
-    "order": 11,
+    "order": 10,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-02-04"
@@ -248,43 +248,43 @@
   "ts-defold-create": {
     "order": 100,
     "stars": 92,
-    "npmDownloads": 8,
+    "npmDownloads": 9,
     "lastActivity": "2025-02-18"
   },
   "noron": {
-    "order": 44,
+    "order": 42,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-03-25"
   },
   "claude-ghostty-notify": {
-    "order": 19,
+    "order": 18,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-04-10"
   },
   "workflows": {
-    "order": 43,
+    "order": 41,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-03-25"
   },
   "claude-restruct-plugin": {
-    "order": 16,
+    "order": 15,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-04-10"
   },
   "claude-plugins": {
-    "order": 16,
+    "order": 15,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-04-10"
   },
   "middle": {
-    "order": 23,
-    "stars": 0,
+    "order": 24,
+    "stars": 1,
     "npmDownloads": 0,
-    "lastActivity": "2026-05-25"
+    "lastActivity": "2026-05-29"
   }
 }
