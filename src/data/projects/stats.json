@@ -12,13 +12,13 @@
     "lastActivity": "2025-05-12"
   },
   "react-concurrent-store": {
-    "order": 58,
+    "order": 57,
     "stars": 48,
     "npmDownloads": 0,
     "lastActivity": "2026-01-15"
   },
   "defold-xmath": {
-    "order": 49,
+    "order": 48,
     "stars": 34,
     "npmDownloads": 0,
     "lastActivity": "2026-03-05"
@@ -48,15 +48,15 @@
     "lastActivity": "2024-11-05"
   },
   "react-uxp-spectrum": {
-    "order": 17,
+    "order": 15,
     "stars": 12,
-    "npmDownloads": 174,
+    "npmDownloads": 26,
     "lastActivity": "2022-10-30"
   },
   "uxp-types": {
-    "order": 22,
+    "order": 21,
     "stars": 12,
-    "npmDownloads": 183,
+    "npmDownloads": 79,
     "lastActivity": "2023-06-19"
   },
   "defold-zzfx": {
@@ -78,10 +78,10 @@
     "lastActivity": "2021-07-26"
   },
   "three-flatland": {
-    "order": 75,
+    "order": 74,
     "stars": 18,
     "npmDownloads": 0,
-    "lastActivity": "2026-06-25"
+    "lastActivity": "2026-07-01"
   },
   "flash-player-target-extension": {
     "order": 8,
@@ -98,7 +98,7 @@
   "react-defold": {
     "order": 11,
     "stars": 3,
-    "npmDownloads": 21,
+    "npmDownloads": 3,
     "lastActivity": "2021-12-13"
   },
   "catchy-links": {
@@ -108,7 +108,7 @@
     "lastActivity": "2021-09-07"
   },
   "tubetape": {
-    "order": 21,
+    "order": 19,
     "stars": 2,
     "npmDownloads": 0,
     "lastActivity": "2026-02-03"
@@ -132,8 +132,8 @@
     "lastActivity": "2021-02-22"
   },
   "zzfx-studio": {
-    "order": 53,
-    "stars": 2,
+    "order": 57,
+    "stars": 8,
     "npmDownloads": 0,
     "lastActivity": "2026-05-12"
   },
@@ -210,7 +210,7 @@
     "lastActivity": "2026-03-17"
   },
   "brew-keeper": {
-    "order": 7,
+    "order": 6,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-02-04"
@@ -224,7 +224,7 @@
   "protoparse": {
     "order": 3,
     "stars": 0,
-    "npmDownloads": 2,
+    "npmDownloads": 6,
     "lastActivity": "2022-03-23"
   },
   "sol-souls-afterlife": {
@@ -248,35 +248,35 @@
   "ts-defold-create": {
     "order": 104,
     "stars": 96,
-    "npmDownloads": 35,
+    "npmDownloads": 11,
     "lastActivity": "2025-02-18"
   },
   "noron": {
-    "order": 45,
+    "order": 43,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-06-24"
   },
   "claude-ghostty-notify": {
-    "order": 17,
+    "order": 16,
     "stars": 3,
     "npmDownloads": 0,
     "lastActivity": "2026-04-10"
   },
   "workflows": {
-    "order": 34,
+    "order": 32,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-03-25"
   },
   "claude-restruct-plugin": {
-    "order": 12,
+    "order": 11,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-04-10"
   },
   "claude-plugins": {
-    "order": 12,
+    "order": 11,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-04-10"
@@ -288,7 +288,7 @@
     "lastActivity": "2026-06-24"
   },
   "react-three-nativescript": {
-    "order": 24,
+    "order": 23,
     "stars": 4,
     "npmDownloads": 0,
     "lastActivity": "2026-06-03"
