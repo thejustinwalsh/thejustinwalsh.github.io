@@ -18,7 +18,7 @@
     "lastActivity": "2026-01-15"
   },
   "defold-xmath": {
-    "order": 95,
+    "order": 93,
     "stars": 34,
     "npmDownloads": 0,
     "lastActivity": "2026-07-11"
@@ -50,13 +50,13 @@
   "react-uxp-spectrum": {
     "order": 15,
     "stars": 12,
-    "npmDownloads": 13,
+    "npmDownloads": 34,
     "lastActivity": "2022-10-30"
   },
   "uxp-types": {
-    "order": 22,
+    "order": 21,
     "stars": 12,
-    "npmDownloads": 185,
+    "npmDownloads": 77,
     "lastActivity": "2023-06-19"
   },
   "defold-zzfx": {
@@ -78,10 +78,10 @@
     "lastActivity": "2021-07-26"
   },
   "three-flatland": {
-    "order": 79,
-    "stars": 24,
+    "order": 87,
+    "stars": 25,
     "npmDownloads": 0,
-    "lastActivity": "2026-07-20"
+    "lastActivity": "2026-07-22"
   },
   "flash-player-target-extension": {
     "order": 8,
@@ -98,7 +98,7 @@
   "react-defold": {
     "order": 11,
     "stars": 3,
-    "npmDownloads": 0,
+    "npmDownloads": 4,
     "lastActivity": "2021-12-13"
   },
   "catchy-links": {
@@ -132,7 +132,7 @@
     "lastActivity": "2021-02-22"
   },
   "zzfx-studio": {
-    "order": 57,
+    "order": 55,
     "stars": 11,
     "npmDownloads": 0,
     "lastActivity": "2026-05-12"
@@ -204,13 +204,13 @@
     "lastActivity": "2011-08-17"
   },
   "self-hosted": {
-    "order": 6,
+    "order": 5,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-03-17"
   },
   "brew-keeper": {
-    "order": 5,
+    "order": 4,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-02-04"
@@ -224,7 +224,7 @@
   "protoparse": {
     "order": 3,
     "stars": 0,
-    "npmDownloads": 3,
+    "npmDownloads": 4,
     "lastActivity": "2022-03-23"
   },
   "sol-souls-afterlife": {
@@ -248,56 +248,56 @@
   "ts-defold-create": {
     "order": 104,
     "stars": 96,
-    "npmDownloads": 4,
+    "npmDownloads": 5,
     "lastActivity": "2025-02-18"
   },
   "noron": {
-    "order": 40,
+    "order": 38,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-06-24"
   },
   "claude-ghostty-notify": {
-    "order": 16,
-    "stars": 4,
+    "order": 18,
+    "stars": 7,
     "npmDownloads": 0,
     "lastActivity": "2026-04-10"
   },
   "workflows": {
-    "order": 29,
+    "order": 27,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-03-25"
   },
   "claude-restruct-plugin": {
-    "order": 10,
+    "order": 9,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-04-10"
   },
   "claude-plugins": {
-    "order": 10,
+    "order": 9,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-04-10"
   },
   "middle": {
-    "order": 21,
+    "order": 20,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-06-24"
   },
   "react-three-nativescript": {
-    "order": 22,
+    "order": 21,
     "stars": 4,
     "npmDownloads": 0,
     "lastActivity": "2026-06-03"
   },
   "nvidiagameworks-kaolin": {
-    "order": 5174,
-    "stars": 5141,
+    "order": 5179,
+    "stars": 5146,
     "npmDownloads": 0,
-    "lastActivity": "2026-07-17"
+    "lastActivity": "2026-07-23"
   },
   "autodeskgames-stingray-plugin": {
     "order": 39,
