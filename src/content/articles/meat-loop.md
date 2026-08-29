@@ -1,6 +1,6 @@
 ---
 title: Meat Loop
-description: The endless review agent loop I actually build with — and why the slow, wet part of it is still me.
+description: The endless review agent loop I've been building with, and why I'm still the part that closes it.
 date: 2026-08-29
 tags:
   - agentic
@@ -11,81 +11,69 @@ ogImage: /side-piece/og.png
 draft: true
 ---
 
-There is a lot of writing right now about agent orchestration. Graphs, supervisors, routers, fan-out topologies with a dozen boxes and arrows. I've read most of it. None of it is what I actually do.
+Everyone is writing about agent orchestration right now, and most of it arrives as a diagram: supervisors, routers, a graph of specialized workers passing artifacts between themselves. I read that stuff and recognize almost none of my actual week in it.
 
-What I actually do is run one long agent loop and stand next to it. I call it the meat loop, because the loop closes through me. The agent does the typing. I do the steering, the smell test, and the decision about when to keep going. It is not an incredibly complex setup. There is no graph. And the software factory still feels like me.
+What I run is one long agent loop with me standing next to it, and I call it the meat loop because I'm the part that closes it. Codex does the typing while I do the steering, the smell test, and the call on whether any of it is still worth continuing.
 
-## Starting the Loop
+## Starting it
 
-Every good loop starts from something written down. A spec, a plan, a bug list, or at minimum a genuinely good description of the work. Not "fix the review comments" — the actual list, with enough context that the agent can tell when it's done.
+A loop is only as good as the thing you point it at, so I start from something written down: a spec, a plan, a bug list, or at minimum a description detailed enough that the agent can tell when it is finished. Something like "fix the review comments" leaves it guessing where the finish line sits, and it will guess generously.
 
-Then I set a `/goal` in codex and hand it the whole thing: fix all the review findings, the fixes, the changes. Write tests. Verify it works with live probes in the browser. Check for visual regressions. That last part matters more than it sounds — an agent that can only see its own diff will confidently declare victory over a broken page.
+Then I set a `/goal` in codex and hand over the whole thing. Fix the review findings, write the tests, verify it in a browser with live probes, check for visual regressions. That last one earns its place, because an agent that can only see its own diff will happily declare victory over a page that doesn't render.
 
-The important part is the standing instruction attached to the goal:
+The instruction that turns this from a chat session into a loop rides along with the goal:
 
 > [!note]
-> Any new steer gets added to the task queue while you continue to work. Any question gets answered while you continue to work.
+> Any new steer goes into the task queue while you continue working. Any question gets answered while you continue working.
 
-That one rule is what turns a chat session into a loop. Without it, every thought I have costs a full stop and restart. With it, I can drop a correction in mid-stride and the agent absorbs it into the queue instead of abandoning what it's doing. The loop keeps running while I think.
+Without it, every thought I have costs a full stop and a restart, and I start rationing my own corrections to avoid paying that. With it I can drop something in mid-stride and watch it land in the queue instead of derailing whatever is already running.
 
-## Watching for Nonsense
+## Nonsense, flagged early
 
-While it's fixing things, it will post nonsense. Not often, but reliably. A confident summary of something that didn't happen. A claim that a test passes when it was never run. An interpretation of a requirement that is subtly, expensively wrong.
+It will post nonsense. Not constantly, but often enough to plan around: a claim that the tests pass when nothing ran, or a reading of a requirement that is subtly and expensively wrong.
 
-I flag those immediately and ask for more detail. Not "that's wrong" — a request to explain. Half the time the detail is fine and I misread the shorthand. The other half, the detail is where the wrongness lives, and then I steer.
+I flag those immediately and ask for detail rather than saying "that's wrong." Maybe half the time the detail comes back fine and I had misread the shorthand; the other half, the detail is exactly where the wrongness lives, and then I steer. Either way it is cheap. Catching a bad assumption in its first minute costs one line, and catching it twenty minutes later costs a revert plus everything that got stacked on top of it.
 
-This is the highest-value thing I do in the loop, and it costs almost nothing. Catching a bad assumption in the first minute is a one-line correction. Catching it after twenty minutes of building on top of it is a revert.
+## The summary is not the work
 
-## Read the Thinking, Not the Summary
+Conclusions come out compressed to the point of being cryptic, written to be short rather than checkable, so I expand the reasoning and read what led up to them instead.
 
-Summaries and conclusions are compressed to the point of being cryptic. They're written to be short, not to be verifiable. So I expand the reasoning and read the thoughts that led up to the conclusion instead.
+That is where a misreading is actually visible. A summary saying it "updated the layout to match the design" hides the reasoning where it decided a spacing token was probably wrong and changed it. Anything I spot there goes back as a follow-up task straight away, while the context that produced it is still warm.
 
-That's where the misinterpretations are visible. The summary says "updated the layout to match the design." The reasoning says it decided the spacing token was probably wrong and changed it. The summary would never have told me that. If I spot anything off, it goes in as a follow-up task immediately, while the context that produced it is still warm.
+## Reading what nobody assigned
 
-## The Second Surface
+The agent has the repo, and so do I, open in VS Code, reading the parts it is not touching.
 
-The agent has the repo. I also have the repo, open in VS Code, and I'm reading the parts it isn't touching.
+This is the half people skip. While the loop grinds through the surfaces in scope I audit the ones next door: code paths near the change that nobody has opened in a year, the component everything got refactored around and then left behind. All of it goes on the stack, so the loop never runs dry, and by the time it clears the original list the list has grown. Every addition came from a human reading code rather than an agent grepping for it, which is a different search that turns up different things.
 
-This is the part people skip. While the loop grinds on the surfaces in scope, I audit adjacent ones — the code paths near the change that nobody has looked at in a while, the tests that assert nothing, the component that got refactored around and left behind. Everything I find goes on the stack.
+## Somebody else's eyes
 
-The loop never runs dry. By the time it finishes the original list, the list is longer, and every addition came from a human reading code rather than an agent grepping for it. Those are different searches and they find different things.
+I use [side-piece](https://tjw.dev/side-piece) to connect my agent CLIs, so sol can hand a diff to opus for an adversarial review, or either of them can hand it to an opencode model, while I keep building.
 
-## Borrowing Another Model's Eyes
+This beats asking the author model to check its own work, because the author is defending a story about what it just did and a reviewer that never wrote the code has no story to protect. The mechanics carry their own weight here: the review runs in the background against an isolated worktree, so it reads everything and writes nothing that lands on me, and the session resumes, so "push back on point three" continues a conversation the provider already has cached instead of re-sending the entire context and paying for it twice.
 
-I use [side-piece](https://tjw.dev/side-piece) to connect my agent CLIs. It lets sol ask opus for an adversarial review, or lets either of them ask an opencode model for one — all while I keep building features.
+## Coming back
 
-An adversarial review from a model that didn't write the code is worth more than a self-review from the model that did. The author model is optimizing for a coherent story about its own work. A cold reviewer has no story to protect.
+I don't sit and watch. Once it is clearly pointed the right way I go do something else, and when I come back the first thing I ask for is a status update, which I read properly before deciding whether the trajectory still holds.
 
-The mechanics matter as much as the idea. The review runs in the background against an isolated worktree, so the reviewer can read everything and write nothing that lands on me. The session is resumable, which means "push back on point three" continues a conversation the provider already has cached instead of re-sending the entire context and paying for it twice. And because it's a background job, the critique arrives without ever costing the main loop its momentum.
+That is the rhythm. Leave when it is on rails, come back with a question, correct, leave again. The loop tolerates me being gone; what it won't tolerate is me being gone and then not reading what happened while I was.
 
-## Checking In
+## Keeping the context clean
 
-I don't sit there the whole time. Once the agent is clearly headed in the right direction, I leave.
+New work stays adjacent to what we have already built up, which is deliberate rather than lazy. The value in a long session is the accumulated understanding of the file layout, the conventions, and the reasons behind the last four decisions, and anything adjacent to that inherits all of it for nothing.
 
-When I come back, the first thing I ask for is a status update. Then I read it, decide whether the trajectory is still good, and re-steer. That's the whole rhythm: leave when it's on rails, return with a question, correct, leave again. The loop tolerates me being gone. It does not tolerate me being gone and not reading what happened.
+Anything that is not adjacent, I delegate. When something needs fixing in an unrelated corner of the codebase with only a few loose touch points, I have the agent spin up a subagent with a narrow brief and take back a result, so the main context never has to load a second unrelated mental model of a system it will not touch again. That is the only orchestration in the whole setup, and it exists to keep the long-running context from getting poisoned.
 
-## Keeping the Context Clean
+## After a few compactions you know
 
-New tasks stay adjacent to the work and the context we've already built up. That's a deliberate constraint, not laziness. The value in a long-running session is the accumulated understanding — the file layout, the conventions, the reasons behind the last four decisions. Every task that's adjacent to that gets it for free.
+Either the quality is holding, with the conventions remembered and the summaries matching reality, or it is visibly struggling: repeating work it already did, needing three rounds to land one change.
 
-Work that isn't adjacent gets delegated. When something needs fixing in an unrelated part of the codebase with only a few loose touch points, I direct the agent to spin up a subagent for it. The subagent gets a narrow brief and returns a result. The main context never has to load a second unrelated mental model.
+There are two moves at that point. Saving the loop means aggressive re-grounding, restating the goal and pruning the queue of everything that has gone stale. Ejecting means taking the code as it stands, writing a fresh plan against it, and starting clean.
 
-That's the only orchestration in this whole setup, and it exists for exactly one reason: to avoid poisoning the long-running context.
+I've stopped being sentimental about which one I reach for. A degrading loop will burn an hour producing work I throw away, while writing a new plan costs ten minutes I probably owed the project anyway.
 
-## Compaction as a Quality Signal
+## It still feels like mine
 
-After a few compactions, you know.
+One agent, one long context, a queue that accepts interruptions, another model on the side for the reviews I wouldn't trust it to run on itself, subagents for the unrelated work, and a human reading the parts nobody assigned. No graph, and no dashboard of little agents blinking at each other.
 
-Either the quality of work is still high — the agent remembers the conventions, the fixes land clean, the summaries match reality — or it's struggling to execute. Repeating work it already did. Re-litigating settled decisions. Producing changes that need three rounds of correction.
-
-When it's struggling, there are two options: try to save the loop, or eject and start fresh. Saving usually means an aggressive re-grounding — restate the goal, re-list what's actually done, prune the queue. Ejecting means taking the current state of the code, writing a new plan against it, and starting a clean loop.
-
-I've learned not to be sentimental about it. A loop that's degrading will burn an hour producing work you have to throw away. Starting fresh costs ten minutes of writing a plan you should have updated anyway.
-
-## The Factory Still Feels Like Me
-
-This has been how I've been building. One agent, one long context, a queue that accepts interruptions, a second model for adversarial review, subagents for the unrelated stuff, and a human reading the parts nobody assigned.
-
-No graph. No orchestration framework. No dashboard of running agents. The complexity lives in the judgment — what to flag, what to queue, when to eject — and that hasn't been automated away yet.
-
-The meat is still in the loop. That's the point.
+The complexity all sits in the judgement about what to flag, what to queue, and when to eject, and none of that has been automated away yet.
