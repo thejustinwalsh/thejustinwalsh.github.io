@@ -43,6 +43,7 @@ const articles = defineCollection({
     description: z.string().optional(),
     date: z.coerce.date(),
     tags: z.array(z.string()).default([]),
+    ogImage: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });

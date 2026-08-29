@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const { title, description, date, tags } = entry.data;
+const { title, description, date, tags, ogImage } = entry.data;
 
 const formattedDate = new Date(date).toLocaleDateString("en-US", {
   year: "numeric",
@@ -20,7 +20,7 @@ const wordCount = entry.body?.split(/\s+/).length ?? 0;
 const readingTime = Math.max(1, Math.round(wordCount / 200));
 ---
 
-<BaseLayout title={title} description={description} accent="articles" searchScope="articles">
+<BaseLayout title={title} description={description} ogImage={ogImage} accent="articles" searchScope="articles">
   <article class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
     <header class="mb-16">
       <div class="mb-4 flex items-center gap-3 font-mono text-xs tracking-widest text-dim">

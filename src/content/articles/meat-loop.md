@@ -7,6 +7,7 @@ tags:
   - workflow
   - process
   - meta
+ogImage: /side-piece/og.png
 draft: true
 ---
 
@@ -51,9 +52,11 @@ The loop never runs dry. By the time it finishes the original list, the list is 
 
 ## Borrowing Another Model's Eyes
 
-I use [tjw.dev/side-piece](https://tjw.dev/side-piece) to connect my agent clips. It lets sol ask opus for an adversarial review, or lets either of them ask an opencode model for a review — all while I keep building features.
+I use [side-piece](https://tjw.dev/side-piece) to connect my agent CLIs. It lets sol ask opus for an adversarial review, or lets either of them ask an opencode model for one — all while I keep building features.
 
-An adversarial review from a model that didn't write the code is worth more than a self-review from the model that did. The author model is optimizing for a coherent story about its own work. A cold reviewer has no story to protect. Running that in parallel means the critique arrives without costing me the main loop's momentum.
+An adversarial review from a model that didn't write the code is worth more than a self-review from the model that did. The author model is optimizing for a coherent story about its own work. A cold reviewer has no story to protect.
+
+The mechanics matter as much as the idea. The review runs in the background against an isolated worktree, so the reviewer can read everything and write nothing that lands on me. The session is resumable, which means "push back on point three" continues a conversation the provider already has cached instead of re-sending the entire context and paying for it twice. And because it's a background job, the critique arrives without ever costing the main loop its momentum.
 
 ## Checking In
 
