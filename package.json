@@ -35,7 +35,7 @@
     "react-dom": "^19.2.4",
     "rehype-mermaid": "^3.0.0",
     "remark-wiki-link": "^2.0.1",
-    "sharp": "^0.33.5",
+    "sharp": "^0.35.0",
     "tailwindcss": "^4.2.1",
     "tiny-tfidf": "^1.0.0",
     "unist-util-visit": "^5.1.0"
