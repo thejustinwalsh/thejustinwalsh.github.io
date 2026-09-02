@@ -9,6 +9,12 @@ import remarkPublicImages from "./src/lib/remark-public-images.ts";
 
 export default defineConfig({
   site: "https://tjw.dev",
+  server: {
+    // portless hands the dev server its port and host through the environment;
+    // the astro CLI only reads --port/--host, so bridge them here.
+    port: Number(process.env.PORT) || 4321,
+    host: process.env.HOST || false,
+  },
   integrations: [
     mdx(),
     react(),
