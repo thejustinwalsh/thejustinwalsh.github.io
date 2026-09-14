@@ -18,7 +18,7 @@
     "lastActivity": "2026-01-15"
   },
   "defold-xmath": {
-    "order": 84,
+    "order": 83,
     "stars": 36,
     "npmDownloads": 0,
     "lastActivity": "2026-07-11"
@@ -48,15 +48,15 @@
     "lastActivity": "2024-11-05"
   },
   "react-uxp-spectrum": {
-    "order": 15,
+    "order": 16,
     "stars": 12,
-    "npmDownloads": 46,
+    "npmDownloads": 75,
     "lastActivity": "2022-10-30"
   },
   "uxp-types": {
-    "order": 23,
+    "order": 22,
     "stars": 12,
-    "npmDownloads": 349,
+    "npmDownloads": 163,
     "lastActivity": "2023-06-19"
   },
   "defold-zzfx": {
@@ -78,7 +78,7 @@
     "lastActivity": "2021-07-26"
   },
   "three-flatland": {
-    "order": 89,
+    "order": 88,
     "stars": 29,
     "npmDownloads": 0,
     "lastActivity": "2026-09-03"
@@ -132,7 +132,7 @@
     "lastActivity": "2021-02-22"
   },
   "zzfx-studio": {
-    "order": 66,
+    "order": 65,
     "stars": 11,
     "npmDownloads": 0,
     "lastActivity": "2026-08-07"
@@ -204,7 +204,7 @@
     "lastActivity": "2011-08-17"
   },
   "self-hosted": {
-    "order": 1,
+    "order": 0,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-03-17"
@@ -224,7 +224,7 @@
   "protoparse": {
     "order": 3,
     "stars": 0,
-    "npmDownloads": 2,
+    "npmDownloads": 5,
     "lastActivity": "2022-03-23"
   },
   "sol-souls-afterlife": {
@@ -248,11 +248,11 @@
   "ts-defold-create": {
     "order": 104,
     "stars": 96,
-    "npmDownloads": 13,
+    "npmDownloads": 5,
     "lastActivity": "2025-02-18"
   },
   "noron": {
-    "order": 28,
+    "order": 26,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-06-24"
@@ -264,7 +264,7 @@
     "lastActivity": "2026-04-10"
   },
   "workflows": {
-    "order": 16,
+    "order": 15,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-03-25"
@@ -282,7 +282,7 @@
     "lastActivity": "2026-04-10"
   },
   "middle": {
-    "order": 16,
+    "order": 15,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-06-24"
@@ -294,10 +294,10 @@
     "lastActivity": "2026-06-03"
   },
   "nvidiagameworks-kaolin": {
-    "order": 5200,
-    "stars": 5167,
+    "order": 5203,
+    "stars": 5171,
     "npmDownloads": 0,
-    "lastActivity": "2026-09-03"
+    "lastActivity": "2026-09-09"
   },
   "autodeskgames-stingray-plugin": {
     "order": 39,
@@ -306,9 +306,9 @@
     "lastActivity": "2017-11-23"
   },
   "side-piece": {
-    "order": 27,
+    "order": 26,
     "stars": 0,
-    "npmDownloads": 16,
+    "npmDownloads": 6,
     "lastActivity": "2026-08-26"
   },
   "anomie": {
