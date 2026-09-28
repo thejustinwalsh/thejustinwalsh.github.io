@@ -12,13 +12,13 @@
     "lastActivity": "2025-05-12"
   },
   "react-concurrent-store": {
-    "order": 77,
+    "order": 76,
     "stars": 49,
     "npmDownloads": 0,
     "lastActivity": "2026-09-16"
   },
   "defold-xmath": {
-    "order": 81,
+    "order": 79,
     "stars": 36,
     "npmDownloads": 0,
     "lastActivity": "2026-07-11"
@@ -50,13 +50,13 @@
   "react-uxp-spectrum": {
     "order": 16,
     "stars": 12,
-    "npmDownloads": 68,
+    "npmDownloads": 93,
     "lastActivity": "2022-10-30"
   },
   "uxp-types": {
-    "order": 21,
+    "order": 22,
     "stars": 12,
-    "npmDownloads": 130,
+    "npmDownloads": 174,
     "lastActivity": "2023-06-19"
   },
   "defold-zzfx": {
@@ -72,14 +72,14 @@
     "lastActivity": "2012-08-06"
   },
   "uxp-starter-react": {
-    "order": 22,
-    "stars": 9,
+    "order": 21,
+    "stars": 8,
     "npmDownloads": 0,
     "lastActivity": "2021-07-26"
   },
   "three-flatland": {
     "order": 87,
-    "stars": 30,
+    "stars": 32,
     "npmDownloads": 0,
     "lastActivity": "2026-09-03"
   },
@@ -98,7 +98,7 @@
   "react-defold": {
     "order": 11,
     "stars": 3,
-    "npmDownloads": 5,
+    "npmDownloads": 19,
     "lastActivity": "2021-12-13"
   },
   "catchy-links": {
@@ -132,7 +132,7 @@
     "lastActivity": "2021-02-22"
   },
   "zzfx-studio": {
-    "order": 63,
+    "order": 61,
     "stars": 11,
     "npmDownloads": 0,
     "lastActivity": "2026-08-07"
@@ -224,7 +224,7 @@
   "protoparse": {
     "order": 3,
     "stars": 0,
-    "npmDownloads": 0,
+    "npmDownloads": 2,
     "lastActivity": "2022-03-23"
   },
   "sol-souls-afterlife": {
@@ -248,17 +248,17 @@
   "ts-defold-create": {
     "order": 104,
     "stars": 96,
-    "npmDownloads": 6,
+    "npmDownloads": 3,
     "lastActivity": "2025-02-18"
   },
   "noron": {
-    "order": 24,
+    "order": 23,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-06-24"
   },
   "claude-ghostty-notify": {
-    "order": 13,
+    "order": 12,
     "stars": 8,
     "npmDownloads": 0,
     "lastActivity": "2026-04-10"
@@ -270,32 +270,32 @@
     "lastActivity": "2026-03-25"
   },
   "claude-restruct-plugin": {
-    "order": 3,
+    "order": 2,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-04-10"
   },
   "claude-plugins": {
-    "order": 3,
+    "order": 2,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-04-10"
   },
   "middle": {
-    "order": 14,
+    "order": 13,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-06-24"
   },
   "react-three-nativescript": {
-    "order": 15,
+    "order": 14,
     "stars": 4,
     "npmDownloads": 0,
     "lastActivity": "2026-06-03"
   },
   "nvidiagameworks-kaolin": {
-    "order": 5207,
-    "stars": 5174,
+    "order": 5209,
+    "stars": 5177,
     "npmDownloads": 0,
     "lastActivity": "2026-09-18"
   },
@@ -306,15 +306,21 @@
     "lastActivity": "2017-11-23"
   },
   "side-piece": {
-    "order": 25,
+    "order": 24,
     "stars": 0,
-    "npmDownloads": 3,
+    "npmDownloads": 7,
     "lastActivity": "2026-08-26"
   },
   "anomie": {
-    "order": 21,
+    "order": 20,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-09-02"
+  },
+  "yamadori": {
+    "order": 23,
+    "stars": 0,
+    "npmDownloads": 0,
+    "lastActivity": "2026-09-25"
   }
 }
