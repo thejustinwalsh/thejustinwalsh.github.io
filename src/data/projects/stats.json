@@ -12,14 +12,14 @@
     "lastActivity": "2025-05-12"
   },
   "react-concurrent-store": {
-    "order": 74,
+    "order": 73,
     "stars": 49,
     "npmDownloads": 0,
     "lastActivity": "2026-09-16"
   },
   "defold-xmath": {
-    "order": 76,
-    "stars": 36,
+    "order": 75,
+    "stars": 37,
     "npmDownloads": 0,
     "lastActivity": "2026-07-11"
   },
@@ -48,15 +48,15 @@
     "lastActivity": "2024-11-05"
   },
   "react-uxp-spectrum": {
-    "order": 16,
+    "order": 15,
     "stars": 12,
-    "npmDownloads": 85,
+    "npmDownloads": 10,
     "lastActivity": "2022-10-30"
   },
   "uxp-types": {
     "order": 20,
     "stars": 12,
-    "npmDownloads": 39,
+    "npmDownloads": 19,
     "lastActivity": "2023-06-19"
   },
   "defold-zzfx": {
@@ -72,16 +72,16 @@
     "lastActivity": "2012-08-06"
   },
   "uxp-starter-react": {
-    "order": 21,
-    "stars": 8,
+    "order": 22,
+    "stars": 9,
     "npmDownloads": 0,
     "lastActivity": "2021-07-26"
   },
   "three-flatland": {
-    "order": 86,
+    "order": 88,
     "stars": 34,
     "npmDownloads": 0,
-    "lastActivity": "2026-09-03"
+    "lastActivity": "2026-10-15"
   },
   "flash-player-target-extension": {
     "order": 8,
@@ -98,7 +98,7 @@
   "react-defold": {
     "order": 11,
     "stars": 3,
-    "npmDownloads": 4,
+    "npmDownloads": 1,
     "lastActivity": "2021-12-13"
   },
   "catchy-links": {
@@ -132,7 +132,7 @@
     "lastActivity": "2021-02-22"
   },
   "zzfx-studio": {
-    "order": 60,
+    "order": 58,
     "stars": 13,
     "npmDownloads": 0,
     "lastActivity": "2026-08-07"
@@ -248,18 +248,18 @@
   "ts-defold-create": {
     "order": 104,
     "stars": 96,
-    "npmDownloads": 1,
+    "npmDownloads": 2,
     "lastActivity": "2025-02-18"
   },
   "noron": {
-    "order": 22,
+    "order": 21,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-06-24"
   },
   "claude-ghostty-notify": {
-    "order": 11,
-    "stars": 8,
+    "order": 12,
+    "stars": 9,
     "npmDownloads": 0,
     "lastActivity": "2026-04-10"
   },
@@ -282,7 +282,7 @@
     "lastActivity": "2026-04-10"
   },
   "middle": {
-    "order": 12,
+    "order": 11,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-06-24"
@@ -294,10 +294,10 @@
     "lastActivity": "2026-06-03"
   },
   "nvidiagameworks-kaolin": {
-    "order": 5215,
-    "stars": 5183,
+    "order": 5220,
+    "stars": 5187,
     "npmDownloads": 0,
-    "lastActivity": "2026-10-07"
+    "lastActivity": "2026-10-18"
   },
   "autodeskgames-stingray-plugin": {
     "order": 39,
@@ -306,13 +306,13 @@
     "lastActivity": "2017-11-23"
   },
   "side-piece": {
-    "order": 23,
+    "order": 22,
     "stars": 0,
-    "npmDownloads": 1,
+    "npmDownloads": 3,
     "lastActivity": "2026-08-26"
   },
   "anomie": {
-    "order": 19,
+    "order": 18,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-09-02"
@@ -321,6 +321,18 @@
     "order": 23,
     "stars": 0,
     "npmDownloads": 0,
-    "lastActivity": "2026-10-08"
+    "lastActivity": "2026-10-15"
+  },
+  "r3act": {
+    "order": 23,
+    "stars": 0,
+    "npmDownloads": 0,
+    "lastActivity": "2026-10-16"
+  },
+  "gh-wat-dis": {
+    "order": 62,
+    "stars": 0,
+    "npmDownloads": 15,
+    "lastActivity": "2026-10-14"
   }
 }
