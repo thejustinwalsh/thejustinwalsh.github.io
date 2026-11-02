@@ -12,14 +12,14 @@
     "lastActivity": "2025-05-12"
   },
   "react-concurrent-store": {
-    "order": 73,
+    "order": 72,
     "stars": 49,
     "npmDownloads": 0,
     "lastActivity": "2026-09-16"
   },
   "defold-xmath": {
-    "order": 73,
-    "stars": 37,
+    "order": 70,
+    "stars": 36,
     "npmDownloads": 0,
     "lastActivity": "2026-07-11"
   },
@@ -48,15 +48,15 @@
     "lastActivity": "2024-11-05"
   },
   "react-uxp-spectrum": {
-    "order": 15,
+    "order": 16,
     "stars": 12,
-    "npmDownloads": 40,
+    "npmDownloads": 72,
     "lastActivity": "2022-10-30"
   },
   "uxp-types": {
-    "order": 20,
+    "order": 21,
     "stars": 12,
-    "npmDownloads": 20,
+    "npmDownloads": 99,
     "lastActivity": "2023-06-19"
   },
   "defold-zzfx": {
@@ -78,7 +78,7 @@
     "lastActivity": "2021-07-26"
   },
   "three-flatland": {
-    "order": 89,
+    "order": 87,
     "stars": 36,
     "npmDownloads": 0,
     "lastActivity": "2026-10-19"
@@ -98,7 +98,7 @@
   "react-defold": {
     "order": 11,
     "stars": 3,
-    "npmDownloads": 1,
+    "npmDownloads": 2,
     "lastActivity": "2021-12-13"
   },
   "catchy-links": {
@@ -132,7 +132,7 @@
     "lastActivity": "2021-02-22"
   },
   "zzfx-studio": {
-    "order": 56,
+    "order": 54,
     "stars": 13,
     "npmDownloads": 0,
     "lastActivity": "2026-08-07"
@@ -248,11 +248,11 @@
   "ts-defold-create": {
     "order": 105,
     "stars": 97,
-    "npmDownloads": 10,
+    "npmDownloads": 13,
     "lastActivity": "2025-02-18"
   },
   "noron": {
-    "order": 20,
+    "order": 19,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-06-24"
@@ -282,20 +282,20 @@
     "lastActivity": "2026-04-10"
   },
   "middle": {
-    "order": 10,
+    "order": 9,
     "stars": 1,
     "npmDownloads": 0,
     "lastActivity": "2026-06-24"
   },
   "react-three-nativescript": {
-    "order": 11,
+    "order": 10,
     "stars": 4,
     "npmDownloads": 0,
     "lastActivity": "2026-06-03"
   },
   "nvidiagameworks-kaolin": {
-    "order": 5228,
-    "stars": 5195,
+    "order": 5223,
+    "stars": 5191,
     "npmDownloads": 0,
     "lastActivity": "2026-10-25"
   },
@@ -308,35 +308,35 @@
   "side-piece": {
     "order": 21,
     "stars": 0,
-    "npmDownloads": 3,
+    "npmDownloads": 2,
     "lastActivity": "2026-08-26"
   },
   "anomie": {
-    "order": 17,
+    "order": 16,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-09-02"
   },
   "yamadori": {
-    "order": 22,
+    "order": 21,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-10-15"
   },
   "r3act": {
-    "order": 23,
+    "order": 22,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-10-24"
   },
   "gh-wat-dis": {
-    "order": 61,
+    "order": 59,
     "stars": 0,
-    "npmDownloads": 37,
+    "npmDownloads": 14,
     "lastActivity": "2026-10-22"
   },
   "physics-of-design": {
-    "order": 23,
+    "order": 22,
     "stars": 0,
     "npmDownloads": 0,
     "lastActivity": "2026-10-25"
